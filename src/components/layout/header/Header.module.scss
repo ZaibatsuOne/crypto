@@ -1,0 +1,42 @@
+.container {
+  @apply max-w-[1400px] mx-auto;
+}
+.header {
+  @apply w-[100%] min-h-[750px];
+  background: rgba(0, 0, 0, 0.1) url("./img/pages/bgHome.jpg") no-repeat center;
+  filter: blur();
+  background-size: cover;
+}
+.nav {
+  @apply flex justify-between items-center py-3 backdrop-blur-sm;
+}
+.logo {
+  @apply flex gap-[10px] items-center;
+}
+.list {
+  @apply flex gap-10;
+}
+.item {
+  @apply text-xs;
+}
+.wrapper {
+  @apply flex gap-9 items-center;
+}
+.section {
+  @apply flex flex-col items-center gap-8  text-center max-w-[500px] mx-auto py-8;
+}
+.title {
+  @apply leading-tight;
+}
+.slug {
+  background: linear-gradient(216.56deg, #e250e5 5.32%, #4b50e6 94.32%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 85px;
+}
+.buttons {
+  @apply flex gap-4;
+}

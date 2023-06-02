@@ -7,7 +7,7 @@
   font-weight: 400;
 }
 body {
-  background-color: #14141f;
+  @apply text-onSurface bg-[#14141f];
 }
 h1,
 h2,
@@ -34,8 +34,4 @@ h5 {
 }
 h6 {
   @apply text-xl;
-}
-
-.container {
-  @apply max-w-[1400px] mx-auto;
 }
