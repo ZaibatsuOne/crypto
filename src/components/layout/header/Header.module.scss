@@ -8,7 +8,7 @@
   background-size: cover;
 }
 .nav {
-  @apply flex justify-between items-center py-3 backdrop-blur-sm;
+  @apply sticky top-0 flex justify-between items-center py-3 backdrop-blur-3xl;
 }
 .logo {
   @apply flex gap-[10px] items-center;
