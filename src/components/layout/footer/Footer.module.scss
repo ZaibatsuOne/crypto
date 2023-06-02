@@ -2,7 +2,7 @@
   @apply max-w-[1400px] mx-auto;
 }
 .footer {
-  @apply bg-footer py-20;
+  @apply bg-footer py-20 mt-20;
 }
 .logo {
   @apply flex flex-col gap-3 max-w-[240px];

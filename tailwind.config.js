@@ -13,6 +13,7 @@ export default {
         secondary: "#EBEBEB",
         fontColor: " #FAFAFC",
         footer: "#0D0D11",
+        nftBg: "#343444",
       },
     },
   },
