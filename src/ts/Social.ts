@@ -1,10 +1,10 @@
-interface socialLink {
+type Social = {
   name: string;
   link: string;
   icon: string;
-}
+};
 
-export const socialLink: socialLink[] = [
+export const socialLink: Social[] = [
   {
     name: "Twitter",
     link: "https://twitter.com/",

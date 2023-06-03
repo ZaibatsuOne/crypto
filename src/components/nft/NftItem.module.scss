@@ -1,3 +1,12 @@
 .block {
-  @apply bg-nftBg p-5 rounded-[20px];
+  @apply flex flex-col gap-5 bg-nftBg w-[330px] p-5 rounded-[20px];
+}
+.header {
+  @apply flex justify-between items-center;
+}
+.title {
+  @apply w-[200px] whitespace-nowrap overflow-hidden text-ellipsis;
+}
+.net {
+  @apply px-3 py-[2px] bg-primary rounded-[10px];
 }

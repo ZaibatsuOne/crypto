@@ -1,7 +1,7 @@
-interface FooterList {
+type FooterList = {
   subtitle: string;
   link: string;
-}
+};
 
 export const myAccout: FooterList[] = [
   {

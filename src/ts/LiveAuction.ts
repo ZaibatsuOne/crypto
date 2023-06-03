@@ -1,10 +1,76 @@
-interface auction {
-  img: string;
-  title: string;
-  net: string;
-  userName: string;
-  userAvatar: string;
-  price: number;
-}
-
-export const liveAuction: auction[] = [];
+import User from "./User";
+import NFT from "./NFT";
+export const liveAuction: NFT[] & User[] = [
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "A ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "B ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "C ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "D ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "E ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "F ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "G ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+  {
+    img: "./img/nft/liveAuction/1.png",
+    title: "H ",
+    net: "BSC",
+    userName: "SalvadorDali",
+    userAvatar: "./img/user/1.png",
+    userType: "Creator",
+    price: 4.29,
+  },
+];
