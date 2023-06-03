@@ -14,6 +14,7 @@ export default {
         fontColor: " #FAFAFC",
         footer: "#0D0D11",
         nftBg: "#343444",
+        userType: "#8A8AA0",
       },
     },
   },

@@ -1,7 +1,7 @@
-type NFT = {
+type NFTType = {
   img: string;
   title: string;
   price: number;
   net: string;
 };
-export default NFT;
+export default NFTType;

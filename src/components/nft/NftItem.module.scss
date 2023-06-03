@@ -8,5 +8,8 @@
   @apply w-[200px] whitespace-nowrap overflow-hidden text-ellipsis;
 }
 .net {
-  @apply px-3 py-[2px] bg-primary rounded-[10px];
+  @apply px-2 py-[1px] bg-primary rounded-[10px] text-sm;
+}
+.footer {
+  @apply flex justify-between;
 }

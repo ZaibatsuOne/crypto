@@ -1,0 +1,9 @@
+.wrapper {
+  @apply flex flex-col;
+}
+.title {
+  @apply text-userType text-sm;
+}
+.price {
+  @apply text-lg font-bold;
+}

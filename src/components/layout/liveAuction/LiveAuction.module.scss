@@ -1,0 +1,28 @@
+.section {
+  @apply flex flex-col gap-9;
+}
+.liveAuction {
+  @apply flex gap-[30px];
+  // animation: carousel 1s linear infinite;
+}
+.window {
+  @apply w-[1410px] overflow-hidden;
+}
+.buttons {
+  @apply flex items-center mx-auto  gap-5;
+}
+.header {
+  @apply flex justify-between items-center;
+}
+.excerpt {
+  @apply text-sm border-solid border-b-2 border-primary;
+  @apply hover:border-onSurface pt-3 duration-700;
+}
+@keyframes excerpt {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

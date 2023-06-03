@@ -1,0 +1,26 @@
+.user {
+  @apply flex items-center gap-3;
+}
+.wrapper {
+  @apply flex flex-col max-w-[88px] overflow-hidden;
+}
+.type {
+  @apply text-userType text-sm;
+}
+.name {
+  animation: name 5s linear infinite;
+}
+@keyframes name {
+  0% {
+    transform: translateX(88px);
+  }
+  35% {
+    transform: translateX(0px);
+  }
+  70% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-130px);
+  }
+}

@@ -1,9 +1,10 @@
-import User from "./User";
-import NFT from "./NFT";
-export const liveAuction: NFT[] & User[] = [
+import UserType from "./UserType";
+import NFTType from "./NFTType";
+export type NFTwithUser = NFTType & UserType;
+export const liveAuction: NFTwithUser[] = [
   {
     img: "./img/nft/liveAuction/1.png",
-    title: "A ",
+    title: "Hamlet Contemplates",
     net: "BSC",
     userName: "SalvadorDali",
     userAvatar: "./img/user/1.png",
@@ -12,7 +13,7 @@ export const liveAuction: NFT[] & User[] = [
   },
   {
     img: "./img/nft/liveAuction/1.png",
-    title: "B ",
+    title: "Triumphant Awakening",
     net: "BSC",
     userName: "SalvadorDali",
     userAvatar: "./img/user/1.png",
@@ -21,7 +22,7 @@ export const liveAuction: NFT[] & User[] = [
   },
   {
     img: "./img/nft/liveAuction/1.png",
-    title: "C ",
+    title: "Living Vase 01 by Lanza",
     net: "BSC",
     userName: "SalvadorDali",
     userAvatar: "./img/user/1.png",
@@ -30,7 +31,7 @@ export const liveAuction: NFT[] & User[] = [
   },
   {
     img: "./img/nft/liveAuction/1.png",
-    title: "D ",
+    title: "Flame Dress' by Balmain",
     net: "BSC",
     userName: "SalvadorDali",
     userAvatar: "./img/user/1.png",
