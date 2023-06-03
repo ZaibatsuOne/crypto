@@ -3,8 +3,9 @@ import { myAccout, resources, company } from "../../../ts/Footer";
 import { NavLink } from "react-router-dom";
 import Logo from "../../ui/logo/Logo";
 import styles from "./Footer.module.scss";
+import { FC } from "react";
 
-const Footer = () => {
+const Footer: FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>

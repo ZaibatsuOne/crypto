@@ -1,9 +1,10 @@
+import styles from "./Header.module.scss";
+import { FC } from "react";
 import Button from "../../ui/button/Button";
 import Logo from "../../ui/logo/Logo";
-import styles from "./Header.module.scss";
 import { BiRocket, BiWallet } from "react-icons/bi";
 import { MdLibraryBooks } from "react-icons/md";
-const Header = () => {
+const Header: FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -24,7 +25,7 @@ const Header = () => {
         <section className={styles.section}>
           <h2 className={styles.title}>
             Открывайте и собирайте экстраординарные{" "}
-            <span className={styles.slug}>МОНСТРОВ</span> NFT.
+            <p className={styles.slug}>МОНСТРОВ</p> NFT.
           </h2>
           <p>
             Торговая площадка для коллекций персонажей-монстров,

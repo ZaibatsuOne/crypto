@@ -1,4 +1,6 @@
-const Logo = () => {
+import { FC } from "react";
+
+const Logo: FC = () => {
   return (
     <span className="flex gap-[10px] items-center text-4xl font-bold">
       <svg

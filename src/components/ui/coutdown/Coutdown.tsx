@@ -1,6 +1,42 @@
-const Coutdown = () => {
+import styles from "./Coutdown.module.scss";
+import { useState, useEffect, FC } from "react";
+const Coutdown: FC = () => {
+  const [countdown, setCountdown] = useState<string>("");
+
+  useEffect(() => {
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() + Math.random() * 7);
+
+    const updateCountdown = () => {
+      const currentDate = new Date();
+      const timeDifference = startDate.getTime() - currentDate.getTime();
+
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor(
+        (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      setCountdown(`${days}:${hours}:${minutes}:${seconds}`);
+
+      if (timeDifference <= 0) {
+        clearInterval(timerInterval);
+        setCountdown("Время вышло!");
+      }
+    };
+
+    const timerInterval = setInterval(updateCountdown, 1000);
+
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, []);
+
   return (
-    <div>
+    <div className={styles.wrapper}>
       <svg
         width="20"
         height="20"
@@ -20,6 +56,7 @@ const Coutdown = () => {
           </clipPath>
         </defs>
       </svg>
+      <p className={styles.time}>{countdown}</p>
     </div>
   );
 };

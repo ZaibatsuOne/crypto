@@ -1,10 +1,10 @@
-type Social = {
+type TypeSocial = {
   name: string;
   link: string;
   icon: string;
 };
 
-export const socialLink: Social[] = [
+export const socialLink: TypeSocial[] = [
   {
     name: "Twitter",
     link: "https://twitter.com/",

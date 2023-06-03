@@ -1,11 +1,12 @@
+import { FC } from "react";
 import styles from "./User.module.scss";
-const UserName = ({
-  userName,
-  fontSize = "20px",
-}: {
+
+type TypeUserNameProps = {
   userName: string;
   fontSize?: string;
-}) => {
+};
+
+const UserName: FC<TypeUserNameProps> = ({ userName, fontSize = "20px" }) => {
   return (
     <h6 style={{ fontSize: fontSize }} className={styles.name}>
       {userName}

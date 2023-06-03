@@ -13,3 +13,12 @@
 .footer {
   @apply flex justify-between;
 }
+.image {
+  @apply relative;
+}
+.coutdown {
+  @apply absolute bottom-[8px] right-[50px];
+}
+.likes {
+  @apply absolute top-4 right-3;
+}

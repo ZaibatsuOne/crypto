@@ -1,6 +1,7 @@
+import { FC } from "react";
 import styles from "./BestSellers.module.scss";
-const BestSellers = () => {
-  return <div>BestSellers</div>;
+const BestSellers: FC = () => {
+  return <div></div>;
 };
 
 export default BestSellers;

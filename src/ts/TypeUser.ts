@@ -1,6 +1,6 @@
-type UserType = {
+type TypeUser = {
   userName: string;
   userAvatar: string;
   userType: string;
 };
-export default UserType;
+export default TypeUser;

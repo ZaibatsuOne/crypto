@@ -1,24 +1,41 @@
 import styles from "./LiveAuction.module.scss";
 import Title from "../../ui/title/Title";
-import { liveAuction } from "../../../ts/LiveAuction";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxDot } from "react-icons/rx";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import NftItem from "../../nft/NftItem";
 import { NavLink } from "react-router-dom";
+import Coutdown from "../../ui/coutdown/Coutdown";
+import axios from "axios";
+import TypeUser from "../../../ts/TypeUser";
+import TypeNFT from "../../../ts/TypeNFT";
+
+type TypeNFTUser = TypeUser & TypeNFT;
 const LiveAuction = () => {
-  const [transform, setTransform] = useState(0);
+  const [auction, setAuction] = useState<TypeNFTUser[]>([]);
+  useEffect(() => {
+    const fetchAuction = async () => {
+      const response = await axios.get(
+        "https://api.jsonbin.io/v3/b/647b52679d312622a369d51b"
+      );
+      setTimeout(() => {
+        setAuction(response.data.record);
+      }, 2000);
+    };
+    fetchAuction();
+  }, []);
+  const [transform, setTransform] = useState<number>(0);
   const handleNext = () => {
-    let newTransform = transform + 1;
-    if (newTransform > liveAuction.length - 4) {
+    let newTransform: number = transform + 1;
+    if (newTransform > auction.length - 4) {
       newTransform = 0;
     }
     setTransform(newTransform);
   };
   const handlePrev = () => {
-    let newTransform = transform - 1;
+    let newTransform: number = transform - 1;
     if (newTransform < 0) {
-      newTransform = liveAuction.length - 4;
+      newTransform = auction.length - 4;
     }
     setTransform(newTransform);
   };
@@ -38,7 +55,7 @@ const LiveAuction = () => {
             transform: `translateX(${-transform * 360}px)`,
           }}
         >
-          {liveAuction.map((liveAuctionItem, index) => (
+          {auction.map((liveAuctionItem, index) => (
             <div key={index}>
               <NftItem
                 img={liveAuctionItem.img}
@@ -48,6 +65,7 @@ const LiveAuction = () => {
                 userAvatar={liveAuctionItem.userAvatar}
                 userType={liveAuctionItem.userType}
                 price={liveAuctionItem.price}
+                coutdown={<Coutdown />}
               />
             </div>
           ))}

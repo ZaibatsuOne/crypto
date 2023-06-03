@@ -15,6 +15,7 @@ export default {
         footer: "#0D0D11",
         nftBg: "#343444",
         userType: "#8A8AA0",
+        coutdown: "#14141F",
       },
     },
   },

@@ -1,0 +1,6 @@
+.wrapper {
+  @apply flex items-center gap-2 w-[175px] font-bold text-lg py-[6px] px-4 bg-coutdown rounded-xl;
+}
+.time {
+  @apply pt-1;
+}

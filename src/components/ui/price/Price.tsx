@@ -1,5 +1,10 @@
+import { FC } from "react";
 import styles from "./Price.module.scss";
-const Price = ({ price }: { price: number }) => {
+
+type TypePriceProps = {
+  price: number;
+};
+const Price: FC<TypePriceProps> = ({ price }) => {
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>Ставка</p>

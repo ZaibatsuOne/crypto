@@ -1,8 +1,9 @@
-import UserAvatar from "./UserAvatar";
 import styles from "./User.module.scss";
+import UserAvatar from "./UserAvatar";
 import UserName from "./UserName";
-import UserType from "../../ts/UserType";
-const User = ({ userName, userAvatar, userType }: UserType) => {
+import TypeUser from "../../ts/TypeUser";
+import { FC } from "react";
+const User: FC<TypeUser> = ({ userName, userAvatar, userType }) => {
   return (
     <div className={styles.user}>
       <UserAvatar userAvatar={userAvatar} />

@@ -1,9 +1,9 @@
-type FooterList = {
+type TypeFooter = {
   subtitle: string;
   link: string;
 };
 
-export const myAccout: FooterList[] = [
+export const myAccout: TypeFooter[] = [
   {
     subtitle: "Авторы",
     link: "#",
@@ -21,7 +21,7 @@ export const myAccout: FooterList[] = [
     link: "#",
   },
 ];
-export const resources: FooterList[] = [
+export const resources: TypeFooter[] = [
   {
     subtitle: "Помощь",
     link: "#",
@@ -39,7 +39,7 @@ export const resources: FooterList[] = [
     link: "#",
   },
 ];
-export const company: FooterList[] = [
+export const company: TypeFooter[] = [
   {
     subtitle: "О нас",
     link: "#",
