@@ -9,6 +9,7 @@ const Categories: FC = () => {
     "Коллекционные предметы",
     "Спорт",
   ];
+
   return (
     <ul className={styles.list}>
       {categories.map((item, index) => (
