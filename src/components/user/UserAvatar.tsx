@@ -2,10 +2,26 @@ import { FC } from "react";
 
 type TypeUserAvatarProps = {
   userAvatar: string;
+  userName: string;
+  width?: string;
+  height?: string;
+  borderRadius?: string;
 };
 
-const UserAvatar: FC<TypeUserAvatarProps> = ({ userAvatar }) => {
-  return <img src={userAvatar} className="rounded-[15px] w-11 h-11" />;
+const UserAvatar: FC<TypeUserAvatarProps> = ({
+  userAvatar,
+  userName,
+  width = "44px",
+  height = "44px",
+  borderRadius = "15px",
+}) => {
+  return (
+    <img
+      src={userAvatar}
+      alt={userName}
+      style={{ width: width, height: height, borderRadius: borderRadius }}
+    />
+  );
 };
 
 export default UserAvatar;

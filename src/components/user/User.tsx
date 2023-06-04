@@ -6,10 +6,12 @@ import { FC } from "react";
 const User: FC<TypeUser> = ({ userName, userAvatar, userType }) => {
   return (
     <div className={styles.user}>
-      <UserAvatar userAvatar={userAvatar} />
+      <UserAvatar userAvatar={userAvatar} userName={userName} />
       <div className={styles.wrapper}>
         <p className={styles.type}>{userType}</p>
-        <UserName userName={userName} />
+        <div className={styles.carousel}>
+          <UserName userName={userName} />
+        </div>
       </div>
     </div>
   );

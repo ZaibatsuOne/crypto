@@ -23,7 +23,7 @@
   @apply flex gap-9 items-center;
 }
 .section {
-  @apply flex flex-col items-center gap-8  text-center max-w-[500px] mx-auto py-8;
+  @apply flex flex-col items-center gap-8  text-center max-w-[500px] mx-auto py-8 select-none;
 }
 .title {
   @apply leading-tight;
@@ -45,7 +45,7 @@
     #4b50e6 77.32%
   );
   background-size: 400% 400%;
-  animation: gradientAnimation 20s cubic-bezier(0.35, 0.28, 0, 0.99) infinite;
+  animation: gradientAnimation 20s ease-in-out infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

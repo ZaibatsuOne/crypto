@@ -8,8 +8,12 @@
   @apply text-userType text-sm;
 }
 .name {
+  @apply font-light;
+}
+.carousel {
   animation: name 5s linear infinite;
 }
+
 @keyframes name {
   0% {
     transform: translateX(88px);

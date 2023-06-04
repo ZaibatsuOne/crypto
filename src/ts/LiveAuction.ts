@@ -1,7 +1,7 @@
 import TypeUser from "./TypeUser";
-import TypeNFT from "./TypeNFT";
-export type NFTwithUser = TypeNFT & TypeUser;
-export const liveAuction: NFTwithUser[] = [
+import TypeNft from "./TypeNFT";
+export type NftWithUser = TypeNft & TypeUser;
+export const liveAuction: NftWithUser[] = [
   {
     img: "./img/nft/liveAuction/1.png",
     title: "Hamlet Contemplates",

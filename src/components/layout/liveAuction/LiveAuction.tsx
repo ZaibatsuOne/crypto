@@ -1,18 +1,16 @@
 import styles from "./LiveAuction.module.scss";
 import Title from "../../ui/title/Title";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { RxDot } from "react-icons/rx";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import NftItem from "../../nft/NftItem";
 import { NavLink } from "react-router-dom";
 import Coutdown from "../../ui/coutdown/Coutdown";
 import axios from "axios";
-import TypeUser from "../../../ts/TypeUser";
-import TypeNFT from "../../../ts/TypeNFT";
+import { NftWithUser } from "../../../ts/LiveAuction";
 
-type TypeNFTUser = TypeUser & TypeNFT;
-const LiveAuction = () => {
-  const [auction, setAuction] = useState<TypeNFTUser[]>([]);
+const LiveAuction: FC = () => {
+  const [auction, setAuction] = useState<NftWithUser[]>([]);
   useEffect(() => {
     const fetchAuction = async () => {
       const response = await axios.get(
@@ -20,8 +18,9 @@ const LiveAuction = () => {
       );
       setTimeout(() => {
         setAuction(response.data.record);
-      }, 2000);
+      }, 1500);
     };
+
     fetchAuction();
   }, []);
   const [transform, setTransform] = useState<number>(0);
