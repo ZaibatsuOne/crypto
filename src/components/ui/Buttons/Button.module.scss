@@ -1,0 +1,7 @@
+.button {
+  @apply flex items-center gap-2 px-4 py-3 border-[1px] rounded-[30px];
+
+  &More {
+    @apply text-sm border-solid border-b-2 border-primary;
+  }
+}

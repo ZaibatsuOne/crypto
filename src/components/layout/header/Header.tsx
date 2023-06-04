@@ -1,9 +1,10 @@
 import styles from "./Header.module.scss";
 import { FC } from "react";
-import Button from "../../ui/button/Button";
+import Button from "../../ui/Buttons/Button";
 import Logo from "../../ui/logo/Logo";
 import { BiRocket, BiWallet } from "react-icons/bi";
 import { MdLibraryBooks } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 const Header: FC = () => {
   return (
     <header className={styles.header}>
@@ -11,12 +12,24 @@ const Header: FC = () => {
         <nav className={styles.nav}>
           <Logo />
           <ol className={styles.list}>
-            <li className={styles.item}>Главная</li>
-            <li className={styles.item}>NFT</li>
-            <li className={styles.item}>Активность</li>
-            <li className={styles.item}>Комьюнити</li>
-            <li className={styles.item}>Страницы</li>
-            <li className={styles.item}>Контакты</li>
+            <NavLink to="/">
+              <li className={styles.item}>Главная</li>
+            </NavLink>
+            <NavLink to="/">
+              <li className={styles.item}>NFT</li>
+            </NavLink>
+            <NavLink to="/explore">
+              <li className={styles.item}>Активность</li>
+            </NavLink>{" "}
+            <NavLink to="/">
+              <li className={styles.item}>Комьюнити</li>
+            </NavLink>
+            <NavLink to="/">
+              <li className={styles.item}>Страницы</li>
+            </NavLink>
+            <NavLink to="/">
+              <li className={styles.item}>Контакты</li>
+            </NavLink>
           </ol>
           <span className={styles.wrapper}>
             <Button text="Подключить кошелек" icon={<BiWallet />} />

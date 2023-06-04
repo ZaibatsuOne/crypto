@@ -3,11 +3,12 @@ import Title from "../../ui/title/Title";
 import { FC, useEffect, useState } from "react";
 import { RxDot } from "react-icons/rx";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import NftItem from "../../nft/NftItem";
+import NftItem from "../../nft/NftItem/NftItem";
 import { NavLink } from "react-router-dom";
 import Coutdown from "../../ui/coutdown/Coutdown";
 import axios from "axios";
 import { NftWithUser } from "../../../ts/LiveAuction";
+import ButtonMore from "../../ui/Buttons/ButtonMore/ButtonMore";
 
 const LiveAuction: FC = () => {
   const [auction, setAuction] = useState<NftWithUser[]>([]);
@@ -42,9 +43,7 @@ const LiveAuction: FC = () => {
     <section className={styles.section}>
       <header className={styles.header}>
         <Title title="Аукцион" />
-        <NavLink className={styles.excerpt} to="/">
-          Показать больше
-        </NavLink>
+        <ButtonMore link="#" />
       </header>
       <div className={styles.window}>
         <section
@@ -54,16 +53,17 @@ const LiveAuction: FC = () => {
             transform: `translateX(${-transform * 360}px)`,
           }}
         >
-          {auction.map((liveAuctionItem, index) => (
-            <div key={index}>
+          {auction.map((auctionItem) => (
+            <div key={auctionItem.id}>
               <NftItem
-                img={liveAuctionItem.img}
-                title={liveAuctionItem.title}
-                net={liveAuctionItem.net}
-                userName={liveAuctionItem.userName}
-                userAvatar={liveAuctionItem.userAvatar}
-                userType={liveAuctionItem.userType}
-                price={liveAuctionItem.price}
+                id={auctionItem.id}
+                img={auctionItem.img}
+                title={auctionItem.title}
+                net={auctionItem.net}
+                userName={auctionItem.userName}
+                userAvatar={auctionItem.userAvatar}
+                userType={auctionItem.userType}
+                price={auctionItem.price}
                 coutdown={<Coutdown />}
               />
             </div>

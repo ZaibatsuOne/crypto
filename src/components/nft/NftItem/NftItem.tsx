@@ -1,8 +1,8 @@
 import styles from "./NftItem.module.scss";
-import User from "../user/User";
-import { NftWithUser } from "../../ts/LiveAuction";
-import Price from "../ui/price/Price";
-import Likes from "../ui/likes/Likes";
+import User from "../../user/User";
+import { NftWithUser } from "../../../ts/LiveAuction";
+import Price from "../../ui/price/Price";
+import Likes from "../../ui/likes/Likes";
 import { FC } from "react";
 
 const NftItem: FC<NftWithUser> = ({
@@ -14,6 +14,8 @@ const NftItem: FC<NftWithUser> = ({
   userType,
   price,
   coutdown,
+  bidButton,
+  history,
 }) => {
   return (
     <article className={styles.block}>
@@ -32,6 +34,10 @@ const NftItem: FC<NftWithUser> = ({
         <User userName={userName} userAvatar={userAvatar} userType={userType} />
         <Price price={price} />
       </footer>
+      <div className={styles.inner}>
+        <span>{bidButton}</span>
+        <p>{history}</p>
+      </div>
     </article>
   );
 };

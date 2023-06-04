@@ -1,0 +1,38 @@
+.header {
+  display: grid;
+  grid-template-areas: "a a a b b b" "e e c c d d" "e e c c d d";
+  gap: 10px;
+  @apply p-5;
+}
+img {
+  @apply rounded-[10px];
+}
+.image {
+  &First {
+    grid-area: a;
+  }
+  &Second {
+    grid-area: b;
+  }
+  &Third {
+    grid-area: e;
+  }
+  &Four {
+    grid-area: c;
+  }
+  &Five {
+    grid-area: d;
+  }
+}
+.footer {
+  @apply flex justify-between px-5;
+}
+.wrapper {
+  @apply flex items-center gap-[10px];
+}
+.title {
+  @apply text-base max-w-[200px] text-ellipsis whitespace-nowrap overflow-hidden;
+}
+.created {
+  @apply flex items-center text-userType font-light;
+}

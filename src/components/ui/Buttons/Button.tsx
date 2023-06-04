@@ -7,10 +7,17 @@ const Button: FC<ButtonModel> = ({
   background = "none",
   borderColor = "#5142FC",
   color = "#FFF",
+  paddingX = "28px",
 }) => {
   return (
     <button
-      style={{ background: background, borderColor: borderColor, color: color }}
+      style={{
+        background: background,
+        borderColor: borderColor,
+        color: color,
+        paddingLeft: paddingX,
+        paddingRight: paddingX,
+      }}
       className={styles.button}
     >
       <span>{icon}</span>

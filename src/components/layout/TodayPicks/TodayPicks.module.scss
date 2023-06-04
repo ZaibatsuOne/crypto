@@ -1,0 +1,9 @@
+.wrapper {
+  @apply flex flex-col gap-9;
+}
+.section {
+  @apply grid grid-cols-4 grid-rows-2 gap-[30px];
+}
+.footer {
+  @apply flex justify-center;
+}

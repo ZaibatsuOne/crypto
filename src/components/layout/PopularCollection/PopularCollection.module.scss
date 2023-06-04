@@ -1,0 +1,12 @@
+.section {
+  @apply flex flex-col gap-9;
+}
+.header {
+  @apply flex justify-between items-center;
+}
+.list {
+  @apply flex justify-between;
+}
+.wrapper {
+  @apply w-[450px] h-[394px] bg-nftBg rounded-[10px];
+}

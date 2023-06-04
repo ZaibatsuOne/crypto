@@ -1,0 +1,6 @@
+.list {
+  @apply flex gap-3;
+}
+.item {
+  @apply px-4 py-3 bg-nftBg rounded-md;
+}

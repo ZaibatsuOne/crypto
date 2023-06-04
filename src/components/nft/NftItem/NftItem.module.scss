@@ -1,5 +1,5 @@
 .block {
-  @apply flex flex-col gap-5 bg-nftBg w-[330px] p-5 rounded-[20px];
+  @apply flex flex-col gap-4 bg-nftBg w-[330px] p-5 rounded-[20px];
 }
 .header {
   @apply flex justify-between items-center;
@@ -21,4 +21,7 @@
 }
 .likes {
   @apply absolute top-4 right-3;
+}
+.inner {
+  @apply flex justify-between items-center text-userType;
 }

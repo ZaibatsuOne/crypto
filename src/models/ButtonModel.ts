@@ -4,6 +4,7 @@ interface ButtonModel {
   background?: string;
   borderColor?: string;
   color?: string;
+  paddingX?: string;
 }
 
 export default ButtonModel;

@@ -6,6 +6,10 @@
 }
 .item {
   @apply flex flex-col items-center gap-4;
+
+  &:hover {
+    @apply translate-y-[-10px] duration-300 ease-in-out;
+  }
 }
 .footer {
   @apply flex flex-col items-center font-light;
