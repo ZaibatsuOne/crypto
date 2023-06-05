@@ -15,10 +15,10 @@ const Header: FC = () => {
             <NavLink to="/">
               <li className={styles.item}>Главная</li>
             </NavLink>
-            <NavLink to="/">
+            <NavLink to="/explore">
               <li className={styles.item}>NFT</li>
             </NavLink>
-            <NavLink to="/explore">
+            <NavLink to="/">
               <li className={styles.item}>Активность</li>
             </NavLink>{" "}
             <NavLink to="/">

@@ -4,6 +4,9 @@
 .section {
   @apply grid grid-cols-4 grid-rows-2 gap-[30px];
 }
+.header {
+  @apply flex justify-between items-center;
+}
 .footer {
   @apply flex justify-center;
 }

@@ -1,13 +1,24 @@
 import styles from "./ExplorePage.module.scss";
 import Categories from "../../ui/Categories/Categories";
 import Sort from "../../ui/Sort/Sort";
-import { liveAuction } from "../../../ts/LiveAuction";
+import { NftWithUser } from "../../../ts/LiveAuction";
 import NftItem from "../../nft/NftItem/NftItem";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Button from "../../ui/Buttons/Button";
+import axios from "axios";
 const ExplorePage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
   const [chooseIndex, setChooseIndex] = useState<number | null>(null);
+  const [nftCard, setNftCard] = useState<NftWithUser[]>([]);
+  useEffect(() => {
+    const fetchNft = async () => {
+      const response = await axios.get<NftWithUser[]>(
+        "https://6454dae6a74f994b334ad4fb.mockapi.io/NFT"
+      );
+      setNftCard(response.data);
+    };
+    fetchNft();
+  }, []);
 
   return (
     <section className={styles.section}>
@@ -16,7 +27,7 @@ const ExplorePage: FC = () => {
         <Sort />
       </header>
       <section className={styles.main}>
-        {liveAuction
+        {nftCard
           .filter(
             (item) => chooseIndex === null || chooseIndex === item.category
           )

@@ -4,7 +4,6 @@ import { FC, useEffect, useState } from "react";
 import { RxDot } from "react-icons/rx";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import NftItem from "../../nft/NftItem/NftItem";
-import { NavLink } from "react-router-dom";
 import Coutdown from "../../ui/coutdown/Coutdown";
 import axios from "axios";
 import { NftWithUser } from "../../../ts/LiveAuction";
@@ -14,11 +13,11 @@ const LiveAuction: FC = () => {
   const [auction, setAuction] = useState<NftWithUser[]>([]);
   useEffect(() => {
     const fetchAuction = async () => {
-      const response = await axios.get(
-        "https://api.jsonbin.io/v3/b/647b52679d312622a369d51b"
+      const response = await axios.get<NftWithUser[]>(
+        "https://6454dae6a74f994b334ad4fb.mockapi.io/NFT"
       );
       setTimeout(() => {
-        setAuction(response.data.record);
+        setAuction(response.data);
       }, 1500);
     };
 
@@ -27,7 +26,7 @@ const LiveAuction: FC = () => {
   const [transform, setTransform] = useState<number>(0);
   const handleNext = () => {
     let newTransform: number = transform + 1;
-    if (newTransform > auction.length - 4) {
+    if (newTransform > 4) {
       newTransform = 0;
     }
     setTransform(newTransform);
@@ -35,7 +34,7 @@ const LiveAuction: FC = () => {
   const handlePrev = () => {
     let newTransform: number = transform - 1;
     if (newTransform < 0) {
-      newTransform = auction.length - 4;
+      newTransform = 4;
     }
     setTransform(newTransform);
   };
@@ -53,7 +52,7 @@ const LiveAuction: FC = () => {
             transform: `translateX(${-transform * 360}px)`,
           }}
         >
-          {auction.map((auctionItem) => (
+          {auction.slice(0, 8).map((auctionItem) => (
             <div key={auctionItem.id}>
               <NftItem
                 id={auctionItem.id}
@@ -64,6 +63,7 @@ const LiveAuction: FC = () => {
                 userAvatar={auctionItem.userAvatar}
                 userType={auctionItem.userType}
                 price={auctionItem.price}
+                category={auctionItem.category}
                 coutdown={<Coutdown />}
               />
             </div>
