@@ -1,24 +1,51 @@
 import styles from "./Categories.module.scss";
 import { useState, FC } from "react";
-const Categories: FC = () => {
-  const [chooseIndex, setChooseIndex] = useState<number>(0);
-  const categories: string[] = [
-    "Все",
-    "Искусство",
-    "Музыка",
-    "Коллекционные предметы",
-    "Спорт",
+
+interface ICategory {
+  chooseIndex: number | null;
+  setChooseIndex: any;
+}
+type TypeCategory = {
+  name: string;
+  category: number | null;
+};
+const Categories: FC<ICategory> = ({ chooseIndex, setChooseIndex }) => {
+  const categories: TypeCategory[] = [
+    {
+      name: "Все",
+      category: null,
+    },
+    {
+      name: "Исскуство",
+      category: 2,
+    },
+    {
+      name: "Спорт",
+      category: 3,
+    },
+    {
+      name: "Спорт",
+      category: 4,
+    },
+    {
+      name: "Спорт",
+      category: 5,
+    },
   ];
 
   return (
     <ul className={styles.list}>
-      {categories.map((item, index) => (
+      {categories.map((item) => (
         <li
-          key={index}
-          onClick={(): void => setChooseIndex(index)}
-          className={chooseIndex === index ? styles.item_active : styles.item}
+          key={item.category}
+          onClick={() => {
+            setChooseIndex(item.category), console.log(chooseIndex);
+          }}
+          className={
+            chooseIndex === item.category ? styles.item_active : styles.item
+          }
         >
-          {item}
+          {item.name}
         </li>
       ))}
     </ul>
