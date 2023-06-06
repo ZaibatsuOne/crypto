@@ -1,11 +1,13 @@
 import styles from "./Header.module.scss";
-import { FC } from "react";
+import { FC, useState } from "react";
 import Button from "../../ui/Buttons/Button";
 import Logo from "../../ui/logo/Logo";
 import { BiRocket, BiWallet } from "react-icons/bi";
 import { MdLibraryBooks } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 const Header: FC = () => {
+  const [dropdown, setDropdown] = useState<boolean>(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -27,9 +29,20 @@ const Header: FC = () => {
             <NavLink to="/">
               <li className={styles.item}>Страницы</li>
             </NavLink>
-            <NavLink to="/">
-              <li className={styles.item}>Контакты</li>
-            </NavLink>
+            <li
+              className={styles.item}
+              onClick={(): void => setDropdown(!dropdown)}
+            >
+              Контакты
+              <ul className={dropdown ? styles.dropdown : styles.hiddens}>
+                <NavLink to="/faq">
+                  <li>FAQ</li>
+                </NavLink>
+                <NavLink to="/help">
+                  <li>Центр помощи</li>
+                </NavLink>
+              </ul>
+            </li>
           </ol>
           <span className={styles.wrapper}>
             <Button text="Подключить кошелек" icon={<BiWallet />} />

@@ -1,0 +1,6 @@
+.section {
+  @apply flex flex-col;
+}
+.header {
+  @apply flex flex-col mx-auto gap-6 text-center max-w-[690px];
+}

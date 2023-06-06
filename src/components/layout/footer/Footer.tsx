@@ -1,10 +1,11 @@
+import styles from "./Footer.module.scss";
 import { socialLink } from "../../../ts/Social";
 import { myAccout, resources, company } from "../../../ts/Footer";
 import { NavLink } from "react-router-dom";
 import Logo from "../../ui/logo/Logo";
-import styles from "./Footer.module.scss";
 import { FC } from "react";
-
+import Input from "../../ui/Input/Input";
+import { BiPaperPlane } from "react-icons/bi";
 const Footer: FC = () => {
   return (
     <footer className={styles.footer}>
@@ -19,9 +20,9 @@ const Footer: FC = () => {
           </div>
           <ul className={styles.list}>
             <p className={styles.title}>Мой аккаунт</p>
-            {myAccout.map((myAccoutItem, index) => (
+            {myAccout.map((myAccoutItem) => (
               <NavLink to={myAccoutItem.link}>
-                <li className={styles.item} key={index}>
+                <li className={styles.item} key={myAccoutItem.subtitle}>
                   {myAccoutItem.subtitle}
                 </li>
               </NavLink>
@@ -29,9 +30,9 @@ const Footer: FC = () => {
           </ul>
           <ul className={styles.list}>
             <p className={styles.title}>Ресурсы</p>
-            {resources.map((resourcesItem, index) => (
+            {resources.map((resourcesItem) => (
               <NavLink to={resourcesItem.link}>
-                <li className={styles.item} key={index}>
+                <li className={styles.item} key={resourcesItem.subtitle}>
                   {resourcesItem.subtitle}
                 </li>
               </NavLink>
@@ -39,9 +40,9 @@ const Footer: FC = () => {
           </ul>
           <ul className={styles.list}>
             <p className={styles.title}>Компания</p>
-            {company.map((companyItem, index) => (
+            {company.map((companyItem) => (
               <NavLink to={companyItem.link}>
-                <li className={styles.item} key={index}>
+                <li className={styles.item} key={companyItem.subtitle}>
                   {companyItem.subtitle}
                 </li>
               </NavLink>
@@ -49,29 +50,10 @@ const Footer: FC = () => {
           </ul>
           <div className={styles.subscribe}>
             <p className={styles.title}>Оформить подписку</p>
-            <span>
-              <input
-                className={styles.input}
-                placeholder="Info@yourgmail.com"
-              />
-              <button className={styles.button}>
-                <svg
-                  width="18"
-                  height="20"
-                  viewBox="0 0 18 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0.915334 0.188759C1.23957 -0.0449367 1.67182 -0.0631242 2.01454 0.142509L17.0145 9.14251C17.3157 9.32323 17.5 9.64874 17.5 10C17.5 10.3513 17.3157 10.6768 17.0145 10.8575L2.01454 19.8575C1.67182 20.0631 1.23957 20.0449 0.915334 19.8112C0.591098 19.5775 0.437155 19.1732 0.523857 18.7831L2.25343 11L7.5 11C8.05228 11 8.5 10.5523 8.5 10C8.5 9.44772 8.05228 9 7.5 9L2.25343 9L0.523857 1.21693C0.437155 0.826771 0.591098 0.422456 0.915334 0.188759Z"
-                    fill="white"
-                  />
-                </svg>
-              </button>
-            </span>
+            <Input placeholder="Info@yourgmail.com" icon={<BiPaperPlane />} />
             <ul className={styles.social}>
-              {socialLink.map((socialLink, index) => (
-                <li key={index}>
+              {socialLink.map((socialLink) => (
+                <li key={socialLink.name}>
                   <a href={socialLink.link} target="_blank">
                     <img
                       src={socialLink.icon}

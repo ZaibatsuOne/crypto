@@ -1,8 +1,9 @@
 import { FC } from "react";
+import { NavLink } from "react-router-dom";
 
 const Logo: FC = () => {
   return (
-    <span className="flex gap-[10px] items-center text-4xl font-bold">
+    <NavLink className="flex gap-[10px] items-center text-4xl font-bold" to="/">
       <svg
         width="30"
         height="41"
@@ -29,7 +30,7 @@ const Logo: FC = () => {
         </defs>
       </svg>
       Axies
-    </span>
+    </NavLink>
   );
 };
 

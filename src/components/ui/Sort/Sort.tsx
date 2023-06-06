@@ -1,18 +1,35 @@
 import styles from "./Sort.module.scss";
 import { FC, useState } from "react";
-const Sort: FC = () => {
-  const [chooseSort, setChooseSort] = useState("Сортировать");
+
+interface ISortProps {
+  chooseSort: number | null | string;
+  setChooseSort: any;
+}
+const Sort: FC<ISortProps> = ({ chooseSort, setChooseSort }) => {
   const [visible, setVisible] = useState<any>(false);
-  const sort: string[] = [
-    "Все",
-    "Максимальная ставка",
-    "Средняя ставка",
-    "Низкая ставка",
+  const sort = [
+    {
+      id: null,
+      name: "Все",
+    },
+    {
+      id: 1,
+      name: "Максимальная ставка",
+    },
+    {
+      id: 2,
+      name: "Средняя ставка",
+    },
+    {
+      id: 3,
+      name: "Низкая ставка",
+    },
   ];
+
   return (
     <div className={styles.wrapper}>
       <span className={styles.sortType} onClick={() => setVisible(!visible)}>
-        {chooseSort}
+        {chooseSort === null ? "Сортировка" : chooseSort}
       </span>
       <ol className={visible ? styles.list : "hidden"}>
         {sort.map((item, index) => (
@@ -20,10 +37,10 @@ const Sort: FC = () => {
             key={index}
             className={styles.item}
             onClick={() => {
-              setChooseSort(item), setVisible(!visible);
+              setChooseSort(item.name), setVisible(!visible);
             }}
           >
-            {item}
+            {item.name}
           </li>
         ))}
       </ol>

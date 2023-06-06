@@ -25,12 +25,6 @@
 .icon {
   @apply hover:opacity-30;
 }
-.input {
-  @apply bg-footer border-y-2 border-l-[1px] border-[#343444] px-6 py-[15px] rounded-l-xl outline-none;
-}
-.button {
-  @apply bg-primary p-4 pb-[23px]  rounded-r-xl;
-}
 .subscribe {
   @apply flex flex-col gap-6 py-[18px];
 }

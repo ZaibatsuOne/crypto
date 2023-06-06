@@ -9,13 +9,16 @@ import axios from "axios";
 const ExplorePage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
   const [chooseIndex, setChooseIndex] = useState<number | null>(null);
+  const [chooseSort, setChooseSort] = useState<number | null | string>(null);
   const [nftCard, setNftCard] = useState<NftWithUser[]>([]);
   useEffect(() => {
     const fetchNft = async () => {
       const response = await axios.get<NftWithUser[]>(
         "https://6454dae6a74f994b334ad4fb.mockapi.io/NFT"
       );
-      setNftCard(response.data);
+      setTimeout(() => {
+        setNftCard(response.data);
+      }, 1000);
     };
     fetchNft();
   }, []);
@@ -24,7 +27,7 @@ const ExplorePage: FC = () => {
     <section className={styles.section}>
       <header className={styles.header}>
         <Categories chooseIndex={chooseIndex} setChooseIndex={setChooseIndex} />
-        <Sort />
+        <Sort chooseSort={chooseSort} setChooseSort={setChooseSort} />
       </header>
       <section className={styles.main}>
         {nftCard

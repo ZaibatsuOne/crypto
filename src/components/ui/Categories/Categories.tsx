@@ -20,11 +20,11 @@ const Categories: FC<ICategory> = ({ chooseIndex, setChooseIndex }) => {
       category: 2,
     },
     {
-      name: "Спорт",
+      name: "Музыка",
       category: 3,
     },
     {
-      name: "Спорт",
+      name: "Коллекционные карточки",
       category: 4,
     },
     {

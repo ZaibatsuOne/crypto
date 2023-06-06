@@ -8,7 +8,7 @@
   background-size: cover;
 }
 .nav {
-  @apply sticky top-0 flex justify-between items-center py-3 backdrop-blur-3xl;
+  @apply sticky top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs;
 }
 .logo {
   @apply flex gap-[10px] items-center;
@@ -17,7 +17,14 @@
   @apply flex gap-10;
 }
 .item {
-  @apply text-xs;
+  @apply relative cursor-pointer;
+}
+.dropdown {
+  @apply absolute flex flex-col gap-4 p-4 w-40 bottom-[-130px];
+  background-color: rgba($color: #343444, $alpha: 0.5);
+}
+.hiddens {
+  @apply hidden;
 }
 .wrapper {
   @apply flex gap-9 items-center;
