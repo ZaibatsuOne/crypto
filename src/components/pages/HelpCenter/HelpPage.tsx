@@ -15,7 +15,7 @@ const HelpPage: FC = () => {
     <section className={styles.section}>
       <header className={styles.header}>
         <Title title="Как мы можем вам помочь?" />
-        <p>
+        <p className={styles.subtitle}>
           Не знаете, как начать торговать NFT? Введите свой вопрос в поисковую
           строку или выберите одну из карточек ниже.
         </p>
@@ -25,7 +25,9 @@ const HelpPage: FC = () => {
           width="600px"
           handleInp={handleInp}
         />
-        <p>Или выберите категорию, чтобы быстро найти необходимую помощь</p>
+        <p className={styles.subtitle}>
+          Или выберите категорию, чтобы быстро найти необходимую помощь
+        </p>
       </header>
       <section className={styles.wrapper}>
         {helpCategory

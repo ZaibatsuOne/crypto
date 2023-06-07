@@ -5,7 +5,7 @@
   @apply flex flex-col gap-3 text-center max-w-[650px] mx-auto;
 }
 .subtitle {
-  @apply text-regular;
+  @apply text-body-regular;
 }
 .item {
   @apply flex flex-col gap-[10px] px-8 py-6 bg-nftBg rounded-[40px] cursor-pointer;

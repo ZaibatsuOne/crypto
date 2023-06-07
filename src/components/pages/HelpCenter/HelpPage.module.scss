@@ -4,6 +4,9 @@
 .header {
   @apply flex flex-col mx-auto gap-6 text-center max-w-[690px];
 }
+.subtitle {
+  @apply text-body-regular;
+}
 .category {
   @apply flex flex-col gap-4 items-center w-[330px] h-[270px] bg-nftBg px-[23px] py-10 text-center rounded-xl cursor-pointer;
 }

@@ -1,6 +1,7 @@
 import ButtonModel from "src/models/ButtonModel";
 import styles from "./Button.module.scss";
 import { FC } from "react";
+import { NavLink } from "react-router-dom";
 
 const Button: FC<ButtonModel> = ({
   text,
@@ -11,7 +12,8 @@ const Button: FC<ButtonModel> = ({
   paddingX = "28px",
 }) => {
   return (
-    <button
+    <NavLink
+      to="/"
       style={{
         background: background,
         borderColor: borderColor,
@@ -23,7 +25,7 @@ const Button: FC<ButtonModel> = ({
     >
       <span>{icon}</span>
       <p>{text}</p>
-    </button>
+    </NavLink>
   );
 };
 

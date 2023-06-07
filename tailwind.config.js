@@ -6,8 +6,11 @@ export default {
     extend: {
       fontSize: {
         "caption-2": "0.65rem",
-        "body-2": "0.8rem",
-        regular: "0.9rem",
+        "body-regular": "1.125rem",
+        "body-2": "1rem",
+        "sub-heading-2": "0.875rem",
+        button: "0.938rem",
+        title: "1.125rem",
       },
     },
     colors: {
@@ -22,6 +25,7 @@ export default {
       nftBg: "#343444",
       userType: "#8A8AA0",
       coutdown: "#14141F",
+      "white-2": "#E5E5E5",
     },
   },
   plugins: [],

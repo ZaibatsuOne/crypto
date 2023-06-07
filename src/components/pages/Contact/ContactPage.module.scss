@@ -1,0 +1,24 @@
+.section {
+  @apply flex justify-between items-center;
+}
+.wrapper {
+  @apply flex flex-col max-w-[690px] gap-[60px];
+}
+.header {
+  @apply flex flex-col gap-3;
+}
+.subtitle {
+  @apply text-body-regular;
+}
+.form {
+  @apply flex flex-col gap-6;
+}
+.input {
+  @apply px-5 py-4 bg-footer  rounded-lg outline-none;
+}
+.textarea {
+  @apply px-5 py-4 h-36 bg-footer  rounded-lg outline-none resize-none;
+}
+.button {
+  @apply p-4 border-solid border-[1.5px] border-onSurface rounded-[56px];
+}

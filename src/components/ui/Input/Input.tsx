@@ -15,7 +15,7 @@ const Input: FC<IInputProps> = ({
   width = "255px",
 }) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <input
         className={styles.input}
         placeholder={placeholder}

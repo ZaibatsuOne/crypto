@@ -4,6 +4,7 @@ import styles from "../Header.module.scss";
 import { BiWallet } from "react-icons/bi";
 import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 const HeaderNav: FC = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
@@ -39,7 +40,11 @@ const HeaderNav: FC = () => {
             <NavLink to="/help">
               <li>Центр помощи</li>
             </NavLink>
+            <NavLink to="/contact">
+              <li>Связаться</li>
+            </NavLink>
           </ul>
+          {dropdown ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
         </li>
       </ol>
       <span className={styles.wrapper}>
