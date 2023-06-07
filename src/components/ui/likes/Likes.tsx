@@ -1,5 +1,6 @@
 import styles from "./Likes.module.scss";
 import { FC, useState } from "react";
+
 const Likes: FC = () => {
   const [count, setCount] = useState<number>(0);
   const [increment, setIncrement] = useState<number>(1);

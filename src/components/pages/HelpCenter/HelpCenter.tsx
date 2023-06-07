@@ -1,8 +1,9 @@
+import Input from "src/components/ui/Input/Input";
 import styles from "./HelpCenter.module.scss";
-import { FC } from "react";
-import Title from "../../ui/title/Title";
-import Input from "../../ui/Input/Input";
+import Title from "src/components/ui/title/Title";
 import { BiSearchAlt } from "react-icons/bi";
+import { FC } from "react";
+
 const HelpCenter: FC = () => {
   return (
     <section className={styles.section}>

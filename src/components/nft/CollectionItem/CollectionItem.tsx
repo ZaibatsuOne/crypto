@@ -1,9 +1,9 @@
+import Likes from "src/components/ui/likes/Likes";
 import styles from "./CollectionItem.module.scss";
+import UserAvatar from "src/components/user/UserAvatar";
+import UserName from "src/components/user/UserName";
 import { FC } from "react";
-import { TypePopularCollection } from "../../../ts/PopularCollection";
-import UserAvatar from "../../user/UserAvatar";
-import UserName from "../../user/UserName";
-import Likes from "../../ui/likes/Likes";
+import { TypePopularCollection } from "src/ts/PopularCollection";
 
 const CollectionItem: FC<TypePopularCollection> = ({
   title,

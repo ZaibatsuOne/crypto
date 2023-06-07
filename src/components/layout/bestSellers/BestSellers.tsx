@@ -1,9 +1,9 @@
 import styles from "./BestSellers.module.scss";
+import Title from "src/components/ui/title/Title";
+import UserAvatar from "src/components/user/UserAvatar";
+import UserName from "src/components/user/UserName";
+import { bestSellers } from "src/ts/BestSellers";
 import { FC } from "react";
-import Title from "../../ui/title/Title";
-import { bestSellers } from "../../../ts/BestSellers";
-import UserAvatar from "../../user/UserAvatar";
-import UserName from "../../user/UserName";
 const BestSellers: FC = () => {
   return (
     <section className={styles.wrapper}>

@@ -1,8 +1,8 @@
+import Button from "src/components/ui/Buttons/Button";
+import Logo from "src/components/ui/logo/Logo";
 import styles from "./Header.module.scss";
-import { FC, useState } from "react";
-import Button from "../../ui/Buttons/Button";
-import Logo from "../../ui/logo/Logo";
 import { BiRocket, BiWallet } from "react-icons/bi";
+import { FC, useState } from "react";
 import { MdLibraryBooks } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 const Header: FC = () => {

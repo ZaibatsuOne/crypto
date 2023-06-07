@@ -1,6 +1,7 @@
-import { FC } from "react";
+import ButtonModel from "src/models/ButtonModel";
 import styles from "./Button.module.scss";
-import ButtonModel from "../../../models/ButtonModel";
+import { FC } from "react";
+
 const Button: FC<ButtonModel> = ({
   text,
   icon,

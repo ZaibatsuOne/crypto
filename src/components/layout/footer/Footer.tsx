@@ -1,11 +1,11 @@
+import Input from "src/components/ui/Input/Input";
+import Logo from "src/components/ui/logo/Logo";
 import styles from "./Footer.module.scss";
-import { socialLink } from "../../../ts/Social";
-import { myAccout, resources, company } from "../../../ts/Footer";
-import { NavLink } from "react-router-dom";
-import Logo from "../../ui/logo/Logo";
-import { FC } from "react";
-import Input from "../../ui/Input/Input";
 import { BiPaperPlane } from "react-icons/bi";
+import { company, myAccout, resources } from "src/ts/Footer";
+import { FC } from "react";
+import { NavLink } from "react-router-dom";
+import { socialLink } from "src/ts/Social";
 const Footer: FC = () => {
   return (
     <footer className={styles.footer}>

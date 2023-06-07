@@ -1,9 +1,9 @@
+import Likes from "src/components/ui/likes/Likes";
+import Price from "src/components/ui/price/Price";
 import styles from "./NftItem.module.scss";
-import User from "../../user/User";
-import { NftWithUser } from "../../../ts/LiveAuction";
-import Price from "../../ui/price/Price";
-import Likes from "../../ui/likes/Likes";
+import User from "src/components/user/User";
 import { FC } from "react";
+import { NftWithUser } from "src/ts/LiveAuction";
 
 const NftItem: FC<NftWithUser> = ({
   img,

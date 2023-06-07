@@ -1,5 +1,5 @@
 import styles from "./Categories.module.scss";
-import { useState, FC } from "react";
+import { FC, useState } from "react";
 
 interface ICategory {
   chooseIndex: number | null;

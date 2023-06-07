@@ -1,11 +1,12 @@
-import styles from "./ExplorePage.module.scss";
-import Categories from "../../ui/Categories/Categories";
-import Sort from "../../ui/Sort/Sort";
-import { NftWithUser } from "../../../ts/LiveAuction";
-import NftItem from "../../nft/NftItem/NftItem";
-import { FC, useState, useEffect } from "react";
-import Button from "../../ui/Buttons/Button";
 import axios from "axios";
+import Button from "src/components/ui/Buttons/Button";
+import Categories from "src/components/ui/Categories/Categories";
+import NftItem from "src/components/nft/NftItem/NftItem";
+import Sort from "src/components/ui/Sort/Sort";
+import styles from "./ExplorePage.module.scss";
+import { FC, useEffect, useState } from "react";
+import { NftWithUser } from "src/ts/LiveAuction";
+
 const ExplorePage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
   const [chooseIndex, setChooseIndex] = useState<number | null>(null);

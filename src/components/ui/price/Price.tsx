@@ -1,5 +1,5 @@
-import { FC } from "react";
 import styles from "./Price.module.scss";
+import { FC } from "react";
 
 type TypePriceProps = {
   price: number;

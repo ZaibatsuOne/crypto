@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { AiOutlineSync } from "react-icons/ai";
+import { FC } from "react";
 
 const History: FC = () => {
   return (

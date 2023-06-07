@@ -1,13 +1,13 @@
-import styles from "./LiveAuction.module.scss";
-import Title from "../../ui/title/Title";
-import { FC, useEffect, useState } from "react";
-import { RxDot } from "react-icons/rx";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import NftItem from "../../nft/NftItem/NftItem";
-import Coutdown from "../../ui/coutdown/Coutdown";
 import axios from "axios";
-import { NftWithUser } from "../../../ts/LiveAuction";
-import ButtonMore from "../../ui/Buttons/ButtonMore/ButtonMore";
+import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
+import Coutdown from "src/components/ui/coutdown/Coutdown";
+import NftItem from "src/components/nft/NftItem/NftItem";
+import styles from "./LiveAuction.module.scss";
+import Title from "src/components/ui/title/Title";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { FC, useEffect, useState } from "react";
+import { NftWithUser } from "src/ts/LiveAuction";
+import { RxDot } from "react-icons/rx";
 
 const LiveAuction: FC = () => {
   const [auction, setAuction] = useState<NftWithUser[]>([]);

@@ -1,5 +1,5 @@
-import { FC } from "react";
 import styles from "./User.module.scss";
+import { FC } from "react";
 
 type TypeUserNameProps = {
   userName: string;

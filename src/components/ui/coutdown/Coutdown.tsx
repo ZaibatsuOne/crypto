@@ -1,5 +1,6 @@
 import styles from "./Coutdown.module.scss";
-import { useState, useEffect, FC } from "react";
+import { FC, useEffect, useState } from "react";
+
 const Coutdown: FC = () => {
   const [countdown, setCountdown] = useState<string>("");
 

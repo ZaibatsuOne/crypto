@@ -1,9 +1,10 @@
+import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
+import CollectionItem from "src/components/nft/CollectionItem/CollectionItem";
 import styles from "./PopularCollection.module.scss";
-import CollectionItem from "../../nft/CollectionItem/CollectionItem";
-import Title from "../../ui/title/Title";
+import Title from "src/components/ui/title/Title";
 import { FC } from "react";
-import { popularCollections } from "../../../ts/PopularCollection";
-import ButtonMore from "../../ui/Buttons/ButtonMore/ButtonMore";
+import { popularCollections } from "src/ts/PopularCollection";
+
 const PopularCollection: FC = () => {
   return (
     <section className={styles.section}>

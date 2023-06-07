@@ -1,8 +1,9 @@
 import styles from "./User.module.scss";
+import TypeUser from "src/ts/TypeUser";
 import UserAvatar from "./UserAvatar";
 import UserName from "./UserName";
-import TypeUser from "../../ts/TypeUser";
 import { FC } from "react";
+
 const User: FC<TypeUser> = ({ userName, userAvatar, userType }) => {
   return (
     <div className={styles.user}>

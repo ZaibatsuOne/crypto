@@ -1,13 +1,14 @@
-import styles from "./TodayPicks.module.scss";
-import { NftWithUser } from "../../../ts/LiveAuction";
-import Title from "../../ui/title/Title";
-import { useState, useEffect, FC } from "react";
 import axios from "axios";
-import NftItem from "../../nft/NftItem/NftItem";
+import Button from "src/components/ui/Buttons/Button";
+import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
+import History from "src/components/ui/History/History";
+import NftItem from "src/components/nft/NftItem/NftItem";
+import styles from "./TodayPicks.module.scss";
+import Title from "src/components/ui/title/Title";
 import { BiData } from "react-icons/bi";
-import Button from "../../ui/Buttons/Button";
-import History from "../../ui/History/History";
-import ButtonMore from "../../ui/Buttons/ButtonMore/ButtonMore";
+import { FC, useEffect, useState } from "react";
+import { NftWithUser } from "../../../ts/LiveAuction";
+
 const TodayPicks: FC = () => {
   const [picks, setPicks] = useState<NftWithUser[]>([]);
   const [maxCards, setMaxCards] = useState<number>(8);
