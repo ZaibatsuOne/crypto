@@ -1,0 +1,24 @@
+.item {
+  @apply flex flex-col gap-6 p-6 bg-nftBg w-[450px]  rounded-xl;
+}
+.thumbnail {
+  @apply w-[402px] h-[280px] object-cover rounded-xl;
+}
+.title {
+  @apply line-clamp-2;
+}
+.excerpt {
+  @apply text-caption-1 max-h-[77px] line-clamp-3;
+}
+.main {
+  @apply flex flex-col gap-3;
+}
+.date {
+  @apply text-body-regular;
+}
+.header {
+  @apply flex justify-between items-center;
+}
+.gridlist {
+  @apply grid grid-cols-3 gap-[30px];
+}

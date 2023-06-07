@@ -6,6 +6,7 @@ export default {
     extend: {
       fontSize: {
         "caption-2": "0.65rem",
+        "caption-1": "0.875rem",
         "body-regular": "1.125rem",
         "body-2": "1rem",
         "sub-heading-2": "0.875rem",
