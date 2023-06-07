@@ -3,7 +3,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        "caption-2": "0.65rem",
+        "body-2": "0.8rem",
+        regular: "0.9rem",
+      },
+    },
     colors: {
       primary: "#5142FC",
       done: "#47A432",

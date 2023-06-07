@@ -1,0 +1,22 @@
+.section {
+  @apply flex flex-col gap-[68px];
+}
+.header {
+  @apply flex flex-col mx-auto gap-6 text-center max-w-[690px];
+}
+.category {
+  @apply flex flex-col gap-4 items-center w-[330px] h-[270px] bg-nftBg px-[23px] py-10 text-center rounded-xl cursor-pointer;
+}
+.wrapper {
+  @apply grid grid-cols-4 gap-[30px] items-center justify-center;
+  // @apply flex flex-wrap justify-center gap-[30px];
+}
+.description {
+  @apply text-caption-2 text-secondary font-light;
+}
+.icon {
+  @apply w-14 h-14;
+}
+.content {
+  @apply flex flex-col gap-2;
+}

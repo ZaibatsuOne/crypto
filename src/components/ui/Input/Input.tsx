@@ -4,19 +4,26 @@ import { FC } from "react";
 interface IInputProps {
   placeholder: string;
   icon: React.ComponentType | any;
+  handleInp?: React.ChangeEventHandler<HTMLInputElement>;
   width?: string;
 }
 
-const Input: FC<IInputProps> = ({ placeholder, icon, width = "255px" }) => {
+const Input: FC<IInputProps> = ({
+  handleInp,
+  placeholder,
+  icon,
+  width = "255px",
+}) => {
   return (
-    <form>
+    <div>
       <input
         className={styles.input}
         placeholder={placeholder}
         style={{ width: width }}
+        onChange={handleInp}
       />
       <button className={styles.button}>{icon}</button>
-    </form>
+    </div>
   );
 };
 

@@ -4,6 +4,7 @@ import UserAvatar from "src/components/user/UserAvatar";
 import UserName from "src/components/user/UserName";
 import { bestSellers } from "src/ts/BestSellers";
 import { FC } from "react";
+
 const BestSellers: FC = () => {
   return (
     <section className={styles.wrapper}>

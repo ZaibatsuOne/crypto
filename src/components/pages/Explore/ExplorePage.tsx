@@ -6,12 +6,15 @@ import Sort from "src/components/ui/Sort/Sort";
 import styles from "./ExplorePage.module.scss";
 import { FC, useEffect, useState } from "react";
 import { NftWithUser } from "src/ts/LiveAuction";
+import Loading from "src/components/ui/Loading/Loading";
 
 const ExplorePage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
   const [chooseIndex, setChooseIndex] = useState<number | null>(null);
   const [chooseSort, setChooseSort] = useState<number | null | string>(null);
   const [nftCard, setNftCard] = useState<NftWithUser[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   useEffect(() => {
     const fetchNft = async () => {
       const response = await axios.get<NftWithUser[]>(
@@ -19,6 +22,7 @@ const ExplorePage: FC = () => {
       );
       setTimeout(() => {
         setNftCard(response.data);
+        setIsLoading(!isLoading);
       }, 1000);
     };
     fetchNft();
@@ -30,28 +34,33 @@ const ExplorePage: FC = () => {
         <Categories chooseIndex={chooseIndex} setChooseIndex={setChooseIndex} />
         <Sort chooseSort={chooseSort} setChooseSort={setChooseSort} />
       </header>
-      <section className={styles.main}>
-        {nftCard
-          .filter(
-            (item) => chooseIndex === null || chooseIndex === item.category
-          )
-          .slice(0, maxCards)
-          .map((item) => (
-            <article key={item.id}>
-              <NftItem
-                id={item.id}
-                img={item.img}
-                title={item.title}
-                net={item.net}
-                userName={item.userName}
-                userAvatar={item.userAvatar}
-                userType={item.userType}
-                price={item.price}
-                category={item.category}
-              />
-            </article>
-          ))}
-      </section>
+
+      {isLoading ? (
+        <section className={styles.main}>
+          {nftCard
+            .filter(
+              (item) => chooseIndex === null || chooseIndex === item.category
+            )
+            .slice(0, maxCards)
+            .map((item) => (
+              <article key={item.id}>
+                <NftItem
+                  id={item.id}
+                  img={item.img}
+                  title={item.title}
+                  net={item.net}
+                  userName={item.userName}
+                  userAvatar={item.userAvatar}
+                  userType={item.userType}
+                  price={item.price}
+                  category={item.category}
+                />
+              </article>
+            ))}
+        </section>
+      ) : (
+        <Loading />
+      )}
       <button
         className={styles.button}
         onClick={() => setMaxCards((prevCount) => prevCount + 8)}

@@ -8,15 +8,18 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { FC, useEffect, useState } from "react";
 import { NftWithUser } from "src/ts/LiveAuction";
 import { RxDot } from "react-icons/rx";
+import Loading from "src/components/ui/Loading/Loading";
 
 const LiveAuction: FC = () => {
   const [auction, setAuction] = useState<NftWithUser[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   useEffect(() => {
     const fetchAuction = async () => {
       const response = await axios.get<NftWithUser[]>(
         "https://6454dae6a74f994b334ad4fb.mockapi.io/NFT"
       );
       setTimeout(() => {
+        setIsLoading(!isLoading);
         setAuction(response.data);
       }, 1500);
     };
@@ -45,30 +48,34 @@ const LiveAuction: FC = () => {
         <ButtonMore link="#" />
       </header>
       <div className={styles.window}>
-        <section
-          className={styles.liveAuction}
-          style={{
-            transition: "0.4s ease-in-out",
-            transform: `translateX(${-transform * 360}px)`,
-          }}
-        >
-          {auction.slice(0, 8).map((auctionItem) => (
-            <div key={auctionItem.id}>
-              <NftItem
-                id={auctionItem.id}
-                img={auctionItem.img}
-                title={auctionItem.title}
-                net={auctionItem.net}
-                userName={auctionItem.userName}
-                userAvatar={auctionItem.userAvatar}
-                userType={auctionItem.userType}
-                price={auctionItem.price}
-                category={auctionItem.category}
-                coutdown={<Coutdown />}
-              />
-            </div>
-          ))}
-        </section>
+        {isLoading ? (
+          <section
+            className={styles.liveAuction}
+            style={{
+              transition: "0.4s ease-in-out",
+              transform: `translateX(${-transform * 360}px)`,
+            }}
+          >
+            {auction.slice(0, 8).map((auctionItem) => (
+              <div key={auctionItem.id}>
+                <NftItem
+                  id={auctionItem.id}
+                  img={auctionItem.img}
+                  title={auctionItem.title}
+                  net={auctionItem.net}
+                  userName={auctionItem.userName}
+                  userAvatar={auctionItem.userAvatar}
+                  userType={auctionItem.userType}
+                  price={auctionItem.price}
+                  category={auctionItem.category}
+                  coutdown={<Coutdown />}
+                />
+              </div>
+            ))}
+          </section>
+        ) : (
+          <Loading />
+        )}
       </div>
       <div className={styles.buttons}>
         <button onClick={handlePrev}>
