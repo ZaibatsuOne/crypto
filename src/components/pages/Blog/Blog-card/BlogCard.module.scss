@@ -1,0 +1,51 @@
+.section {
+  @apply flex justify-between;
+}
+.line {
+  @apply w-full h-[1px] bg-onSurface;
+}
+.desc {
+  @apply text-caption-2;
+}
+.row {
+  @apply flex justify-between;
+}
+.box {
+  @apply flex gap-4 items-center;
+}
+.inner {
+  @apply flex gap-10 items-center;
+}
+.blueLine {
+  @apply w-1 h-full bg-primary;
+}
+.header {
+  @apply flex flex-col gap-8;
+}
+.article {
+  @apply flex flex-col gap-8 max-w-[990px];
+}
+.main {
+  @apply flex flex-col gap-6;
+}
+.paragraph {
+  @apply flex flex-col gap-4;
+}
+.text {
+  @apply text-body-regular text-secondary font-light text-justify;
+}
+.form {
+  @apply flex flex-col gap-7;
+}
+.group {
+  @apply flex gap-5;
+}
+.social {
+  @apply flex gap-2;
+}
+.commentary {
+  @apply flex flex-col gap-3 w-full bg-nftBg p-4 rounded-xl;
+}
+.comments {
+  @apply flex flex-col gap-2;
+}

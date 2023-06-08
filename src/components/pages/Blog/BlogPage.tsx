@@ -5,6 +5,7 @@ import { FC, useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "src/components/ui/Loading/Loading";
 import { NavLink } from "react-router-dom";
+import LiveAuction from "src/components/layout/LiveAuction/LiveAuction";
 interface IBlogPage {
   id: number;
   title: string;
@@ -55,6 +56,7 @@ const BlogPage: FC = () => {
               </article>
             ))}
           </section>
+
           <button
             className={blogItem.length === maxCards ? "hidden" : styles.button}
             onClick={(): void => setMaxCards((maxCards) => maxCards + 3)}

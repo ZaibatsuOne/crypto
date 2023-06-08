@@ -1,5 +1,5 @@
 import styles from "./Likes.module.scss";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 
 const Likes: FC = () => {
   const [count, setCount] = useState<number>(0);
@@ -10,6 +10,7 @@ const Likes: FC = () => {
     setIncrement((increment) => -increment);
     setLiked(!liked);
   };
+
   return (
     <button className={styles.wrapper} onClick={handleButton}>
       {liked ? (
