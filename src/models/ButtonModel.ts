@@ -1,6 +1,7 @@
 interface ButtonModel {
   text: string;
-  icon: React.ComponentType<{}> | any;
+  icon: React.ReactNode | null;
+  link?: string;
   background?: string;
   borderColor?: string;
   color?: string;

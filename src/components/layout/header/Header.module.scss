@@ -20,8 +20,12 @@
   @apply relative flex gap-[6px] items-center cursor-pointer text-sm;
 }
 .dropdown {
-  @apply absolute flex flex-col gap-4 bg-nftBg p-4 w-40 top-[50px];
+  @apply absolute  flex flex-col bg-nftBg w-40 top-[53px];
   // background-color: rgba($color: #343444, $alpha: 0.5);
+
+  &__item {
+    @apply p-4 hover:bg-coutdown;
+  }
 }
 .hiddens {
   @apply hidden;

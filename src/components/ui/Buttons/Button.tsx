@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 const Button: FC<ButtonModel> = ({
   text,
   icon,
+  link = "#",
   background = "none",
   borderColor = "#5142FC",
   color = "#FFF",
@@ -13,7 +14,7 @@ const Button: FC<ButtonModel> = ({
 }) => {
   return (
     <NavLink
-      to="/"
+      to={link}
       style={{
         background: background,
         borderColor: borderColor,

@@ -28,7 +28,10 @@ const Sort: FC<ISortProps> = ({ chooseSort, setChooseSort }) => {
 
   return (
     <div className={styles.wrapper}>
-      <span className={styles.sortType} onClick={() => setVisible(!visible)}>
+      <span
+        className={styles.sortType}
+        onClick={(): void => setVisible(!visible)}
+      >
         {chooseSort === null ? "Сортировка" : chooseSort}
       </span>
       <ol className={visible ? styles.list : "hidden"}>
@@ -36,7 +39,7 @@ const Sort: FC<ISortProps> = ({ chooseSort, setChooseSort }) => {
           <li
             key={index}
             className={styles.item}
-            onClick={() => {
+            onClick={(): void => {
               setChooseSort(item.name), setVisible(!visible);
             }}
           >

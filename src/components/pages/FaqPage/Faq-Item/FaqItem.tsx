@@ -12,7 +12,7 @@ const FaqItem: FC<IFaqItemProps> = ({ id, question, answer }) => {
   return (
     <article
       className={styles.item}
-      onClick={() => setOpenAnswer(!openAnswer)}
+      onClick={(): void => setOpenAnswer(!openAnswer)}
       key={id}
     >
       <header className={styles.wrapper}>

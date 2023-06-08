@@ -16,7 +16,7 @@ const HeaderHero: FC = () => {
         токены NFT
       </p>
       <div className={styles.buttons}>
-        <Button text="Изучить" icon={<BiRocket />} />
+        <Button text="Изучить" icon={<BiRocket />} link="/faq" />
         <Button
           text="Создать"
           icon={<MdLibraryBooks />}

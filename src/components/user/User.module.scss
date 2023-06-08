@@ -2,10 +2,10 @@
   @apply flex items-center gap-3;
 }
 .wrapper {
-  @apply flex flex-col max-w-[88px] overflow-hidden;
+  @apply flex flex-col  max-w-[88px] overflow-hidden;
 }
 .type {
-  @apply text-userType text-sm;
+  @apply text-userType text-sm font-light;
 }
 .name {
   @apply font-light;

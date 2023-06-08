@@ -3,7 +3,7 @@ import { FC } from "react";
 
 interface IInputProps {
   placeholder: string;
-  icon: React.ComponentType | any;
+  icon: React.ComponentType<any> | any;
   handleInp?: React.ChangeEventHandler<HTMLInputElement>;
   width?: string;
 }

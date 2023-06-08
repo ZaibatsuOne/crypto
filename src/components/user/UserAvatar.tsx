@@ -11,8 +11,8 @@ type TypeUserAvatarProps = {
 const UserAvatar: FC<TypeUserAvatarProps> = ({
   userAvatar,
   userName,
-  width = "44px",
-  height = "44px",
+  width = "52px",
+  height = "52px",
   borderRadius = "15px",
 }) => {
   return (

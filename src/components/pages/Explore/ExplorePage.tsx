@@ -1,19 +1,24 @@
 import axios from "axios";
 import Button from "src/components/ui/Buttons/Button";
 import Categories from "src/components/ui/Categories/Categories";
+import Loading from "src/components/ui/Loading/Loading";
 import NftItem from "src/components/nft/NftItem/NftItem";
 import Sort from "src/components/ui/Sort/Sort";
 import styles from "./ExplorePage.module.scss";
 import { FC, useEffect, useState } from "react";
 import { NftWithUser } from "src/ts/LiveAuction";
-import Loading from "src/components/ui/Loading/Loading";
 
 const ExplorePage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
-  const [chooseIndex, setChooseIndex] = useState<number | null>(null);
   const [chooseSort, setChooseSort] = useState<number | null | string>(null);
   const [nftCard, setNftCard] = useState<NftWithUser[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [chooseIndex, setChooseIndex] = useState<number | null>(null);
+
+  const handleCategory = (category: number | null) => {
+    setChooseIndex(category);
+  };
 
   useEffect(() => {
     const fetchNft = async () => {
@@ -31,7 +36,7 @@ const ExplorePage: FC = () => {
   return (
     <section className={styles.section}>
       <header className={styles.header}>
-        <Categories chooseIndex={chooseIndex} setChooseIndex={setChooseIndex} />
+        <Categories chooseIndex={chooseIndex} handleCategory={handleCategory} />
         <Sort chooseSort={chooseSort} setChooseSort={setChooseSort} />
       </header>
 
@@ -62,8 +67,8 @@ const ExplorePage: FC = () => {
         <Loading />
       )}
       <button
-        className={styles.button}
-        onClick={() => setMaxCards((prevCount) => prevCount + 8)}
+        className={maxCards === nftCard.length ? "hidden" : styles.button}
+        onClick={() => setMaxCards((maxCards) => maxCards + 8)}
       >
         <Button text="Показать больше" icon={null} />
       </button>

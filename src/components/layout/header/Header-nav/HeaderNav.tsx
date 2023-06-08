@@ -5,10 +5,10 @@ import { BiWallet } from "react-icons/bi";
 import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
-import { navList } from "src/ts/Navigation";
 
 const HeaderNav: FC = () => {
   const [active, setActive] = useState({
+    nft: false,
     contact: false,
     community: false,
   });
@@ -19,12 +19,21 @@ const HeaderNav: FC = () => {
         <NavLink to="/">
           <li className={styles.item}>Главная</li>
         </NavLink>
-        <NavLink to="/explore">
-          <li className={styles.item}>NFT</li>
-        </NavLink>
-        <NavLink to="/">
-          <li className={styles.item}>Активность</li>
-        </NavLink>{" "}
+        <li
+          className={styles.item}
+          onClick={() => setActive({ ...active, nft: !active.nft })}
+        >
+          NFT
+          <ul className={active.nft ? styles.dropdown : styles.hiddens}>
+            <NavLink to="/marketplace">
+              <li className={styles.dropdown__item}>Маркетплейс</li>
+            </NavLink>
+            <NavLink to="/auction">
+              <li className={styles.dropdown__item}>Аукцион</li>
+            </NavLink>
+          </ul>
+          {active.nft ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+        </li>
         <li
           className={styles.item}
           onClick={(): void =>
@@ -39,9 +48,6 @@ const HeaderNav: FC = () => {
           </ul>
           {active.community ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
         </li>
-        <NavLink to="/">
-          <li className={styles.item}>Страницы</li>
-        </NavLink>
         <li
           className={styles.item}
           onClick={(): void =>
@@ -51,7 +57,7 @@ const HeaderNav: FC = () => {
           Контакты
           <ul className={active.contact ? styles.dropdown : styles.hiddens}>
             <NavLink to="/faq">
-              <li>FAQ</li>
+              <li className={styles.dropdown__item}>FAQ</li>
             </NavLink>
             <NavLink to="/help">
               <li className={styles.dropdown__item}>Центр помощи</li>

@@ -57,7 +57,7 @@ const TodayPicks: FC = () => {
         <Loading />
       )}
       <button
-        className={styles.footer}
+        className={maxCards === 16 ? "hidden" : styles.footer}
         onClick={() => setMaxCards((prevCount) => prevCount + 4)}
       >
         <Button text="Показать больше" icon={null} />

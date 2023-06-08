@@ -1,15 +1,15 @@
 import styles from "./Categories.module.scss";
-import { FC, useState } from "react";
+import { FC } from "react";
 
 interface ICategory {
   chooseIndex: number | null;
-  setChooseIndex: any;
+  handleCategory: (category: number | null) => void;
 }
 type TypeCategory = {
   name: string;
   category: number | null;
 };
-const Categories: FC<ICategory> = ({ chooseIndex, setChooseIndex }) => {
+const Categories: FC<ICategory> = ({ chooseIndex, handleCategory }) => {
   const categories: TypeCategory[] = [
     {
       name: "Все",
@@ -38,8 +38,8 @@ const Categories: FC<ICategory> = ({ chooseIndex, setChooseIndex }) => {
       {categories.map((item) => (
         <li
           key={item.category}
-          onClick={() => {
-            setChooseIndex(item.category), console.log(chooseIndex);
+          onClick={(): void => {
+            handleCategory(item.category), console.log(chooseIndex);
           }}
           className={
             chooseIndex === item.category ? styles.item_active : styles.item

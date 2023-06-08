@@ -27,14 +27,14 @@ const LiveAuction: FC = () => {
     fetchAuction();
   }, []);
   const [transform, setTransform] = useState<number>(0);
-  const handleNext = () => {
+  const handleNext = (): void => {
     let newTransform: number = transform + 1;
     if (newTransform > 4) {
       newTransform = 0;
     }
     setTransform(newTransform);
   };
-  const handlePrev = () => {
+  const handlePrev = (): void => {
     let newTransform: number = transform - 1;
     if (newTransform < 0) {
       newTransform = 4;

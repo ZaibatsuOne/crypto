@@ -31,7 +31,7 @@ const CollectionItem: FC<TypePopularCollection> = ({
           <div>
             <h6 className={styles.title}>{title}</h6>
             <span className={styles.created}>
-              <p>Создан </p>
+              <p className={styles.type}>Создан </p>
               <UserName userName={userName} />
             </span>
           </div>

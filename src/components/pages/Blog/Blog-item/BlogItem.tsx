@@ -20,7 +20,9 @@ const BlogItem: FC<IBlogItemProps> = ({
 }) => {
   return (
     <>
-      <img src={thumbail} alt={title} className={styles.thumbnail} />
+      <div className={styles.window}>
+        <img src={thumbail} alt={title} className={styles.thumbnail} />
+      </div>
       <main className={styles.main}>
         <header className={styles.header}>
           <User userName={userName} userAvatar={userAvatar} userType="Создал" />

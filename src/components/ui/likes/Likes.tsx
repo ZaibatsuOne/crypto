@@ -5,7 +5,7 @@ const Likes: FC = () => {
   const [count, setCount] = useState<number>(0);
   const [increment, setIncrement] = useState<number>(1);
   const [liked, setLiked] = useState<boolean>(false);
-  const handleButton = () => {
+  const handleButton = (): void => {
     setCount((count) => count + increment);
     setIncrement((increment) => -increment);
     setLiked(!liked);
