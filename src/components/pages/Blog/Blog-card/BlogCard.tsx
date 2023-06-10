@@ -2,11 +2,11 @@ import axios from "axios";
 import Button from "src/components/ui/Buttons/Button";
 import Review from "src/components/layout/Review/Review";
 import StateInput from "src/components/ui/Form/StateInput/StateInput";
+import StateTextarea from "src/components/ui/Form/StateTextarea/StateTextarea";
 import styles from "./BlogCard.module.scss";
+import toast, { Toaster } from "react-hot-toast";
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import StateTextarea from "src/components/ui/Form/StateTextarea/StateTextarea";
-import LiveAuction from "src/components/layout/LiveAuction/LiveAuction";
 
 interface IBlogCard {
   id: number;
@@ -44,7 +44,7 @@ const BlogCard: FC = () => {
   ) => {
     const maskEmail = "*".repeat(5) + email.substring(5, email.length);
     if (commentary.length <= 20)
-      alert("Комментарий не может быть меньше 20 символов ");
+      toast.error("Комментарий должен быть не менее 20 символов");
     else {
       const article = {
         nameUser: name,
@@ -58,6 +58,7 @@ const BlogCard: FC = () => {
         commentary: "",
       });
       // setShowForm(!showForm);
+      toast.success("Комментарий добавлен!");
     }
   };
   const { id } = useParams();
@@ -80,6 +81,9 @@ const BlogCard: FC = () => {
 
   return (
     <>
+      <div>
+        <Toaster />
+      </div>
       {blogPost && (
         <section className={styles.section}>
           <article className={styles.article}>

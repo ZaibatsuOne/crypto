@@ -31,7 +31,7 @@ const TodayPicks: FC = () => {
     <section className={styles.wrapper}>
       <header className={styles.header}>
         <Title title="Сегодняшние выборы" />
-        <ButtonMore link="/explore" />
+        <ButtonMore link="/marketplace" />
       </header>
       {isLoading ? (
         <section className={styles.section}>
