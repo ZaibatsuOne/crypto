@@ -1,7 +1,7 @@
 import styles from "./Likes.module.scss";
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, memo } from "react";
 
-const Likes: FC = () => {
+const Likes: FC = memo(() => {
   const [count, setCount] = useState<number>(0);
   const [increment, setIncrement] = useState<number>(1);
   const [liked, setLiked] = useState<boolean>(false);
@@ -43,6 +43,6 @@ const Likes: FC = () => {
       <span>{count}</span>
     </button>
   );
-};
+});
 
 export default Likes;

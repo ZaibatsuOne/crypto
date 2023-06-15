@@ -13,7 +13,12 @@
 .form {
   @apply flex flex-col gap-6;
 }
-
+.input {
+  @apply h-[66px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl;
+}
+.textarea {
+  @apply px-5 py-4 h-36 bg-footer  rounded-lg outline-none resize-none;
+}
 .button {
   @apply p-4 border-solid border-[1.5px] border-onSurface rounded-[56px];
 }

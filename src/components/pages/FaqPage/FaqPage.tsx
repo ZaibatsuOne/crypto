@@ -13,6 +13,7 @@ const FaqPage: FC = () => {
           часто задаваемые вопросы прямо здесь и сейчас.
         </p>
       </header>
+
       <section className={styles.list}>
         {faqList.map((item) => (
           <>

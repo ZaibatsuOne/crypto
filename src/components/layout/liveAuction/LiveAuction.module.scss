@@ -26,3 +26,6 @@
     transform: translateX(100%);
   }
 }
+.help {
+  @apply flex gap-4 pr-4;
+}

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { useForm } from "react-hook-form";
 
 interface IStateInputProps {
   name: string;
@@ -15,16 +16,22 @@ const StateInput: FC<IStateInputProps> = ({
   value,
   handleInput,
 }) => {
+  const {
+    register,
+    formState: { errors },
+  } = useForm();
+
   return (
-    <input
-      className="h-[66px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl"
-      name={name}
-      required
-      maxLength={maxLength}
-      placeholder={placeholder}
-      value={value}
-      onChange={handleInput}
-    />
+    <>
+      <input
+        className="h-[66px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl"
+        maxLength={maxLength}
+        placeholder={placeholder}
+        value={value}
+        onChange={handleInput}
+        {...(register("name"), { required: true })}
+      />
+    </>
   );
 };
 

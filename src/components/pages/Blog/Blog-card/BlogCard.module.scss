@@ -49,3 +49,6 @@
 .comments {
   @apply flex flex-col gap-2;
 }
+.input {
+  @apply h-[66px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl;
+}

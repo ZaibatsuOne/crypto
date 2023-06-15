@@ -9,7 +9,7 @@ type TypeUserNameProps = {
 const UserName: FC<TypeUserNameProps> = ({ userName, fontSize = "20px" }) => {
   return (
     <h6 style={{ fontSize: fontSize }} className={styles.name}>
-      {userName}
+      {userName + "    "}
     </h6>
   );
 };

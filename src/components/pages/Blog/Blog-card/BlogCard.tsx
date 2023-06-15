@@ -6,6 +6,7 @@ import StateTextarea from "src/components/ui/Form/StateTextarea/StateTextarea";
 import styles from "./BlogCard.module.scss";
 import toast, { Toaster } from "react-hot-toast";
 import { FC, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 interface IBlogCard {
@@ -61,6 +62,13 @@ const BlogCard: FC = () => {
       toast.success("Комментарий добавлен!");
     }
   };
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
   const { id } = useParams();
   useEffect(() => {
     const fetchBlog = async () => {
@@ -175,28 +183,8 @@ const BlogCard: FC = () => {
                 <form className={styles.form}>
                   <h4>Оставьте комментарий</h4>
                   <div className={styles.group}>
-                    <StateInput
-                      name="name"
-                      maxLength={20}
-                      placeholder="Ваше имя"
-                      value={formInput.name}
-                      handleInput={(
-                        e: React.ChangeEvent<HTMLInputElement>
-                      ): void =>
-                        setFormInput({ ...formInput, name: e.target.value })
-                      }
-                    />
-                    <StateInput
-                      name="email"
-                      maxLength={30}
-                      placeholder="Почта"
-                      value={formInput.email}
-                      handleInput={(
-                        e: React.ChangeEvent<HTMLInputElement>
-                      ): void =>
-                        setFormInput({ ...formInput, email: e.target.value })
-                      }
-                    />
+                    <input {...register("nickName")} className={styles.input} />
+                    <input {...register("email")} className={styles.input} />
                   </div>
                   <StateTextarea
                     name="message"
@@ -246,3 +234,28 @@ const BlogCard: FC = () => {
 };
 
 export default BlogCard;
+
+{
+  /* <StateInput
+name="name"
+maxLength={20}
+placeholder="Ваше имя"
+value={formInput.name}
+handleInput={(
+  e: React.ChangeEvent<HTMLInputElement>
+): void =>
+  setFormInput({ ...formInput, name: e.target.value })
+}
+/>
+<StateInput
+name="email"
+maxLength={30}
+placeholder="Почта"
+value={formInput.email}
+handleInput={(
+  e: React.ChangeEvent<HTMLInputElement>
+): void =>
+  setFormInput({ ...formInput, email: e.target.value })
+}
+/> */
+}

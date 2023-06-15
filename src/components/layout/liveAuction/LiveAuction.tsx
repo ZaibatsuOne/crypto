@@ -4,15 +4,17 @@ import Coutdown from "src/components/ui/coutdown/Coutdown";
 import NftItem from "src/components/nft/NftItem/NftItem";
 import styles from "./LiveAuction.module.scss";
 import Title from "src/components/ui/title/Title";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { FC, useEffect, useState } from "react";
 import { NftWithUser } from "src/ts/LiveAuction";
-import { RxDot } from "react-icons/rx";
 import Loading from "src/components/ui/Loading/Loading";
+import Marquee from "react-fast-marquee";
 
 const LiveAuction: FC = () => {
   const [auction, setAuction] = useState<NftWithUser[]>([]);
+  // Загрузка
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  // Подгрузка карточек
   useEffect(() => {
     const fetchAuction = async () => {
       const response = await axios.get<NftWithUser[]>(
@@ -26,36 +28,16 @@ const LiveAuction: FC = () => {
 
     fetchAuction();
   }, []);
-  const [transform, setTransform] = useState<number>(0);
-  const handleNext = (): void => {
-    let newTransform: number = transform + 1;
-    if (newTransform > 4) {
-      newTransform = 0;
-    }
-    setTransform(newTransform);
-  };
-  const handlePrev = (): void => {
-    let newTransform: number = transform - 1;
-    if (newTransform < 0) {
-      newTransform = 4;
-    }
-    setTransform(newTransform);
-  };
+
   return (
     <section className={styles.section}>
       <header className={styles.header}>
         <Title title="Аукцион" />
         <ButtonMore link="#" />
       </header>
-      <div className={styles.window}>
+      <Marquee>
         {isLoading ? (
-          <section
-            className={styles.liveAuction}
-            style={{
-              transition: "0.4s ease-in-out",
-              transform: `translateX(${-transform * 360}px)`,
-            }}
-          >
+          <section className={styles.help}>
             {auction.slice(0, 8).map((auctionItem) => (
               <div key={auctionItem.id}>
                 <NftItem
@@ -76,19 +58,7 @@ const LiveAuction: FC = () => {
         ) : (
           <Loading />
         )}
-      </div>
-      <div className={styles.buttons}>
-        <button onClick={handlePrev}>
-          <BsArrowLeft />
-        </button>
-        <RxDot />
-        <RxDot />
-        <RxDot />
-        <RxDot />
-        <button onClick={handleNext}>
-          <BsArrowRight />
-        </button>
-      </div>
+      </Marquee>
     </section>
   );
 };
