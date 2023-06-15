@@ -1,12 +1,9 @@
 import axios from "axios";
-import Button from "src/components/ui/Buttons/Button";
 import Review from "src/components/layout/Review/Review";
-import StateInput from "src/components/ui/Form/StateInput/StateInput";
-import StateTextarea from "src/components/ui/Form/StateTextarea/StateTextarea";
 import styles from "./BlogCard.module.scss";
 import toast, { Toaster } from "react-hot-toast";
 import { FC, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 interface IBlogCard {
@@ -16,58 +13,22 @@ interface IBlogCard {
   userName: string;
   excerpt: string;
 }
-type TypeForm = {
-  name: string;
+type TypeCommentary = {
+  nickName: string;
   email: string;
-  commentary: string;
-};
-type TypeComment = {
-  nameUser: string;
-  emailUser: string;
-  commentaryUser: string;
+  message: string;
 };
 const BlogCard: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [blogPost, setBlogPost] = useState<IBlogCard | null>(null);
-  const [showForm, setShowForm] = useState<boolean>(true);
-  const [formInput, setFormInput] = useState<TypeForm>({
-    name: "",
-    email: "",
-    commentary: "",
-  });
-
-  const { name, email, commentary }: TypeForm = formInput;
-  const [comment, setComment] = useState<TypeComment[]>([]);
-  const handleCommentary = (
-    name: string,
-    email: string,
-    commentary: string
-  ) => {
-    const maskEmail = "*".repeat(5) + email.substring(5, email.length);
-    if (commentary.length <= 20)
-      toast.error("Комментарий должен быть не менее 20 символов");
-    else {
-      const article = {
-        nameUser: name,
-        emailUser: maskEmail,
-        commentaryUser: commentary,
-      };
-      setComment([...comment, article]);
-      setFormInput({
-        name: "",
-        email: "",
-        commentary: "",
-      });
-      // setShowForm(!showForm);
-      toast.success("Комментарий добавлен!");
-    }
-  };
+  const [comment, setComment] = useState<TypeCommentary[]>([]);
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+    reset,
+  } = useForm<TypeCommentary>();
 
   const { id } = useParams();
   useEffect(() => {
@@ -87,11 +48,24 @@ const BlogCard: FC = () => {
     fetchBlog();
   }, []);
 
+  const onSubmit: SubmitHandler<TypeCommentary> = ({
+    nickName,
+    email,
+    message,
+  }) => {
+    const review = {
+      nickName: nickName,
+      email: email,
+      message: message,
+    };
+    setComment([...comment, review]);
+    reset();
+    toast.success("Комментарий оставлен");
+  };
+
   return (
     <>
-      <div>
-        <Toaster />
-      </div>
+      <Toaster />
       {blogPost && (
         <section className={styles.section}>
           <article className={styles.article}>
@@ -179,46 +153,46 @@ const BlogCard: FC = () => {
               <div className={styles.line} />
             </main>
             <footer>
-              {showForm ? (
-                <form className={styles.form}>
-                  <h4>Оставьте комментарий</h4>
-                  <div className={styles.group}>
-                    <input {...register("nickName")} className={styles.input} />
-                    <input {...register("email")} className={styles.input} />
-                  </div>
-                  <StateTextarea
-                    name="message"
-                    placeholder="Комментарий"
-                    value={formInput.commentary}
-                    handleInput={(
-                      e: React.ChangeEvent<HTMLTextAreaElement>
-                    ): void =>
-                      setFormInput({ ...formInput, commentary: e.target.value })
-                    }
+              <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                <h4>Оставьте комментарий</h4>
+                <div className={styles.group}>
+                  <input
+                    {...register("nickName", {
+                      required: true,
+                    })}
+                    className={styles.input}
+                    placeholder="Никнейм"
                   />
-                  <button
-                    onClick={(): void =>
-                      handleCommentary(name, email, commentary)
-                    }
-                  >
-                    <Button
-                      icon={null}
-                      text="Оставить комментарий"
-                      background="#5142FC"
-                    />
-                  </button>
-                </form>
-              ) : null}
+                  <input
+                    {...register("email", {
+                      required: true,
+                    })}
+                    className={styles.input}
+                    placeholder="E-mail"
+                  />
+                </div>
+                <textarea
+                  {...register("message", { required: true })}
+                  className={styles.textarea}
+                  placeholder="Ваше сообщение"
+                />
+                <input type="submit" />
+              </form>
+              <div style={{ display: "none" }}>
+                {errors.nickName &&
+                  toast.error("Поле «Никнейм» обязательно к заполнению")}
+                {errors.email &&
+                  toast.error("Поле «E-mail» обязательно к заполнению")}
+                {errors.message &&
+                  toast.error("Поле «Комментарий» обязательно к заполнению")}
+              </div>
             </footer>
             <section className={styles.comments}>
               {comment.map((item) => (
-                <article
-                  key={item.commentaryUser}
-                  className={styles.commentary}
-                >
+                <article className={styles.commentary}>
                   <Review
-                    nameUser={item.nameUser}
-                    commentaryUser={item.commentaryUser}
+                    nameUser={item.nickName}
+                    commentaryUser={item.message}
                   />
                 </article>
               ))}
@@ -234,28 +208,3 @@ const BlogCard: FC = () => {
 };
 
 export default BlogCard;
-
-{
-  /* <StateInput
-name="name"
-maxLength={20}
-placeholder="Ваше имя"
-value={formInput.name}
-handleInput={(
-  e: React.ChangeEvent<HTMLInputElement>
-): void =>
-  setFormInput({ ...formInput, name: e.target.value })
-}
-/>
-<StateInput
-name="email"
-maxLength={30}
-placeholder="Почта"
-value={formInput.email}
-handleInput={(
-  e: React.ChangeEvent<HTMLInputElement>
-): void =>
-  setFormInput({ ...formInput, email: e.target.value })
-}
-/> */
-}
