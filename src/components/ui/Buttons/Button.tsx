@@ -1,9 +1,18 @@
-import ButtonModel from "src/models/ButtonModel";
 import styles from "./Button.module.scss";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-const Button: FC<ButtonModel> = ({
+type TypeButton = {
+  text: string;
+  icon: React.ReactNode | null;
+  link?: string;
+  background?: string;
+  borderColor?: string;
+  color?: string;
+  paddingX?: string;
+};
+
+const Button: FC<TypeButton> = ({
   text,
   icon,
   link = "#",

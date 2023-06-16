@@ -70,7 +70,7 @@ const HeaderNav: FC = () => {
         </li>
       </ol>
       <span className={styles.wrapper}>
-        <Button text="Подключить кошелек" icon={<BiWallet />} />
+        <Button text="Подключить кошелек" icon={<BiWallet />} link="/connect" />
       </span>
     </nav>
   );

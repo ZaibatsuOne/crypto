@@ -8,6 +8,8 @@ import FaqPage from "./components/pages/FaqPage/FaqPage";
 import ContactPage from "./components/pages/Contact/ContactPage";
 import BlogPage from "./components/pages/Blog/BlogPage";
 import BlogCard from "./components/pages/Blog/Blog-card/BlogCard";
+import ConnectWalletPage from "./components/pages/ConnectWallet/ConnectWalletPage";
+import NotFoundPage from "./components/pages/NotFound/NotFoundPage";
 function App() {
   return (
     <Routes>
@@ -19,6 +21,8 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogCard />} />
+        <Route path="/connect" element={<ConnectWalletPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
