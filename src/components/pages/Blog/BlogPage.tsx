@@ -1,11 +1,10 @@
+import axios from "axios";
 import BlogItem from "./Blog-item/BlogItem";
 import Button from "src/components/ui/Buttons/Button";
 import styles from "./BlogPage.module.scss";
-import { FC, useState, useEffect } from "react";
-import axios from "axios";
-import Loading from "src/components/ui/Loading/Loading";
+import { FC, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import LiveAuction from "src/components/layout/LiveAuction/LiveAuction";
+
 interface IBlogPage {
   id: number;
   title: string;

@@ -23,7 +23,7 @@ const HelpPage: FC = () => {
           placeholder="Введите ваш вопрос здесь"
           icon={<BiSearchAlt />}
           width="600px"
-          handleInp={handleInp}
+          onChange={handleInp}
         />
         <p className={styles.subtitle}>
           Или выберите категорию, чтобы быстро найти необходимую помощь

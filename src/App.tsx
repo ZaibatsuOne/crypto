@@ -10,11 +10,13 @@ import BlogPage from "./components/pages/Blog/BlogPage";
 import BlogCard from "./components/pages/Blog/Blog-card/BlogCard";
 import ConnectWalletPage from "./components/pages/ConnectWallet/ConnectWalletPage";
 import NotFoundPage from "./components/pages/NotFound/NotFoundPage";
+import ActivityPage from "./components/pages/Activity/ActivityPage";
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="/marketplace" element={<ExplorePage />} />
         <Route path="/help" element={<HelpPage />} />
         <Route path="/faq" element={<FaqPage />} />
@@ -22,7 +24,7 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<BlogCard />} />
         <Route path="/connect" element={<ConnectWalletPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/activity" element={<ActivityPage />} />
       </Route>
     </Routes>
   );

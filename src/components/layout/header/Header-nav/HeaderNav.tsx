@@ -45,6 +45,9 @@ const HeaderNav: FC = () => {
             <NavLink to="/blog">
               <li className={styles.dropdown__item}>Блог</li>
             </NavLink>
+            <NavLink to="/activity">
+              <li className={styles.dropdown__item}>Активность</li>
+            </NavLink>
           </ul>
           {active.community ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
         </li>
