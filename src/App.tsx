@@ -11,6 +11,7 @@ import BlogCard from "./components/pages/Blog/Blog-card/BlogCard";
 import ConnectWalletPage from "./components/pages/ConnectWallet/ConnectWalletPage";
 import NotFoundPage from "./components/pages/NotFound/NotFoundPage";
 import ActivityPage from "./components/pages/Activity/ActivityPage";
+import AuthorPage from "./components/pages/Author/AuthorPage";
 function App() {
   return (
     <Routes>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogCard />} />
         <Route path="/connect" element={<ConnectWalletPage />} />
         <Route path="/activity" element={<ActivityPage />} />
+        <Route path="/author/:id" element={<AuthorPage />} />
       </Route>
     </Routes>
   );

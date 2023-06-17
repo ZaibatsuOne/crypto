@@ -17,6 +17,7 @@ const UserAvatar: FC<TypeUserAvatarProps> = ({
 }) => {
   return (
     <img
+      className="object-cover"
       src={userAvatar}
       alt={userName}
       style={{ width: width, height: height, borderRadius: borderRadius }}

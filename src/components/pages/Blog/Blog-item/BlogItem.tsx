@@ -5,6 +5,7 @@ import Button from "src/components/ui/Buttons/Button";
 import { motion } from "framer-motion";
 
 interface IBlogItemProps {
+  id: number;
   title: string;
   excerpt: string;
   thumbail: string;
@@ -14,6 +15,7 @@ interface IBlogItemProps {
 }
 
 const BlogItem: FC<IBlogItemProps> = ({
+  id,
   title,
   excerpt,
   thumbail,
@@ -33,7 +35,12 @@ const BlogItem: FC<IBlogItemProps> = ({
       </div>
       <main className={styles.main}>
         <header className={styles.header}>
-          <User userName={userName} userAvatar={userAvatar} userType="Создал" />
+          <User
+            userName={userName}
+            userAvatar={userAvatar}
+            userType="Создал"
+            id={id}
+          />
           <span className={styles.date}>Feb 19, 2021</span>
         </header>
         <h5 className={styles.title}>{title}</h5>

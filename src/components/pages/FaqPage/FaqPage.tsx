@@ -17,11 +17,7 @@ const FaqPage: FC = () => {
       <section className={styles.list}>
         {faqList.map((item) => (
           <article key={item.id}>
-            <FaqItem
-              question={item.question}
-              answer={item.asnwer}
-              id={item.id}
-            />
+            <FaqItem question={item.question} answer={item.asnwer} />
           </article>
         ))}
       </section>

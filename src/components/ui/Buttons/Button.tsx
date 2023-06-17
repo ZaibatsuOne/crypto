@@ -10,6 +10,7 @@ type TypeButton = {
   borderColor?: string;
   color?: string;
   paddingX?: string;
+  paddingY?: string;
 };
 
 const Button: FC<TypeButton> = ({
@@ -20,6 +21,7 @@ const Button: FC<TypeButton> = ({
   borderColor = "#5142FC",
   color = "#FFF",
   paddingX = "28px",
+  paddingY = "16px",
 }) => {
   return (
     <NavLink
@@ -28,6 +30,8 @@ const Button: FC<TypeButton> = ({
         background: background,
         borderColor: borderColor,
         color: color,
+        paddingTop: paddingY,
+        paddingBottom: paddingY,
         paddingLeft: paddingX,
         paddingRight: paddingX,
       }}

@@ -1,0 +1,36 @@
+.profile {
+  @apply flex flex-col gap-[60px];
+}
+.cover {
+  @apply relative bg-nftBg h-[354px] w-full rounded-xl;
+}
+.background {
+  @apply w-full  h-[280px] object-cover rounded-t-xl rounded-b-none brightness-50;
+}
+.avatar {
+  @apply absolute bottom-10 left-10;
+}
+.wrapper {
+  @apply absolute flex flex-col gap-2 top-[60px] left-[354px] max-w-[466px];
+}
+.quote {
+  @apply text-caption-1 font-light max-h-20 text-ellipsis line-clamp-4 overflow-hidden;
+}
+.aside {
+  @apply absolute flex gap-8 items-center right-10 top-[60px];
+}
+.social {
+  @apply flex gap-3;
+}
+.item {
+  @apply flex p-2 w-10 h-10 items-center  bg-onSurface;
+}
+.menu {
+  @apply absolute right-[100px] py-5 flex gap-[85px] uppercase;
+}
+.list {
+  @apply flex gap-[30px] flex-wrap;
+}
+.button {
+  @apply flex mx-auto;
+}

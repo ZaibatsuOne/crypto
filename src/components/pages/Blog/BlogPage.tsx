@@ -72,6 +72,7 @@ const BlogPage: FC = () => {
                     userAvatar={item.userAvatar}
                     userName={item.userName}
                     link={`/blog/${item.id}`}
+                    id={item.id}
                   />
                 </NavLink>
               </motion.article>

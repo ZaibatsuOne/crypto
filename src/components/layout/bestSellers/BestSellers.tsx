@@ -5,6 +5,7 @@ import UserName from "src/components/user/UserName";
 import { bestSellers } from "src/ts/BestSellers";
 import { FC } from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 const BestSellers: FC = () => {
   const pVariants = {
@@ -36,19 +37,21 @@ const BestSellers: FC = () => {
             className={styles.item}
             key={bestSellersItem.userName}
           >
-            <UserAvatar
-              userAvatar={bestSellersItem.userAvatar}
-              userName={bestSellersItem.userName}
-              width="120px"
-              height="120px"
-              borderRadius="40px"
-            />
-            <footer className={styles.footer}>
-              <UserName userName={bestSellersItem.userName} fontSize="18px" />
-              <span className={styles.amount}>
-                {bestSellersItem.amount} ETH
-              </span>
-            </footer>
+            <NavLink to={`/author/${bestSellersItem.id}`}>
+              <UserAvatar
+                userAvatar={bestSellersItem.userAvatar}
+                userName={bestSellersItem.userName}
+                width="120px"
+                height="120px"
+                borderRadius="40px"
+              />
+              <footer className={styles.footer}>
+                <UserName userName={bestSellersItem.userName} fontSize="18px" />
+                <span className={styles.amount}>
+                  {bestSellersItem.amount} ETH
+                </span>
+              </footer>
+            </NavLink>
           </motion.li>
         ))}
       </ul>

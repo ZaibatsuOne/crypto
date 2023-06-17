@@ -1,5 +1,5 @@
 .button {
-  @apply flex items-center gap-2 px-4 py-3 border-[1px] rounded-[30px] justify-center;
+  @apply flex items-center gap-2 px-4  border-[1px] rounded-[30px] justify-center;
 
   &More {
     @apply text-sub-heading-2 border-solid border-b-2 border-primary;
