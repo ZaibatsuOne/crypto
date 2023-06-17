@@ -3,6 +3,8 @@ import styles from "./ConnectWalletPage.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC } from "react";
 import { walletList } from "src/ts/ConnectWallet";
+import { motion } from "framer-motion";
+import { pVariants } from "src/animation/variants";
 
 const ConnectWalletPage: FC = () => {
   return (
@@ -15,14 +17,22 @@ const ConnectWalletPage: FC = () => {
         </p>
       </header>
       <section className={styles.wrapper}>
-        {walletList.map((item) => (
-          <section className={styles.category} key={item.id}>
+        {walletList.map((item, i) => (
+          <motion.section
+            animate={"visible"}
+            initial={"hidden"}
+            custom={i}
+            variants={pVariants}
+            transition={{ duration: 1.2 }}
+            className={styles.category}
+            key={item.id}
+          >
             <ConnectWalletItem
               img={item.img}
               title={item.title}
               subtitle={item.subtitle}
             />
-          </section>
+          </motion.section>
         ))}
       </section>
     </section>

@@ -4,11 +4,11 @@
 .item {
   @apply flex flex-col gap-6 p-6 bg-nftBg w-[450px]  rounded-xl;
 
-  &:hover {
-    .thumbnail {
-      @apply scale-125 duration-1000 ease-in-out;
-    }
-  }
+  // &:hover {
+  //   .thumbnail {
+  //     @apply scale-125 duration-1000 ease-in-out;
+  //   }
+  // }
 }
 .window {
   @apply overflow-hidden w-[402px] h-[280px] rounded-xl cursor-pointer;

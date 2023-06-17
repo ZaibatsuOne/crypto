@@ -24,8 +24,8 @@ const Logo: FC = () => {
             y2="31.3469"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#E250E5" />
-            <stop offset="1" stop-color="#4B50E6" />
+            <stop stopColor="#E250E5" />
+            <stop offset="1" stopColor="#4B50E6" />
           </linearGradient>
         </defs>
       </svg>

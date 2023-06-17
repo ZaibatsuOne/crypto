@@ -1,7 +1,7 @@
 import FaqItem from "./Faq-Item/FaqItem";
 import styles from "./FaqPage.module.scss";
 import { faqList } from "src/ts/FAQ";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 const FaqPage: FC = () => {
   return (
@@ -16,14 +16,13 @@ const FaqPage: FC = () => {
 
       <section className={styles.list}>
         {faqList.map((item) => (
-          <>
+          <article key={item.id}>
             <FaqItem
               question={item.question}
               answer={item.asnwer}
               id={item.id}
-              key={item.id}
             />
-          </>
+          </article>
         ))}
       </section>
     </section>

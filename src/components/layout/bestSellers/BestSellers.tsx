@@ -4,8 +4,22 @@ import UserAvatar from "src/components/user/UserAvatar";
 import UserName from "src/components/user/UserName";
 import { bestSellers } from "src/ts/BestSellers";
 import { FC } from "react";
+import { motion } from "framer-motion";
 
 const BestSellers: FC = () => {
+  const pVariants = {
+    visible: (i: number) => ({
+      opacity: 1,
+      duration: {
+        delay: i * 0.5,
+      },
+      y: 0,
+    }),
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+  };
   return (
     <section className={styles.wrapper}>
       <header>
@@ -13,7 +27,15 @@ const BestSellers: FC = () => {
       </header>
       <ul className={styles.list}>
         {bestSellers.map((bestSellersItem) => (
-          <li className={styles.item} key={bestSellersItem.userName}>
+          <motion.li
+            animate={"visible"}
+            initial={"hidden"}
+            variants={pVariants}
+            transition={{ duration: 0.3 }}
+            whileHover={{ y: -10 }}
+            className={styles.item}
+            key={bestSellersItem.userName}
+          >
             <UserAvatar
               userAvatar={bestSellersItem.userAvatar}
               userName={bestSellersItem.userName}
@@ -27,7 +49,7 @@ const BestSellers: FC = () => {
                 {bestSellersItem.amount} ETH
               </span>
             </footer>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </section>

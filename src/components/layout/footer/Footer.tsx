@@ -21,30 +21,24 @@ const Footer: FC = () => {
           <ul className={styles.list}>
             <p className={styles.title}>Мой аккаунт</p>
             {myAccout.map((myAccoutItem) => (
-              <NavLink to={myAccoutItem.link}>
-                <li className={styles.item} key={myAccoutItem.subtitle}>
-                  {myAccoutItem.subtitle}
-                </li>
+              <NavLink to={myAccoutItem.link} key={myAccoutItem.subtitle}>
+                <li className={styles.item}>{myAccoutItem.subtitle}</li>
               </NavLink>
             ))}
           </ul>
           <ul className={styles.list}>
             <p className={styles.title}>Ресурсы</p>
             {resources.map((resourcesItem) => (
-              <NavLink to={resourcesItem.link}>
-                <li className={styles.item} key={resourcesItem.subtitle}>
-                  {resourcesItem.subtitle}
-                </li>
+              <NavLink to={resourcesItem.link} key={resourcesItem.subtitle}>
+                <li className={styles.item}>{resourcesItem.subtitle}</li>
               </NavLink>
             ))}
           </ul>
           <ul className={styles.list}>
             <p className={styles.title}>Компания</p>
             {company.map((companyItem) => (
-              <NavLink to={companyItem.link}>
-                <li className={styles.item} key={companyItem.subtitle}>
-                  {companyItem.subtitle}
-                </li>
+              <NavLink to={companyItem.link} key={companyItem.subtitle}>
+                <li className={styles.item}>{companyItem.subtitle}</li>
               </NavLink>
             ))}
           </ul>

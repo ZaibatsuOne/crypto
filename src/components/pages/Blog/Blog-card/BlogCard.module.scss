@@ -55,3 +55,6 @@
 .textarea {
   @apply px-5 py-4 h-36 bg-footer  rounded-lg outline-none resize-none;
 }
+.button {
+  @apply flex items-center gap-2 px-4 py-3 border-[1px] rounded-[30px] justify-center cursor-pointer;
+}

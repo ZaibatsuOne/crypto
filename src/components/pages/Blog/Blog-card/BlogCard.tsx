@@ -176,7 +176,11 @@ const BlogCard: FC = () => {
                   className={styles.textarea}
                   placeholder="Ваше сообщение"
                 />
-                <input type="submit" />
+                <input
+                  type="submit"
+                  value="Оставить комментарий"
+                  className={styles.button}
+                />
               </form>
               <div style={{ display: "none" }}>
                 {errors.nickName &&

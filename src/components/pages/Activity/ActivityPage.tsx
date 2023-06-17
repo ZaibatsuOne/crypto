@@ -16,6 +16,16 @@ const ActivityPage: FC = () => {
     setSearch(e.target.value);
   };
 
+  const pVariants = {
+    visible: (i: number) => ({
+      opacity: 1,
+      transistion: {
+        delay: i * 0.5,
+      },
+    }),
+    hidden: { opacity: 0 },
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
@@ -26,13 +36,20 @@ const ActivityPage: FC = () => {
             )
             .slice(0, maxCards)
             .map((item) => (
-              <article className={styles.item} key={item.id}>
+              <motion.article
+                initial={"hidden"}
+                animate={"visible"}
+                transition={{ duration: 1.5 }}
+                variants={pVariants}
+                className={styles.item}
+                key={item.id}
+              >
                 <ActivityItem
                   title={item.title}
                   img={item.img}
                   author={item.author}
                 />
-              </article>
+              </motion.article>
             ))}
         </section>
         <button
@@ -53,7 +70,7 @@ const ActivityPage: FC = () => {
           <h5>Фильтр</h5>
           <ol className={styles.filterList}>
             {filterList.map((item) => (
-              <li className={styles.filterItem}>
+              <li className={styles.filterItem} key={item.title}>
                 <FilterItem icon={item.icon} title={item.title} />
               </li>
             ))}

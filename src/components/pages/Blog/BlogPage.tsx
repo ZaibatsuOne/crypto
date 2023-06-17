@@ -4,6 +4,7 @@ import Button from "src/components/ui/Buttons/Button";
 import styles from "./BlogPage.module.scss";
 import { FC, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface IBlogPage {
   id: number;
@@ -19,6 +20,20 @@ const BlogPage: FC = () => {
   const [blogItem, setBlogItem] = useState<IBlogPage[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const pVariants = {
+    visible: (i: number) => ({
+      opacity: 1,
+      duration: {
+        delay: i * 0.5,
+      },
+      y: 0,
+    }),
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+  };
+
   useEffect(() => {
     const fetchBlogItem = async () => {
       try {
@@ -28,7 +43,7 @@ const BlogPage: FC = () => {
         setTimeout((): void => {
           setBlogItem(response.data);
           setIsLoading(!isLoading);
-        }, 1000);
+        }, 500);
       } catch (error) {
         alert("Возникла ошибка");
       }
@@ -42,7 +57,13 @@ const BlogPage: FC = () => {
         <section className={styles.section}>
           <section className={styles.gridlist}>
             {blogItem.slice(0, maxCards).map((item) => (
-              <article key={item.id}>
+              <motion.article
+                animate={"visible"}
+                initial={"hidden"}
+                variants={pVariants}
+                transition={{ duration: 2 }}
+                key={item.id}
+              >
                 <NavLink to={`/blog/${item.id}`} className={styles.item}>
                   <BlogItem
                     title={item.title}
@@ -50,9 +71,10 @@ const BlogPage: FC = () => {
                     thumbail={item.img}
                     userAvatar={item.userAvatar}
                     userName={item.userName}
+                    link={`/blog/${item.id}`}
                   />
                 </NavLink>
-              </article>
+              </motion.article>
             ))}
           </section>
 

@@ -7,6 +7,7 @@ import Sort from "src/components/ui/Sort/Sort";
 import styles from "./ExplorePage.module.scss";
 import { FC, useEffect, useState } from "react";
 import { NftWithUser } from "src/ts/LiveAuction";
+import { motion } from "framer-motion";
 
 const ExplorePage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
@@ -48,7 +49,11 @@ const ExplorePage: FC = () => {
             )
             .slice(0, maxCards)
             .map((item) => (
-              <article key={item.id}>
+              <motion.article
+                transition={{ duration: 0.2 }}
+                whileHover={{ y: -20 }}
+                key={item.id}
+              >
                 <NftItem
                   id={item.id}
                   img={item.img}
@@ -60,7 +65,7 @@ const ExplorePage: FC = () => {
                   price={item.price}
                   category={item.category}
                 />
-              </article>
+              </motion.article>
             ))}
         </section>
       ) : (

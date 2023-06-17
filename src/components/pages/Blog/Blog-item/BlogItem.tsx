@@ -2,6 +2,7 @@ import User from "src/components/user/User";
 import styles from "../BlogPage.module.scss";
 import { FC } from "react";
 import Button from "src/components/ui/Buttons/Button";
+import { motion } from "framer-motion";
 
 interface IBlogItemProps {
   title: string;
@@ -9,6 +10,7 @@ interface IBlogItemProps {
   thumbail: string;
   userAvatar: string;
   userName: string;
+  link: string;
 }
 
 const BlogItem: FC<IBlogItemProps> = ({
@@ -17,11 +19,17 @@ const BlogItem: FC<IBlogItemProps> = ({
   thumbail,
   userAvatar,
   userName,
+  link,
 }) => {
   return (
     <>
       <div className={styles.window}>
-        <img src={thumbail} alt={title} className={styles.thumbnail} />
+        <motion.img
+          src={thumbail}
+          alt={title}
+          className={styles.thumbnail}
+          whileHover={{ scale: 1.1 }}
+        />
       </div>
       <main className={styles.main}>
         <header className={styles.header}>
@@ -32,7 +40,13 @@ const BlogItem: FC<IBlogItemProps> = ({
         <p className={styles.excerpt}>{excerpt}</p>
       </main>
       <footer>
-        <Button text="Читать" icon={null} borderColor="#FFF" paddingX="36px" />
+        <Button
+          text="Читать"
+          icon={null}
+          borderColor="#FFF"
+          paddingX="36px"
+          link={link}
+        />
       </footer>
     </>
   );
