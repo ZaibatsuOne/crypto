@@ -1,10 +1,12 @@
 import axios from "axios";
+import RecentPost from "../Recent-post/RecentPost";
 import Review from "src/components/layout/Review/Review";
 import styles from "./BlogCard.module.scss";
 import toast, { Toaster } from "react-hot-toast";
 import { FC, useEffect, useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { NavLink, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface IBlogCard {
   id: number;
@@ -13,6 +15,12 @@ interface IBlogCard {
   userName: string;
   excerpt: string;
 }
+type RecentPost = {
+  id: number;
+  title: string;
+  excerpt: string;
+  img: string;
+};
 type TypeCommentary = {
   nickName: string;
   email: string;
@@ -22,6 +30,7 @@ const BlogCard: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [blogPost, setBlogPost] = useState<IBlogCard | null>(null);
   const [comment, setComment] = useState<TypeCommentary[]>([]);
+  const [recentPost, setRecentPost] = useState<RecentPost[]>([]);
 
   const {
     register,
@@ -40,13 +49,23 @@ const BlogCard: FC = () => {
         setTimeout(() => {
           setBlogPost(response.data[0]);
           setIsLoading(!isLoading);
-        }, 500);
+        }, 100);
       } catch (error) {
         alert("Возникла ошибка");
       }
     };
     fetchBlog();
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get<RecentPost[]>(
+        "https://6454dae6a74f994b334ad4fb.mockapi.io/Blog?sortBy=id&order=desc"
+      );
+      setRecentPost(response.data);
+    };
+    fetchData();
+  }, [setRecentPost]);
 
   const onSubmit: SubmitHandler<TypeCommentary> = ({
     nickName,
@@ -203,7 +222,23 @@ const BlogCard: FC = () => {
             </section>
           </article>
           <aside>
-            <h5>Последние посты</h5>
+            <section className="flex flex-col gap-4">
+              <h5 className="pb-1">Последние посты</h5>
+              {recentPost.slice(0, 4).map((item) => (
+                <motion.article key={item.id} whileHover={{ scale: 1.1 }}>
+                  <NavLink
+                    to={`/blog/${item.id}`}
+                    className={styles.recentPost}
+                  >
+                    <RecentPost
+                      title={item.title}
+                      excerpt={item.excerpt}
+                      img={item.img}
+                    />
+                  </NavLink>
+                </motion.article>
+              ))}
+            </section>
           </aside>
         </section>
       )}

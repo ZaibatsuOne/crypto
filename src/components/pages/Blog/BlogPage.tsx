@@ -38,7 +38,7 @@ const BlogPage: FC = () => {
     const fetchBlogItem = async () => {
       try {
         const response = await axios.get<IBlogPage[]>(
-          "https://6454dae6a74f994b334ad4fb.mockapi.io/Blog"
+          "https://6454dae6a74f994b334ad4fb.mockapi.io/Blog?sortBy=id&order=desc"
         );
         setTimeout((): void => {
           setBlogItem(response.data);

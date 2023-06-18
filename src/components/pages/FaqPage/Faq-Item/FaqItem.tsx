@@ -1,18 +1,17 @@
 import styles from "../FaqPage.module.scss";
 import { FC, useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { pVariants } from "src/animation/variants";
 
-interface IFaqItemProps {
+type FaqItemProps = {
   question: string;
   answer: string;
-}
+};
 
-const FaqItem: FC<IFaqItemProps> = ({ question, answer }) => {
+const FaqItem: FC<FaqItemProps> = ({ question, answer }) => {
   const [openAnswer, setOpenAnswer] = useState<boolean>(false);
+
   return (
-    <motion.article
+    <article
       className={styles.item}
       onClick={(): void => setOpenAnswer(!openAnswer)}
     >
@@ -20,8 +19,8 @@ const FaqItem: FC<IFaqItemProps> = ({ question, answer }) => {
         <h6 className={styles.question}>{question}</h6>
         {openAnswer ? <FaMinus /> : <FaPlus />}
       </header>
-      {openAnswer ? <p className={styles.answer}>{answer}</p> : null}
-    </motion.article>
+      {openAnswer ? <p className={styles.answer}>{answer}</p> : ""}
+    </article>
   );
 };
 

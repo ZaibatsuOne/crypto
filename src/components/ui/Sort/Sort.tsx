@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 type Sort = {
   name: string;
-  sortProperty: string | number;
+  sortProperty: string;
 };
 type SortProps = {
   sort: string;
   setSort: React.Dispatch<
     React.SetStateAction<{
       name: string;
-      sortProperty: number;
+      sortProperty: string;
     }>
   >;
 };
@@ -20,12 +20,16 @@ const Sort: FC<SortProps> = ({ sort, setSort }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const sortList: Sort[] = [
     {
-      sortProperty: 0,
+      sortProperty: "id",
       name: "Все",
     },
     {
       sortProperty: "price",
-      name: "По цене",
+      name: "По возрастанию",
+    },
+    {
+      sortProperty: "-price",
+      name: "По убыванию",
     },
     {
       sortProperty: "title",

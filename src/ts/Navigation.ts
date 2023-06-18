@@ -15,31 +15,52 @@ type TypeNavigation = {
   subtitle?: TypeDropdownList;
 };
 
-export const navList: TypeNavigation[] = [
-  {
-    title: "Главная",
-  },
+export const navNFT = [
   {
     title: "NFT",
+    dropdown: [
+      {
+        subtitle: "Маркетплейс",
+        link: "/faq",
+      },
+      {
+        subtitle: "Аукцион",
+        link: "/auction",
+      },
+    ],
   },
-  {
-    title: "Активность",
-  },
+];
+export const navCommunity = [
   {
     title: "Коммьюнити",
-    subtitle: {
-      dropItemOne: "Блог",
-    },
+    dropdown: [
+      {
+        subtitle: "Блог",
+        link: "/blog",
+      },
+      {
+        subtitle: "Аукцион",
+        link: "/auction",
+      },
+    ],
   },
-  {
-    title: "Страницы",
-  },
+];
+export const navContacs = [
   {
     title: "Контакты",
-    subtitle: {
-      dropItemOne: "FAQ",
-      dropItemTwo: "Центр помощи",
-      dropItemThree: "Связаться",
-    },
+    dropdown: [
+      {
+        subtitle: "FAQ",
+        link: "/faq",
+      },
+      {
+        subtitle: "Центр помощи",
+        link: "/help",
+      },
+      {
+        subtitle: "Связаться",
+        link: "/contact",
+      },
+    ],
   },
 ];

@@ -2,7 +2,7 @@
   @apply flex flex-col gap-10;
 }
 .header {
-  @apply flex justify-between items-center;
+  @apply relative flex justify-between items-center;
 }
 .main {
   @apply grid grid-cols-4 gap-[30px];

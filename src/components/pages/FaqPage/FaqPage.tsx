@@ -1,7 +1,8 @@
 import FaqItem from "./Faq-Item/FaqItem";
 import styles from "./FaqPage.module.scss";
 import { faqList } from "src/ts/FAQ";
-import { FC, useState } from "react";
+import { FC } from "react";
+import { motion } from "framer-motion";
 
 const FaqPage: FC = () => {
   return (
@@ -16,9 +17,9 @@ const FaqPage: FC = () => {
 
       <section className={styles.list}>
         {faqList.map((item) => (
-          <article key={item.id}>
+          <motion.article key={item.id} whileTap={{ scale: 1.02 }}>
             <FaqItem question={item.question} answer={item.asnwer} />
-          </article>
+          </motion.article>
         ))}
       </section>
     </section>

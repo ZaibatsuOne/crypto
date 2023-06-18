@@ -23,7 +23,7 @@
   @apply flex flex-col gap-8;
 }
 .article {
-  @apply flex flex-col gap-8 max-w-[990px];
+  @apply flex flex-col gap-8 max-w-[987px];
 }
 .main {
   @apply flex flex-col gap-6;
@@ -57,4 +57,7 @@
 }
 .button {
   @apply flex items-center gap-2 px-4 py-3 border-[1px] rounded-[30px] justify-center cursor-pointer;
+}
+.recentPost {
+  @apply flex gap-[10px] p-2 bg-nftBg rounded-md w-[360px];
 }
