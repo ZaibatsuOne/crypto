@@ -23,14 +23,21 @@ const Marketplace: FC = () => {
   });
   const [category, setCategory] = useState<number>(0);
 
-  const categoryUrl = category > 0 ? `category=${category}` : "";
-  const orderUrl = sort.sortProperty.includes("-") ? "desc" : "asc";
-  const sortBy = sort.sortProperty.replace("-", "");
+  const categoryUrl: string = category > 0 ? `category=${category}` : "";
+  const orderUrl: "desc" | "asc" = sort.sortProperty.includes("-")
+    ? "desc"
+    : "asc";
+  const sortBy: string = sort.sortProperty.replace("-", "");
+  const searchUrl: string = search ? `&search=${search}` : "";
+
+  useEffect(() => {
+    window.scroll(0, 300);
+  }, []);
 
   useEffect(() => {
     const fetchNft = async () => {
       const response = await axios.get<NftWithUser[]>(
-        `https://6454dae6a74f994b334ad4fb.mockapi.io/NFT?${categoryUrl}&sortBy=${sortBy}&order=${orderUrl}`
+        `https://6454dae6a74f994b334ad4fb.mockapi.io/NFT?${categoryUrl}${searchUrl}&sortBy=${sortBy}&order=${orderUrl}`
       );
       setTimeout(() => {
         setNftCard(response.data);
@@ -38,7 +45,6 @@ const Marketplace: FC = () => {
       }, 100);
     };
     fetchNft();
-    window.scroll(0, 300);
   }, [category, sort, setNftCard]);
 
   return (
@@ -58,7 +64,9 @@ const Marketplace: FC = () => {
       {/* {isLoading ? ( */}
       <section className={styles.main}>
         {nftCard
-          .filter((item) => item.title.includes(search))
+          // .filter((item) =>
+          //   item.title.toLowerCase().includes(search.toLowerCase())
+          // )
           .slice(0, maxCards)
           .map((item) => (
             <motion.article

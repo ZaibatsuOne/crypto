@@ -6,6 +6,7 @@ interface IInputProps {
   icon: React.ComponentType<any> | any;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   width?: string;
+  onClick?: any;
 }
 
 const Input: FC<IInputProps> = ({
@@ -13,6 +14,7 @@ const Input: FC<IInputProps> = ({
   placeholder,
   icon,
   width = "255px",
+  onClick,
 }) => {
   return (
     <div className={styles.wrapper}>
@@ -22,7 +24,9 @@ const Input: FC<IInputProps> = ({
         style={{ width: width }}
         onChange={onChange}
       />
-      <button className={styles.button}>{icon}</button>
+      <button onClick={onClick} className={styles.button}>
+        {icon}
+      </button>
     </div>
   );
 };
