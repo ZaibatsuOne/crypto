@@ -1,11 +1,14 @@
+import axios from "axios";
 import Button from "src/components/ui/Buttons/Button";
 import styles from "../AuthorPage.module.scss";
 import UserAvatar from "src/components/user/UserAvatar";
 import UserName from "src/components/user/UserName";
 import { FC, useEffect, useState } from "react";
 import { TypeCategoryList } from "../AuthorPage";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import { BiCopy } from "react-icons/bi";
+import { useCopyToClipboard } from "usehooks-ts";
+import { Toaster, toast } from "react-hot-toast";
 
 type AuthorPageProps = {
   categoryList: TypeCategoryList[];
@@ -33,11 +36,17 @@ const AuthorProfile: FC<AuthorPageProps> = ({
       setCards(response.data[0]);
     };
     fetchData();
+    window.scroll(0, 0);
   }, []);
+
+  const adress = "0xb794f5ea0ba39494ce839613fffba74279579268";
+  const [value, copy] = useCopyToClipboard();
+
   return (
     <>
       {cards && (
         <section className={styles.cover}>
+          <Toaster />
           <img
             src="../img/user/Background/2.webp"
             className={styles.background}
@@ -59,6 +68,19 @@ const AuthorProfile: FC<AuthorPageProps> = ({
               параметрам: окончательный размер контента будет определён как
               "помещённый внутрь" блока, ограничиваясь его шириной и высотой.
             </p>
+            <div className={styles.wallet}>
+              <div className={styles.adress}>
+                <span>{adress}</span>
+              </div>
+              <button
+                onClick={() => {
+                  copy(adress);
+                  toast.success("Скопировано");
+                }}
+              >
+                <BiCopy />
+              </button>
+            </div>
           </div>
           <aside className={styles.aside}>
             <ul className={styles.social}>

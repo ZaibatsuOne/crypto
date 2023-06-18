@@ -6,7 +6,7 @@ import { FC, useState } from "react";
 import { liveAuction } from "src/ts/LiveAuction";
 import { motion } from "framer-motion";
 import { pVariants } from "src/animation/variants";
-import { useParams } from "react-router-dom";
+import { sectionVariant } from "src/animation/variants";
 
 export type TypeCategoryList = {
   category: number | null;
@@ -39,13 +39,6 @@ const AuthorPage: FC = () => {
 
   const [category, setCategory] = useState<null | number>(null);
   const [maxCards, setMaxCards] = useState<number>(8);
-
-  const sectionVariant = {
-    visible: { y: 0, opacity: 1 },
-    hidden: { y: 250, opacity: 0 },
-  };
-
-  const { id } = useParams();
 
   return (
     <motion.section

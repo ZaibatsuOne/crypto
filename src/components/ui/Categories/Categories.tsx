@@ -1,49 +1,44 @@
 import styles from "./Categories.module.scss";
 import { FC } from "react";
 
-interface ICategory {
-  chooseIndex: number | null;
-  handleCategory: (category: number | null) => void;
-}
-type TypeCategory = {
+type Category = {
+  id: number;
   name: string;
-  category: number | null;
 };
-const Categories: FC<ICategory> = ({ chooseIndex, handleCategory }) => {
-  const categories: TypeCategory[] = [
+type CategoriesProps = {
+  category: number;
+  setCategory: React.Dispatch<React.SetStateAction<number>>;
+};
+const Categories: FC<CategoriesProps> = ({ category, setCategory }) => {
+  const categoryList: Category[] = [
     {
+      id: 0,
       name: "Все",
-      category: null,
     },
     {
-      name: "Исскуство",
-      category: 2,
-    },
-    {
-      name: "Музыка",
-      category: 3,
-    },
-    {
-      name: "Коллекционные карточки",
-      category: 4,
-    },
-    {
+      id: 1,
       name: "Спорт",
-      category: 5,
+    },
+    {
+      id: 2,
+      name: "Исскуство",
+    },
+    {
+      id: 3,
+      name: "Музыка",
+    },
+    {
+      id: 4,
+      name: "Коллекционные",
     },
   ];
-
   return (
     <ul className={styles.list}>
-      {categories.map((item) => (
+      {categoryList.map((item) => (
         <li
-          key={item.category}
-          onClick={(): void => {
-            handleCategory(item.category), console.log(chooseIndex);
-          }}
-          className={
-            chooseIndex === item.category ? styles.item_active : styles.item
-          }
+          key={item.name}
+          onClick={(): void => setCategory(item.id)}
+          className={category === item.id ? styles.item_active : styles.item}
         >
           {item.name}
         </li>

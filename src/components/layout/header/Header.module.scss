@@ -3,7 +3,7 @@
 }
 .header {
   @apply w-[100%] min-h-[750px] mb-20;
-  background: rgba(0, 0, 0, 0.1) url("./img/pages/bgHome.jpg") no-repeat center;
+  background: rgba(0, 0, 0, 0.1) url("../img/pages/bgHome.jpg") no-repeat center;
   filter: blur();
   background-size: cover;
 }

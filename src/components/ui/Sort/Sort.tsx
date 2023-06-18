@@ -1,52 +1,60 @@
 import styles from "./Sort.module.scss";
 import { FC, useState } from "react";
+import { motion } from "framer-motion";
 
-interface ISortProps {
-  chooseSort: number | null | string;
-  setChooseSort: any;
-}
-const Sort: FC<ISortProps> = ({ chooseSort, setChooseSort }) => {
-  const [visible, setVisible] = useState<any>(false);
-  const sort = [
+type Sort = {
+  name: string;
+  sortProperty: string | number;
+};
+type SortProps = {
+  sort: string;
+  setSort: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      sortProperty: number;
+    }>
+  >;
+};
+
+const Sort: FC<SortProps> = ({ sort, setSort }) => {
+  const [visible, setVisible] = useState<boolean>(false);
+  const sortList: Sort[] = [
     {
-      id: null,
+      sortProperty: 0,
       name: "Все",
     },
     {
-      id: 1,
-      name: "Максимальная ставка",
+      sortProperty: "price",
+      name: "По цене",
     },
     {
-      id: 2,
-      name: "Средняя ставка",
-    },
-    {
-      id: 3,
-      name: "Низкая ставка",
+      sortProperty: "title",
+      name: "По названию",
     },
   ];
 
+  const onClickSort = (i: any) => {
+    setSort(i);
+    setVisible(!visible);
+  };
+
   return (
     <div className={styles.wrapper}>
-      <span
-        className={styles.sortType}
-        onClick={(): void => setVisible(!visible)}
-      >
-        {chooseSort === null ? "Сортировка" : chooseSort}
+      <span onClick={() => setVisible(!visible)} className={styles.subject}>
+        {sort}
       </span>
-      <ol className={visible ? styles.list : "hidden"}>
-        {sort.map((item, index) => (
-          <li
-            key={index}
+      <ul className={visible ? styles.list : "hidden"}>
+        {sortList.map((item) => (
+          <motion.li
             className={styles.item}
-            onClick={(): void => {
-              setChooseSort(item.name), setVisible(!visible);
-            }}
+            key={item.name}
+            whileHover={{ backgroundColor: "#5142FC" }}
+            onClick={(): void => onClickSort(item)}
           >
             {item.name}
-          </li>
+          </motion.li>
         ))}
-      </ol>
+      </ul>
     </div>
   );
 };

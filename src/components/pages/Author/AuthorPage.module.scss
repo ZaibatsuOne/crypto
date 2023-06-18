@@ -14,7 +14,7 @@
   @apply absolute flex flex-col gap-2 top-[60px] left-[354px] max-w-[466px];
 }
 .quote {
-  @apply text-caption-1 font-light max-h-20 text-ellipsis line-clamp-4 overflow-hidden;
+  @apply text-caption-1 font-light max-h-20 text-ellipsis line-clamp-2 overflow-hidden;
 }
 .aside {
   @apply absolute flex gap-8 items-center right-10 top-[60px];
@@ -33,4 +33,10 @@
 }
 .button {
   @apply flex mx-auto;
+}
+.wallet {
+  @apply flex items-center justify-between w-[190px] h-[36px] bg-secondary rounded-[50px] py-[2px] px-5 text-userType;
+}
+.adress {
+  @apply max-w-[100px] overflow-hidden text-ellipsis;
 }

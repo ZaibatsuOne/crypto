@@ -5,7 +5,7 @@ import UserName from "./UserName";
 import { FC } from "react";
 import Marquee from "react-fast-marquee";
 
-const User: FC<TypeUser> = ({ userName, userAvatar, userType }) => {
+const User: FC<TypeUser> = ({ userName, userAvatar, id, userType }) => {
   return (
     <div className={styles.user}>
       <UserAvatar userAvatar={userAvatar} userName={userName} />
@@ -14,9 +14,6 @@ const User: FC<TypeUser> = ({ userName, userAvatar, userType }) => {
         <Marquee>
           <UserName userName={userName} />
         </Marquee>
-        {/* <div className={styles.carousel}>
-          <UserName userName={userName} />
-        </div> */}
       </div>
     </div>
   );

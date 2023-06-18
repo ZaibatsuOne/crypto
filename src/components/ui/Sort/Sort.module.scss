@@ -1,16 +1,12 @@
 .wrapper {
   @apply relative;
 }
-.list {
-  @apply z-[1] absolute top-[35px] flex flex-col bg-nftBg rounded-b-[10px] rounded-tl-[10px] right-0;
+.subject {
+  @apply px-4 py-3 bg-nftBg rounded-xl cursor-pointer;
 }
 .item {
-  @apply py-3 px-4 w-[300px];
-
-  &:hover {
-    @apply bg-primary cursor-pointer;
-  }
+  @apply min-w-[200px] px-4 py-3 bg-nftBg cursor-pointer;
 }
-.sortType {
-  @apply py-3 px-4 bg-nftBg rounded-[10px] cursor-pointer;
+.list {
+  @apply absolute z-20 right-0 top-12 flex flex-col py-2 bg-nftBg rounded-xl;
 }

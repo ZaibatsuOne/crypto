@@ -31,7 +31,13 @@ const NftItem: FC<NftWithUser> = ({
         <span className={styles.net}>{net}</span>
       </header>
       <footer className={styles.footer}>
-        <User userName={userName} userAvatar={userAvatar} userType={userType} />
+        {/* пофиксить ID, разобраться откуда идут пропсы */}
+        <User
+          userName={userName}
+          userAvatar={userAvatar}
+          userType={userType}
+          id={1}
+        />
         <Price price={price} />
       </footer>
       <div className={styles.inner}>
