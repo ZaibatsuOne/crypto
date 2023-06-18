@@ -46,10 +46,12 @@ const BlogCard: FC = () => {
     fetchBlog();
   }, [id]);
 
+  const url = import.meta.env.VITE_MOCKAPI_BLOG;
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get<RecentPost[]>(
-        "https://6454dae6a74f994b334ad4fb.mockapi.io/Blog?sortBy=id&order=desc"
+        `${url}?sortBy=id&order=desc`
       );
       setRecentPost(response.data);
     };

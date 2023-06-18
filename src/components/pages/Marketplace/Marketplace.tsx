@@ -2,18 +2,32 @@ import axios from "axios";
 import Button from "src/components/ui/Buttons/Button";
 import Categories from "src/components/ui/Categories/Categories";
 import Input from "src/components/ui/Input/Input";
-import Loading from "src/components/ui/Loading/Loading";
 import NftItem from "src/components/nft/NftItem/NftItem";
 import Sort from "src/components/ui/Sort/Sort";
 import styles from "./Marketplace.module.scss";
 import { FC, useEffect, useState } from "react";
 import { ImSearch } from "react-icons/im";
 import { motion } from "framer-motion";
-import { NftWithUser } from "src/ts/LiveAuction";
+
+type User = {
+  id: number;
+  userName: string;
+  userAvatar: string;
+  amount: number;
+};
+
+interface NftFetch {
+  id: number;
+  img: string;
+  title: string;
+  price: number;
+  category: number;
+  user: User[];
+}
 
 const Marketplace: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
-  const [nftCard, setNftCard] = useState<NftWithUser[]>([]);
+  const [nftCard, setNftCard] = useState<NftFetch[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [search, setSearch] = useState<string>("");
@@ -33,11 +47,12 @@ const Marketplace: FC = () => {
   useEffect(() => {
     window.scroll(0, 300);
   }, []);
+  const url = import.meta.env.VITE_MOCKAPI_URL;
 
   useEffect(() => {
     const fetchNft = async () => {
-      const response = await axios.get<NftWithUser[]>(
-        `https://6454dae6a74f994b334ad4fb.mockapi.io/NFT?${categoryUrl}${searchUrl}&sortBy=${sortBy}&order=${orderUrl}`
+      const response = await axios.get<NftFetch[]>(
+        `${url}?${categoryUrl}${searchUrl}&sortBy=${sortBy}&order=${orderUrl}`
       );
       setTimeout(() => {
         setNftCard(response.data);
@@ -75,13 +90,10 @@ const Marketplace: FC = () => {
               key={item.id}
             >
               <NftItem
-                id={item.id}
                 img={item.img}
                 title={item.title}
-                net={item.net}
-                userName={item.userName}
-                userAvatar={item.userAvatar}
-                userType={item.userType}
+                userName={item.user[0].userName}
+                userAvatar={item.user[0].userAvatar}
                 price={item.price}
                 category={item.category}
               />

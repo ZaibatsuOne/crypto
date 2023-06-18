@@ -7,21 +7,26 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
-type TypeBestSeller = {
+type User = {
   id: number;
   userName: string;
   userAvatar: string;
-  userType: string;
   amount: number;
 };
 
+interface IBestSellers {
+  id: number;
+  user: User[];
+}
+
 const BestSellers: FC = () => {
-  const [sellers, setSellers] = useState<TypeBestSeller[]>([]);
+  const [sellers, setSellers] = useState<IBestSellers[]>([]);
+
+  const url = import.meta.env.VITE_MOCKAPI_URL;
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get<TypeBestSeller[]>(
-        "http://localhost:3000/bestList"
-      );
+      const response = await axios.get<IBestSellers[]>(url);
       setSellers(response.data);
     };
     fetchData();
@@ -46,7 +51,7 @@ const BestSellers: FC = () => {
         <Title title="Лучшие продавцы" />
       </header>
       <ul className={styles.list}>
-        {sellers.map((sellerItem) => (
+        {sellers.slice(0, 9).map((sellerItem) => (
           <motion.li
             animate={"visible"}
             initial={"hidden"}
@@ -54,19 +59,24 @@ const BestSellers: FC = () => {
             transition={{ duration: 0.3 }}
             whileHover={{ y: -10 }}
             className={styles.item}
-            key={sellerItem.userName}
+            key={sellerItem.user[0].userName}
           >
-            <NavLink to={`/author/${sellerItem.id}`}>
+            <NavLink to={`/author/${sellerItem.user[0].id}`}>
               <UserAvatar
-                userAvatar={sellerItem.userAvatar}
-                userName={sellerItem.userName}
+                userAvatar={sellerItem.user[0].userAvatar}
+                userName={sellerItem.user[0].userName}
                 width="120px"
                 height="120px"
                 borderRadius="40px"
               />
               <footer className={styles.footer}>
-                <UserName userName={sellerItem.userName} fontSize="18px" />
-                <span className={styles.amount}>{sellerItem.amount} ETH</span>
+                <UserName
+                  userName={sellerItem.user[0].userName}
+                  fontSize="18px"
+                />
+                <span className={styles.amount}>
+                  {sellerItem.user[0].amount} ETH
+                </span>
               </footer>
             </NavLink>
           </motion.li>

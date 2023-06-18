@@ -9,17 +9,22 @@ import { useParams } from "react-router-dom";
 import { BiCopy } from "react-icons/bi";
 import { useCopyToClipboard } from "usehooks-ts";
 import { Toaster, toast } from "react-hot-toast";
-
 type AuthorPageProps = {
   categoryList: TypeCategoryList[];
   category: number | null;
   setCategory: React.Dispatch<React.SetStateAction<number | null>>;
 };
-type TypeAuthor = {
+
+type User = {
   id: number;
   userName: string;
   userAvatar: string;
+  amount: number;
 };
+
+interface NftFetch {
+  user: User[];
+}
 
 const AuthorProfile: FC<AuthorPageProps> = ({
   categoryList,
@@ -27,12 +32,13 @@ const AuthorProfile: FC<AuthorPageProps> = ({
   setCategory,
 }) => {
   const { id } = useParams();
-  const [cards, setCards] = useState<TypeAuthor | null>(null);
+  const [cards, setCards] = useState<NftFetch | null>(null);
+
+  const url = import.meta.env.VITE_MOCKAPI_URL;
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get<TypeAuthor[]>(
-        `http://localhost:3000/bestList?id=${id}`
-      );
+      const response = await axios.get<NftFetch[]>(`${url}?id=${id}`);
       setCards(response.data[0]);
     };
     fetchData();
@@ -41,7 +47,6 @@ const AuthorProfile: FC<AuthorPageProps> = ({
 
   const adress = "0xb794f5ea0ba39494ce839613fffba74279579268";
   const [value, copy] = useCopyToClipboard();
-
   return (
     <>
       {cards && (
@@ -53,15 +58,15 @@ const AuthorProfile: FC<AuthorPageProps> = ({
           />
           <div className={styles.avatar}>
             <UserAvatar
-              userAvatar={cards.userAvatar}
-              userName={cards.userName}
+              userAvatar={cards.user[0].userAvatar}
+              userName={cards.user[0].userName}
               width="274px"
               height="274px"
             />
           </div>
           <div className={styles.wrapper}>
             <p className="font-light">Author profile</p>
-            <UserName userName={cards.userName} fontSize="36px" />
+            <UserName userName={cards.user[0].userName} fontSize="36px" />
             <p className={styles.quote}>
               Смещаемый контент меняет свой размер таким образом, чтобы
               подстроиться под область внутри блока пропорционально собственным

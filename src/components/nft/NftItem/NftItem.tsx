@@ -3,15 +3,25 @@ import Price from "src/components/ui/price/Price";
 import styles from "./NftItem.module.scss";
 import User from "src/components/user/User";
 import { FC } from "react";
-import { NftWithUser } from "src/ts/LiveAuction";
 
-const NftItem: FC<NftWithUser> = ({
+type NftItemProps = {
+  img: string;
+  title: string;
+  price: number;
+  category: number;
+  userId?: number;
+  userName: string;
+  userAvatar: string;
+  coutdown?: React.ReactNode;
+  bidButton?: React.ReactNode;
+  history?: React.ReactNode;
+};
+
+const NftItem: FC<NftItemProps> = ({
   img,
   title,
-  net,
   userName,
   userAvatar,
-  userType,
   price,
   coutdown,
   bidButton,
@@ -28,16 +38,11 @@ const NftItem: FC<NftWithUser> = ({
       </div>
       <header className={styles.header}>
         <q className={styles.title}>{title}</q>
-        <span className={styles.net}>{net}</span>
+        <span className={styles.net}>BSC</span>
       </header>
       <footer className={styles.footer}>
         {/* пофиксить ID, разобраться откуда идут пропсы */}
-        <User
-          userName={userName}
-          userAvatar={userAvatar}
-          userType={userType}
-          id={1}
-        />
+        <User userName={userName} userAvatar={userAvatar} id={1} />
         <Price price={price} />
       </footer>
       <div className={styles.inner}>

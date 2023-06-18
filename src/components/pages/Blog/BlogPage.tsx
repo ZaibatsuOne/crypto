@@ -33,12 +33,13 @@ const BlogPage: FC = () => {
       y: 100,
     },
   };
+  const url = import.meta.env.VITE_MOCKAPI_BLOG;
 
   useEffect(() => {
     const fetchBlogItem = async () => {
       try {
         const response = await axios.get<IBlogPage[]>(
-          "https://6454dae6a74f994b334ad4fb.mockapi.io/Blog?sortBy=id&order=desc"
+          `${url}?sortBy=id&order=desc`
         );
         setTimeout((): void => {
           setBlogItem(response.data);

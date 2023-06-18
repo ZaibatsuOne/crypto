@@ -2,16 +2,32 @@ import AuthorProfile from "./Author-profile/AuthorProfile";
 import Button from "src/components/ui/Buttons/Button";
 import NftItem from "src/components/nft/NftItem/NftItem";
 import styles from "./AuthorPage.module.scss";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { liveAuction } from "src/ts/LiveAuction";
 import { motion } from "framer-motion";
 import { pVariants } from "src/animation/variants";
 import { sectionVariant } from "src/animation/variants";
+import axios from "axios";
 
 export type TypeCategoryList = {
   category: number | null;
   name: string;
 };
+type User = {
+  id: number;
+  userName: string;
+  userAvatar: string;
+  amount: number;
+};
+
+interface NftFetch {
+  id: number;
+  img: string;
+  title: string;
+  price: number;
+  category: number;
+  user: User[];
+}
 
 const AuthorPage: FC = () => {
   const categoryList: TypeCategoryList[] = [
@@ -40,6 +56,18 @@ const AuthorPage: FC = () => {
   const [category, setCategory] = useState<null | number>(null);
   const [maxCards, setMaxCards] = useState<number>(8);
 
+  const [author, setAuthor] = useState<NftFetch[]>([]);
+
+  const url = import.meta.env.VITE_MOCKAPI_URL;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get<NftFetch[]>(url);
+      setAuthor(response.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <motion.section
       initial={"hidden"}
@@ -54,7 +82,7 @@ const AuthorPage: FC = () => {
         setCategory={setCategory}
       />
       <section className={styles.list}>
-        {liveAuction
+        {author
           .filter((item) => item.category === category || category === null)
           .slice(0, maxCards)
           .map((item, index) => (
@@ -67,15 +95,12 @@ const AuthorPage: FC = () => {
               key={item.id}
             >
               <NftItem
-                id={item.id}
                 img={item.img}
                 title={item.title}
                 price={item.price}
-                userType={item.userType}
-                net={item.net}
                 category={item.category}
-                userAvatar={item.userAvatar}
-                userName={item.userName}
+                userAvatar={item.user[0].userAvatar}
+                userName={item.user[0].userName}
               />
             </motion.article>
           ))}

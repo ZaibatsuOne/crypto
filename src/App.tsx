@@ -12,6 +12,7 @@ import ConnectWalletPage from "./components/pages/ConnectWallet/ConnectWalletPag
 import NotFoundPage from "./components/pages/NotFound/NotFoundPage";
 import ActivityPage from "./components/pages/Activity/ActivityPage";
 import AuthorPage from "./components/pages/Author/AuthorPage";
+import RankingPage from "./components/pages/Ranking/RankingPage";
 function App() {
   return (
     <Routes>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/connect" element={<ConnectWalletPage />} />
         <Route path="/activity" element={<ActivityPage />} />
         <Route path="/author/:id" element={<AuthorPage />} />
+        <Route path="/ranking" element={<RankingPage />} />
       </Route>
     </Routes>
   );

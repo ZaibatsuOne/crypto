@@ -7,19 +7,34 @@ import NftItem from "src/components/nft/NftItem/NftItem";
 import styles from "./LiveAuction.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC, useEffect, useState } from "react";
-import { NftWithUser } from "src/ts/LiveAuction";
+
+type User = {
+  id: number;
+  userName: string;
+  userAvatar: string;
+  amount: number;
+};
+
+interface NftFetch {
+  id: number;
+  img: string;
+  title: string;
+  price: number;
+  category: number;
+  user: User[];
+}
 
 const LiveAuction: FC = () => {
-  const [auction, setAuction] = useState<NftWithUser[]>([]);
+  const [auction, setAuction] = useState<NftFetch[]>([]);
   // Загрузка
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const url = import.meta.env.VITE_MOCKAPI_URL;
 
   // Подгрузка карточек
   useEffect(() => {
     const fetchAuction = async () => {
-      const response = await axios.get<NftWithUser[]>(
-        "https://6454dae6a74f994b334ad4fb.mockapi.io/NFT"
-      );
+      const response = await axios.get<NftFetch[]>(url);
       setTimeout(() => {
         setIsLoading(!isLoading);
         setAuction(response.data);
@@ -44,13 +59,10 @@ const LiveAuction: FC = () => {
               {auction.slice(0, 8).map((auctionItem) => (
                 <div key={auctionItem.id}>
                   <NftItem
-                    id={auctionItem.id}
                     img={auctionItem.img}
                     title={auctionItem.title}
-                    net={auctionItem.net}
-                    userName={auctionItem.userName}
-                    userAvatar={auctionItem.userAvatar}
-                    userType={auctionItem.userType}
+                    userName={auctionItem.user[0].userName}
+                    userAvatar={auctionItem.user[0].userAvatar}
                     price={auctionItem.price}
                     category={auctionItem.category}
                     coutdown={<Coutdown />}

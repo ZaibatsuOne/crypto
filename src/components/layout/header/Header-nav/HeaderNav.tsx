@@ -31,6 +31,9 @@ const HeaderNav: FC = () => {
             <NavLink to="/auction">
               <li className={styles.dropdown__item}>Аукцион</li>
             </NavLink>
+            <NavLink to="/ranking">
+              <li className={styles.dropdown__item}>Рейтинг</li>
+            </NavLink>
           </ul>
           {active.nft ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
         </li>

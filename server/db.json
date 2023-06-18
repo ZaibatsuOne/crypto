@@ -63,5 +63,322 @@
       "userType": "Best seller",
       "amount": 29.2
     }
+  ],
+[
+    {
+      "id": 1,
+      "img": "./img/nft/liveAuction/1.png",
+      "title": "Hamlet Contemplates",
+      "user": [
+        {
+          "id": 1,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 12
+        }
+      ],
+      "price": 43,
+      "category": 1
+    },
+    {
+      "id": 2,
+      "img": "./img/nft/All/2.png",
+      "title": "The RenaiXance Rising",
+      "user": [
+        {
+          "id": 2,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 430
+        }
+      ],
+      "price": 6,
+      "category": 1
+    },
+    {
+      "id": 3,
+      "img": "./img/nft/All/3.png",
+      "title": "Space babe - Night 2/25",
+      "user": [
+        {
+          "id": 3,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 282
+        }
+      ],
+      "price": 4.29,
+      "category": 2
+    },
+    {
+      "id": 4,
+      "img": "./img/nft/All/4.png",
+      "title": "CyberPrimal 042 LAN",
+      "user": [
+        {
+          "id": 5,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 15
+        }
+      ],
+      "price": 4.29,
+      "category": 2
+    },
+    {
+      "id": 5,
+      "img": "./img/nft/All/5.png",
+      "title": "Crypto Egg Stamp #5",
+      "user": [
+        {
+          "id": 4,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 133
+        }
+      ],
+      "price": 4.29,
+      "category": 3
+    },
+    {
+      "id": 6,
+      "img": "./img/nft/All/6.png",
+      "title": "Travel Monkey Club #45",
+      "user": [
+        {
+          "id": 6,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 65
+        }
+      ],
+      "price": 4.29,
+      "category": 3
+    },
+    {
+      "id": 7,
+      "img": "./img/nft/All/7.png",
+      "title": "Sir. Lion Swag #371",
+      "user": [
+        {
+          "id": 7,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 32
+        }
+      ],
+      "price": 4.29,
+      "category": 4
+    },
+    {
+      "id": 8,
+      "img": "./img/nft/All/8.png",
+      "title": "Cyber Doberman #766",
+      "user": [
+        {
+          "id": 8,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 22
+        }
+      ],
+      "price": 4.29,
+      "category": 4
+    },
+    {
+      "id": 9,
+      "img": "./img/nft/All/9.png",
+      "title": "Living Vase 01 by Lanz",
+      "user": [
+        {
+          "id": 9,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 76
+        }
+      ],
+      "price": 4.29,
+      "category": 4
+    },
+    {
+      "id": 10,
+      "img": "./img/nft/All/10.png",
+      "title": "Hamlet Contemplates Yorick's",
+      "user": [
+        {
+          "id": 10,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 5
+        }
+      ],
+      "price": 4.29,
+      "category": 4
+    },
+    {
+      "id": 11,
+      "img": "./img/nft/liveAuction/1.png",
+      "title": "Hamlet Contemplates",
+      "user": [
+        {
+          "id": 11,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 8
+        }
+      ],
+      "price": 4.29,
+      "category": 1
+    },
+    {
+      "id": 12,
+      "img": "./img/nft/All/2.png",
+      "title": "The RenaiXance Rising",
+      "user": [
+        {
+          "id": 12,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 4
+        }
+      ],
+      "price": 4.29,
+      "category": 1
+    },
+    {
+      "id": 13,
+      "img": "./img/nft/All/3.png",
+      "title": "Space babe - Night 2/25",
+      "user": [
+        {
+          "id": 13,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 8
+        }
+      ],
+      "price": 4.29,
+      "category": 2
+    },
+    {
+      "id": 14,
+      "img": "./img/nft/All/4.png",
+      "title": "CyberPrimal 042 LAN",
+      "user": [
+        {
+          "id": 15,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 128
+        }
+      ],
+      "price": 4.29,
+      "category": 2
+    },
+    {
+      "id": 15,
+      "img": "./img/nft/All/5.png",
+      "title": "Crypto Egg Stamp #5",
+      "user": [
+        {
+          "id": 14,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 58
+        }
+      ],
+      "price": 43,
+      "category": 3
+    },
+    {
+      "id": 16,
+      "img": "./img/nft/All/6.png",
+      "title": "Travel Monkey Club #45",
+      "user": [
+        {
+          "id": 16,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 5
+        }
+      ],
+      "price": 4.29,
+      "category": 3
+    },
+    {
+      "id": 17,
+      "img": "./img/nft/All/7.png",
+      "title": "Sir. Lion Swag #371",
+      "user": [
+        {
+          "id": 17,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 4
+        }
+      ],
+      "price": 4.29,
+      "category": 4
+    },
+    {
+      "id": 18,
+      "img": "./img/nft/All/8.png",
+      "title": "Cyber Doberman #766",
+      "user": [
+        {
+          "id": 18,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 2
+        }
+      ],
+      "price": 4.29,
+      "category": 4
+    },
+    {
+      "id": 19,
+      "img": "./img/nft/All/9.png",
+      "title": "Living Vase 01 by Lanz",
+      "user": [
+        {
+          "id": 19,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 7
+        }
+      ],
+      "price": 12,
+      "category": 4
+    },
+    {
+      "id": 20,
+      "img": "./img/nft/All/10.png",
+      "title": "Hamlet Contemplates Yorick's",
+      "user": [
+        {
+          "id": 21,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 0
+        }
+      ],
+      "price": 4.29,
+      "category": 4
+    },
+    {
+      "id": 21,
+      "img": "./img/nft/liveAuction/1.png",
+      "title": "Hamlet Contemplates",
+      "user": [
+        {
+          "id": 20,
+          "userName": "SalvadorDali",
+          "userAvatar": "./img/user/BestSellers/1.png",
+          "amount": 0
+        }
+      ],
+      "price": 44,
+      "category": 1
+    }
   ]
 }

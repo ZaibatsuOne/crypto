@@ -9,18 +9,34 @@ import Title from "src/components/ui/title/Title";
 import { BiData } from "react-icons/bi";
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { NftWithUser } from "../../../ts/LiveAuction";
-import { pVariants } from "src/animation/variants";
+import { pVariants, sectionVariant } from "src/animation/variants";
+
+type User = {
+  id: number;
+  userName: string;
+  userAvatar: string;
+  amount: number;
+};
+
+interface NftFetch {
+  id: number;
+  img: string;
+  title: string;
+  price: number;
+  category: number;
+  user: User[];
+}
 
 const TodayPicks: FC = () => {
-  const [picks, setPicks] = useState<NftWithUser[]>([]);
+  const [picks, setPicks] = useState<NftFetch[]>([]);
   const [maxCards, setMaxCards] = useState<number>(8);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const url = import.meta.env.VITE_MOCKAPI_URL;
+
   useEffect(() => {
     const fetchPicks = async () => {
-      const response = await axios.get<NftWithUser[]>(
-        "https://6454dae6a74f994b334ad4fb.mockapi.io/NFT"
-      );
+      const response = await axios.get<NftFetch[]>(url);
       setTimeout(() => {
         setIsLoading(!isLoading);
         setPicks(response.data);
@@ -37,28 +53,31 @@ const TodayPicks: FC = () => {
       </header>
       {isLoading ? (
         <motion.section
-          variants={pVariants}
-          animate={visible}
-          initial={hidden}
-          transition={{ delay: 1.5 }}
+          variants={sectionVariant}
+          animate={"visible"}
+          initial={"hidden"}
+          transition={{ duration: 1 }}
           className={styles.section}
         >
           {picks.slice(0, maxCards).map((picksItem) => (
-            <article key={picksItem.id}>
+            <motion.article
+              variants={pVariants}
+              animate={"visible"}
+              initial={"hidden"}
+              transition={{ duration: 1.3 }}
+              key={picksItem.id}
+            >
               <NftItem
-                id={picksItem.id}
                 img={picksItem.img}
                 title={picksItem.title}
-                net={picksItem.net}
-                userName={picksItem.userName}
-                userAvatar={picksItem.userAvatar}
-                userType={picksItem.userType}
+                userName={picksItem.user[0].userName}
+                userAvatar={picksItem.user[0].userAvatar}
                 price={picksItem.price}
                 category={picksItem.category}
                 bidButton={<Button text="Ставка" icon={<BiData />} />}
                 history={<History />}
               />
-            </article>
+            </motion.article>
           ))}
         </motion.section>
       ) : (
