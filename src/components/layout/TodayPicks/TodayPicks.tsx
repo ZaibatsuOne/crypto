@@ -2,13 +2,15 @@ import axios from "axios";
 import Button from "src/components/ui/Buttons/Button";
 import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
 import History from "src/components/ui/History/History";
+import Loading from "src/components/ui/Loading/Loading";
 import NftItem from "src/components/nft/NftItem/NftItem";
 import styles from "./TodayPicks.module.scss";
 import Title from "src/components/ui/title/Title";
 import { BiData } from "react-icons/bi";
 import { FC, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { NftWithUser } from "../../../ts/LiveAuction";
-import Loading from "src/components/ui/Loading/Loading";
+import { pVariants } from "src/animation/variants";
 
 const TodayPicks: FC = () => {
   const [picks, setPicks] = useState<NftWithUser[]>([]);
@@ -34,7 +36,13 @@ const TodayPicks: FC = () => {
         <ButtonMore link="/marketplace" />
       </header>
       {isLoading ? (
-        <section className={styles.section}>
+        <motion.section
+          variants={pVariants}
+          animate={visible}
+          initial={hidden}
+          transition={{ delay: 1.5 }}
+          className={styles.section}
+        >
           {picks.slice(0, maxCards).map((picksItem) => (
             <article key={picksItem.id}>
               <NftItem
@@ -52,7 +60,7 @@ const TodayPicks: FC = () => {
               />
             </article>
           ))}
-        </section>
+        </motion.section>
       ) : (
         <Loading />
       )}
