@@ -4,14 +4,16 @@ import { MdLibraryBooks } from "react-icons/md";
 import { FC } from "react";
 import { BiRocket } from "react-icons/bi";
 import { easeInOut, motion } from "framer-motion";
+import { sectionVariant } from "src/utils/AnimationVariants";
 
 const HeaderHero: FC = () => {
   return (
     <div className="overflow-hidden">
       <motion.section
         className={styles.section}
-        initial={{ y: 350, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={"hidden"}
+        animate={"visible"}
+        variants={sectionVariant}
         transition={{ duration: 3, ease: easeInOut }}
       >
         <h2 className={styles.title}>

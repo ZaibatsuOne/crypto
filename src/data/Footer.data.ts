@@ -1,8 +1,3 @@
-type TypeFooter = {
-  subtitle: string;
-  link: string;
-};
-
 export const myAccout: TypeFooter[] = [
   {
     subtitle: "Авторы",

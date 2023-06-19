@@ -1,3 +1,4 @@
+import axios from "axios";
 import styles from "./BestSellers.module.scss";
 import Title from "src/components/ui/title/Title";
 import UserAvatar from "src/components/user/UserAvatar";
@@ -5,14 +6,8 @@ import UserName from "src/components/user/UserName";
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
-
-type User = {
-  id: number;
-  userName: string;
-  userAvatar: string;
-  amount: number;
-};
+import { pVariants } from "src/utils/AnimationVariants";
+import { User } from "src/types/User.type";
 
 interface IBestSellers {
   id: number;
@@ -32,19 +27,6 @@ const BestSellers: FC = () => {
     fetchData();
   }, []);
 
-  const pVariants = {
-    visible: (i: number) => ({
-      opacity: 1,
-      duration: {
-        delay: i * 0.5,
-      },
-      y: 0,
-    }),
-    hidden: {
-      opacity: 0,
-      y: 100,
-    },
-  };
   return (
     <section className={styles.wrapper}>
       <header>

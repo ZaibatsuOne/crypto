@@ -2,10 +2,11 @@ import Input from "src/components/ui/Input/Input";
 import Logo from "src/components/ui/logo/Logo";
 import styles from "./Footer.module.scss";
 import { BiPaperPlane } from "react-icons/bi";
-import { company, myAccout, resources } from "src/ts/Footer";
+import { company, myAccout, resources } from "src/data/Footer.data";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { socialLink } from "src/ts/Social";
+
 const Footer: FC = () => {
   return (
     <footer className={styles.footer}>

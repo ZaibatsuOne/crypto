@@ -10,25 +10,10 @@ import { BiData } from "react-icons/bi";
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { pVariants, sectionVariant } from "src/animation/variants";
-
-type User = {
-  id: number;
-  userName: string;
-  userAvatar: string;
-  amount: number;
-};
-
-interface NftFetch {
-  id: number;
-  img: string;
-  title: string;
-  price: number;
-  category: number;
-  user: User[];
-}
+import { INft } from "src/types/Nft.interface";
 
 const TodayPicks: FC = () => {
-  const [picks, setPicks] = useState<NftFetch[]>([]);
+  const [picks, setPicks] = useState<INft[]>([]);
   const [maxCards, setMaxCards] = useState<number>(8);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -36,7 +21,7 @@ const TodayPicks: FC = () => {
 
   useEffect(() => {
     const fetchPicks = async () => {
-      const response = await axios.get<NftFetch[]>(url);
+      const response = await axios.get<INft[]>(url);
       setTimeout(() => {
         setIsLoading(!isLoading);
         setPicks(response.data);

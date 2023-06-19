@@ -7,25 +7,10 @@ import NftItem from "src/components/nft/NftItem/NftItem";
 import styles from "./LiveAuction.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC, useEffect, useState } from "react";
-
-type User = {
-  id: number;
-  userName: string;
-  userAvatar: string;
-  amount: number;
-};
-
-interface NftFetch {
-  id: number;
-  img: string;
-  title: string;
-  price: number;
-  category: number;
-  user: User[];
-}
+import { INft } from "src/types/Nft.interface";
 
 const LiveAuction: FC = () => {
-  const [auction, setAuction] = useState<NftFetch[]>([]);
+  const [auction, setAuction] = useState<INft[]>([]);
   // Загрузка
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -34,7 +19,7 @@ const LiveAuction: FC = () => {
   // Подгрузка карточек
   useEffect(() => {
     const fetchAuction = async () => {
-      const response = await axios.get<NftFetch[]>(url);
+      const response = await axios.get<INft[]>(url);
       setTimeout(() => {
         setIsLoading(!isLoading);
         setAuction(response.data);
