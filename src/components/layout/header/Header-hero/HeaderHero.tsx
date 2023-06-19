@@ -32,6 +32,7 @@ const HeaderHero: FC = () => {
             background="#FFF"
             borderColor="#FFF"
             color="#343444"
+            link="/create"
           />
         </div>
       </motion.section>

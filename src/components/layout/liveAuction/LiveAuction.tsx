@@ -44,12 +44,13 @@ const LiveAuction: FC = () => {
               {auction.slice(0, 8).map((auctionItem) => (
                 <div key={auctionItem.id}>
                   <NftItem
-                    id={auctionItem.user[0].id}
-                    user={[]}
+                    id={auctionItem.id}
+                    userId={auctionItem.user.id}
+                    user={auctionItem.user}
                     img={auctionItem.img}
                     title={auctionItem.title}
-                    userName={auctionItem.user[0].userName}
-                    userAvatar={auctionItem.user[0].userAvatar}
+                    userName={auctionItem.user.userName}
+                    userAvatar={auctionItem.user.userAvatar}
                     price={auctionItem.price}
                     category={auctionItem.category}
                     coutdown={<Coutdown />}

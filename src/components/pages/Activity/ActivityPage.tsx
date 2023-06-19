@@ -49,7 +49,7 @@ const ActivityPage: FC = () => {
               <ActivityItem
                 title={item.title}
                 img={item.img}
-                author={item.user[0].userName}
+                author={item.user.userName}
               />
             </motion.article>
           ))}

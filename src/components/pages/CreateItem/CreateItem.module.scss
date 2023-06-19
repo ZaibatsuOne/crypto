@@ -1,0 +1,19 @@
+.section {
+  @apply flex gap-20;
+}
+.form {
+  @apply flex flex-col gap-6 w-full;
+}
+.input {
+  @apply h-[66px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl;
+}
+.upload {
+  @apply flex justify-between py-6 pl-14 w-full h-[102px] bg-footer  rounded-xl;
+
+  &__type {
+    @apply pt-1;
+  }
+}
+.label {
+  @apply flex flex-col gap-2;
+}

@@ -5,18 +5,17 @@ import User from "src/components/user/User";
 import { FC, ReactNode } from "react";
 import { INft } from "src/types/Nft.interface";
 
-type NftItemProps = {
-  userName: string;
-  userAvatar: string;
+interface NftItemProps extends INft {
+  userId: number;
   coutdown?: ReactNode;
   bidButton?: ReactNode;
   history?: ReactNode;
-} & INft;
+}
 
 const NftItem: FC<NftItemProps> = ({
   img,
-  id,
   title,
+  userId,
   userName,
   userAvatar,
   price,
@@ -39,7 +38,7 @@ const NftItem: FC<NftItemProps> = ({
       </header>
       <footer className={styles.footer}>
         {/* пофиксить ID, разобраться откуда идут пропсы */}
-        <User userName={userName} userAvatar={userAvatar} id={id} />
+        <User userName={userName} userAvatar={userAvatar} id={userId} />
         <Price price={price} />
       </footer>
       <div className={styles.inner}>

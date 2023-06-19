@@ -86,11 +86,12 @@ const Marketplace: FC = () => {
             >
               <NftItem
                 id={item.id}
-                user={[]}
                 img={item.img}
                 title={item.title}
-                userName={item.user[0].userName}
-                userAvatar={item.user[0].userAvatar}
+                user={item.user}
+                userId={item.user.id}
+                userName={item.user.userName}
+                userAvatar={item.user.userAvatar}
                 price={item.price}
                 category={item.category}
               />

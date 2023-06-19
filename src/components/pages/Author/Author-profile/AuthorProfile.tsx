@@ -10,6 +10,7 @@ import { TypeCategoryList } from "../AuthorPage";
 import { useCopyToClipboard } from "usehooks-ts";
 import { useParams } from "react-router-dom";
 import { TypeUser } from "src/types/User.type";
+import { INft } from "src/types/Nft.interface";
 
 type AuthorPageProps = {
   categoryList: TypeCategoryList[];
@@ -23,13 +24,13 @@ const AuthorProfile: FC<AuthorPageProps> = ({
   setCategory,
 }) => {
   const { id } = useParams();
-  const [cards, setCards] = useState<TypeUser | null>(null);
+  const [cards, setCards] = useState(null);
 
   const url = import.meta.env.VITE_MOCKAPI_URL;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get<TypeUser[]>(`${url}?id=${id}`);
+      const response = await axios.get(`${url}?id=${id}`);
       setCards(response.data[0]);
     };
     fetchData();
@@ -50,15 +51,15 @@ const AuthorProfile: FC<AuthorPageProps> = ({
           />
           <div className={styles.avatar}>
             <UserAvatar
-              userAvatar={cards.userAvatar}
-              userName={cards.userName}
+              userAvatar={cards.user.userAvatar}
+              userName={cards.user.userName}
               width="274px"
               height="274px"
             />
           </div>
           <div className={styles.wrapper}>
             <p className="font-light">Author profile</p>
-            <UserName userName={cards.userName} fontSize="36px" />
+            <UserName userName={cards.user.userName} fontSize="36px" />
             <p className={styles.quote}>
               Смещаемый контент меняет свой размер таким образом, чтобы
               подстроиться под область внутри блока пропорционально собственным

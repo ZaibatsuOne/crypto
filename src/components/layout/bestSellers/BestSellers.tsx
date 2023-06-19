@@ -11,7 +11,7 @@ import { TypeUser } from "src/types/User.type";
 
 interface IBestSellers {
   id: number;
-  user: TypeUser[];
+  user: TypeUser;
 }
 
 const BestSellers: FC = () => {
@@ -21,7 +21,7 @@ const BestSellers: FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get<IBestSellers[]>(url);
+      const response = await axios.get<IBestSellers[]>(`${url}`);
       setSellers(response.data);
     };
     fetchData();
@@ -41,23 +41,20 @@ const BestSellers: FC = () => {
             transition={{ duration: 0.3 }}
             whileHover={{ y: -10 }}
             className={styles.item}
-            key={sellerItem.user[0].userName}
+            key={sellerItem.user.userName}
           >
-            <NavLink to={`/author/${sellerItem.user[0].id}`}>
+            <NavLink to={`/author/${sellerItem.user.id}`}>
               <UserAvatar
-                userAvatar={sellerItem.user[0].userAvatar}
-                userName={sellerItem.user[0].userName}
+                userAvatar={sellerItem.user.userAvatar}
+                userName={sellerItem.user.userName}
                 width="120px"
                 height="120px"
                 borderRadius="40px"
               />
               <footer className={styles.footer}>
-                <UserName
-                  userName={sellerItem.user[0].userName}
-                  fontSize="18px"
-                />
+                <UserName userName={sellerItem.user.userName} fontSize="18px" />
                 <span className={styles.amount}>
-                  {sellerItem.user[0].amount} ETH
+                  {sellerItem.user.amount} ETH
                 </span>
               </footer>
             </NavLink>

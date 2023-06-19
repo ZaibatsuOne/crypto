@@ -1,75 +1,80 @@
+import axios from "axios";
+import Button from "src/components/ui/Buttons/Button";
+import RankingItem from "./Ranking-item/RankingItem";
 import styles from "./RankingPage.module.scss";
 import Title from "src/components/ui/title/Title";
-import User from "src/components/user/User";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { INft } from "src/types/Nft.interface";
+import { motion } from "framer-motion";
+import { pVariants } from "src/utils/AnimationVariants";
 
 const RankingPage: FC = () => {
+  const [maxCards, setMaxCards] = useState<number>(6);
+  const [cards, setCards] = useState<INft[]>([]);
+
+  const tableHead = [
+    "Объем",
+    "24ч %",
+    "7д %",
+    "Мин. цена",
+    "Владельцы",
+    "Ассеты",
+  ];
+
+  const url: string = import.meta.env.VITE_MOCKAPI_URL;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get<INft[]>(
+        `${url}?sortBy=price&order=desc`
+      );
+      setCards(response.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <section className={styles.section}>
-      <header>
+      <header className={styles.header}>
         <Title title="Рейтинг" />
       </header>
       <ul className={styles.table}>
         <li className={styles.head}>
           <h6 className="w-[362px] col-span-2 ">Коллекция</h6>
-          <h6>Объем</h6>
-          <h6>24ч %</h6>
-          <h6>7д %</h6>
-          <h6>Мин. цена</h6>
-          <h6>Владельцы</h6>
-          <h6>Ассеты</h6>
+          {tableHead.map((item) => (
+            <h6>{item}</h6>
+          ))}
         </li>
         <div className={styles.line} />
-        <li className={styles.row}>
-          <div className="col-span-2">
-            <div className={styles.nft}>
-              <img
-                src="../img/user/Background/2.webp"
-                className={styles.nft_thumbail}
-              />
-              <div className={styles.wrapper}>
-                <h6 className={styles.nft_title}>
-                  Не знаете, как начать торговать NFT?
-                </h6>
-                <User
-                  id={1}
-                  userName="Salvador Dali"
-                  userAvatar="../img/user/Background/2.webp"
-                />
-              </div>
-            </div>
-          </div>
-
-          <p>12,4353</p>
-          <p className="text-done font-medium text-xl">+3456%</p>
-          <p className="text-critical font-medium text-xl"> -564%</p>
-          <p className="font-medium text-xl">12,4353</p>
-          <p className="font-medium text-xl">3.3k</p>
-          <p className="font-medium text-xl">23k</p>
-        </li>
+        {cards.slice(0, maxCards).map((item) => (
+          <motion.li
+            variants={pVariants}
+            animate={"visible"}
+            initial={"hidden"}
+            custom={item.id}
+            transition={{ duration: 1.2 }}
+            className={styles.row}
+            key={item.id}
+          >
+            <RankingItem
+              title={item.title}
+              img={item.img}
+              price={item.price}
+              userId={item.user.id}
+              userName={item.user.userName}
+              userAvatar={item.user.userAvatar}
+            />
+          </motion.li>
+        ))}
       </ul>
+      <button
+        className={styles.button}
+        onClick={(): void => setMaxCards((maxCards) => maxCards + 4)}
+      >
+        <Button text="Показать ещё" icon={null} borderColor="#FFF" />
+      </button>
     </section>
   );
 };
 
 export default RankingPage;
-
-{
-  /* <div className={styles.nft}>
-<img
-  src="../img/user/Background/2.webp"
-  className={styles.nft_thumbail}
-/>
-<div className={styles.wrapper}>
-  <h6 className={styles.nft_title}>
-    Не знаете, как начать торговать NFT?
-  </h6>
-  <User
-    id={1}
-    userName="Salvador Dali"
-    userAvatar="../img/user/Background/2.webp"
-    userType="Owned By"
-  />
-</div>
-</div> */
-}

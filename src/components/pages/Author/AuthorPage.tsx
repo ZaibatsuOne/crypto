@@ -80,13 +80,14 @@ const AuthorPage: FC = () => {
             >
               <NftItem
                 id={item.id}
-                user={[]}
+                user={item.user}
                 img={item.img}
                 title={item.title}
                 price={item.price}
                 category={item.category}
-                userAvatar={item.user[0].userAvatar}
-                userName={item.user[0].userName}
+                userId={item.user.id}
+                userAvatar={item.user.userAvatar}
+                userName={item.user.userName}
               />
             </motion.article>
           ))}

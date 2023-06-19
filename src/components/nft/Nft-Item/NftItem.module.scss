@@ -14,7 +14,7 @@
   @apply flex justify-between;
 }
 .image {
-  @apply relative;
+  @apply relative min-w-[290px] min-h-[290px];
 }
 .coutdown {
   @apply absolute bottom-[8px] right-[50px];

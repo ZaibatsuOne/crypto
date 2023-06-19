@@ -53,12 +53,13 @@ const TodayPicks: FC = () => {
               key={picksItem.id}
             >
               <NftItem
+                id={picksItem.id}
                 img={picksItem.img}
-                id={picksItem.user[0].id}
-                user={[]}
+                userId={picksItem.user.id}
+                user={picksItem.user}
                 title={picksItem.title}
-                userName={picksItem.user[0].userName}
-                userAvatar={picksItem.user[0].userAvatar}
+                userName={picksItem.user.userName}
+                userAvatar={picksItem.user.userAvatar}
                 price={picksItem.price}
                 category={picksItem.category}
                 bidButton={<Button text="Ставка" icon={<BiData />} />}
