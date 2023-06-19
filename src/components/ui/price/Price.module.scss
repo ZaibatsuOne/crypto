@@ -5,5 +5,5 @@
   @apply text-userType text-sm;
 }
 .price {
-  @apply text-lg font-bold;
+  @apply text-lg font-bold max-w-[67px] whitespace-nowrap text-ellipsis overflow-hidden;
 }

@@ -14,7 +14,10 @@
   @apply flex justify-between;
 }
 .image {
-  @apply relative min-w-[290px] min-h-[290px];
+  @apply relative w-[290px] h-[290px] object-cover;
+}
+.img {
+  @apply w-[290px] h-[290px] object-cover;
 }
 .coutdown {
   @apply absolute bottom-[8px] right-[50px];

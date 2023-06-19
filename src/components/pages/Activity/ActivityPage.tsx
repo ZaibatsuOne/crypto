@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { pVariants } from "src/utils/AnimationVariants";
 import { INft } from "src/types/Nft.interface";
 import axios from "axios";
+import NoResult from "src/components/ui/NoResult/NoResult";
 
 const ActivityPage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(4);
@@ -36,30 +37,38 @@ const ActivityPage: FC = () => {
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
-        <section className={styles.list}>
-          {cards.slice(0, maxCards).map((item) => (
-            <motion.article
-              initial={"hidden"}
-              animate={"visible"}
-              transition={{ duration: 1.5 }}
-              variants={pVariants}
-              className={styles.item}
-              key={item.id}
-            >
-              <ActivityItem
-                title={item.title}
-                img={item.img}
-                author={item.user.userName}
-              />
-            </motion.article>
-          ))}
-        </section>
-        <button
-          className={maxCards === cards.length ? "hidden" : styles.button}
-          onClick={(): void => setMaxCards((maxCards) => maxCards + 4)}
-        >
-          <Button text="Показать больше" icon={null} borderColor="#FFF" />
-        </button>
+        {cards.length > 0 ? (
+          <section className={styles.list}>
+            {cards.slice(0, maxCards).map((item) => (
+              <motion.article
+                initial={"hidden"}
+                animate={"visible"}
+                transition={{ duration: 1.5 }}
+                variants={pVariants}
+                className={styles.item}
+                key={item.id}
+              >
+                <ActivityItem
+                  title={item.title}
+                  img={item.img}
+                  author={item.user.userName}
+                />
+              </motion.article>
+            ))}
+          </section>
+        ) : (
+          <NoResult />
+        )}
+        {cards.length > 0 ? (
+          <button
+            className={maxCards === cards.length ? "hidden" : styles.button}
+            onClick={(): void => setMaxCards((maxCards) => maxCards + 4)}
+          >
+            <Button text="Показать больше" icon={null} borderColor="#FFF" />
+          </button>
+        ) : (
+          ""
+        )}
       </div>
       <aside className={styles.aside}>
         <Input

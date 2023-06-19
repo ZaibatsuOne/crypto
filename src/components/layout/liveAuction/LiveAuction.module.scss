@@ -5,7 +5,7 @@
   @apply flex gap-4 pr-4;
 }
 .shadow1 {
-  @apply absolute h-[480px] bottom-[0px] w-20 z-10;
+  @apply absolute h-[490px] bottom-[0px] w-20 z-10;
   background: rgb(20, 20, 31);
   background: linear-gradient(
     90deg,
@@ -15,7 +15,7 @@
   );
 }
 .shadow2 {
-  @apply absolute h-[480px] right-0 bottom-[0px] w-20 z-10;
+  @apply absolute h-[490px] right-0 bottom-[0px] w-20 z-10;
   background: rgb(20, 20, 31);
   background: linear-gradient(
     270deg,

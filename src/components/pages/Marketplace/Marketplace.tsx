@@ -10,11 +10,11 @@ import { ImSearch } from "react-icons/im";
 import { INft } from "src/types/Nft.interface";
 import { motion } from "framer-motion";
 import { pVariants } from "src/utils/AnimationVariants";
+import NoResult from "src/components/ui/NoResult/NoResult";
 
 const Marketplace: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
   const [nftCard, setNftCard] = useState<INft[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [search, setSearch] = useState<string>("");
   //Сортировка по параметрам
@@ -48,11 +48,10 @@ const Marketplace: FC = () => {
       );
       setTimeout(() => {
         setNftCard(response.data);
-        // setIsLoading(!isLoading);
       }, 100);
     };
     fetchNft();
-  }, [category, sort, setNftCard, search]);
+  }, [category, sort, nftCard, search]);
 
   return (
     <section className={styles.section}>
@@ -68,14 +67,9 @@ const Marketplace: FC = () => {
         </div>
         <Sort sort={sort.name} setSort={setSort} />
       </header>
-      {/* {isLoading ? ( */}
-      <section className={styles.main}>
-        {nftCard
-          // .filter((item) =>
-          //   item.title.toLowerCase().includes(search.toLowerCase())
-          // )
-          .slice(0, maxCards)
-          .map((item) => (
+      {nftCard.length > 0 ? (
+        <section className={styles.main}>
+          {nftCard.slice(0, maxCards).map((item) => (
             <motion.article
               variants={pVariants}
               initial={"hidden"}
@@ -97,16 +91,20 @@ const Marketplace: FC = () => {
               />
             </motion.article>
           ))}
-      </section>
-      {/* ) : (
-        <Loading />
-      )} */}
-      <button
-        className={maxCards === nftCard.length ? "hidden" : styles.button}
-        onClick={() => setMaxCards((maxCards) => maxCards + 8)}
-      >
-        <Button text="Показать больше" icon={null} />
-      </button>
+        </section>
+      ) : (
+        <NoResult />
+      )}
+      {nftCard.length > 0 ? (
+        <button
+          className={maxCards === nftCard.length ? "hidden" : styles.button}
+          onClick={() => setMaxCards((maxCards) => maxCards + 8)}
+        >
+          <Button text="Показать больше" icon={null} />
+        </button>
+      ) : (
+        ""
+      )}
     </section>
   );
 };

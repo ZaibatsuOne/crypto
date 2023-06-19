@@ -17,3 +17,17 @@
 .label {
   @apply flex flex-col gap-2;
 }
+.textarea {
+  @apply h-[190px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl resize-none;
+}
+.button {
+  @apply flex items-center gap-2 px-4 py-3 border-[1px] rounded-[30px] justify-center cursor-pointer;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

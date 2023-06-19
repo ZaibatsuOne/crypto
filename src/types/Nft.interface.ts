@@ -1,7 +1,7 @@
 import { TypeUser } from "./User.type";
 
 export interface INft extends TypeUser {
-  id: number;
+  id: any;
   img: string;
   title: string;
   price: number;

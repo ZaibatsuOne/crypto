@@ -11,6 +11,7 @@
     "server": "json-server -w server/db.json"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "eslint-config-airbnb": "^19.0.4",
     "framer-motion": "^10.12.16",
@@ -21,6 +22,7 @@
     "react-hook-form": "^7.44.3",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.9.0",
+    "react-redux": "^8.1.0",
     "react-router-dom": "^6.11.2",
     "react-slick": "^0.29.0",
     "sass": "^1.62.1",

@@ -26,7 +26,7 @@ const NftItem: FC<NftItemProps> = ({
   return (
     <article className={styles.block}>
       <div className={styles.image}>
-        <img src={img} alt={title}></img>
+        <img src={img} alt={title} className={styles.img}></img>
         <div className={styles.coutdown}>{coutdown}</div>
         <div className={styles.likes}>
           <Likes />
