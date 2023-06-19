@@ -1,10 +1,4 @@
-type TypeWalletList = {
-  id: number;
-  img: string;
-  title: string;
-  subtitle: string;
-};
-export const walletList: TypeWalletList[] = [
+export const walletList = [
   {
     id: 1,
     img: "../img/pages/ConnectWallet/1.png",

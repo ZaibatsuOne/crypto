@@ -1,11 +1,7 @@
 import { FC } from "react";
+import { TypeReview } from "src/types/Review.type";
 
-interface IReviewProps {
-  nameUser: string;
-  commentaryUser: string;
-}
-
-const Review: FC<IReviewProps> = ({ nameUser, commentaryUser }) => {
+const Review: FC<TypeReview> = ({ nameUser, commentaryUser }) => {
   return (
     <>
       <header>

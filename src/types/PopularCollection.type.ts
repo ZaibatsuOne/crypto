@@ -1,6 +1,6 @@
-import { User } from "./User.type";
+import { TypeUser } from "./User.type";
 
-type TypePopularImages = {
+export type TypePopularImages = {
   imageOne: string;
   imageTwo: string;
   imageThree: string;
@@ -8,7 +8,7 @@ type TypePopularImages = {
   imageFive: string;
 };
 
-export interface IPopularCollection extends User {
+export interface IPopularCollection extends TypeUser {
   id: number;
   title: string;
   img: TypePopularImages;

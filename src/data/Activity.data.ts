@@ -1,10 +1,4 @@
-type ActivityListType = {
-  id: number;
-  img: string;
-  title: string;
-  author: string;
-};
-export const activityList: ActivityListType[] = [
+export const activityList = [
   {
     id: 1,
     img: "../img/nft/All/2.png",

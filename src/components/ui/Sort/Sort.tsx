@@ -1,11 +1,8 @@
 import styles from "./Sort.module.scss";
 import { FC, useState } from "react";
 import { motion } from "framer-motion";
+import { sortList } from "src/data/Sort.data";
 
-type Sort = {
-  name: string;
-  sortProperty: string;
-};
 type SortProps = {
   sort: string;
   setSort: React.Dispatch<
@@ -18,24 +15,6 @@ type SortProps = {
 
 const Sort: FC<SortProps> = ({ sort, setSort }) => {
   const [visible, setVisible] = useState<boolean>(false);
-  const sortList: Sort[] = [
-    {
-      sortProperty: "id",
-      name: "Все",
-    },
-    {
-      sortProperty: "price",
-      name: "По возрастанию",
-    },
-    {
-      sortProperty: "-price",
-      name: "По убыванию",
-    },
-    {
-      sortProperty: "title",
-      name: "По названию",
-    },
-  ];
 
   const onClickSort = (i: any) => {
     setSort(i);

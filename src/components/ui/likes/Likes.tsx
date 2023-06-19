@@ -1,6 +1,6 @@
-import { Toaster, toast } from "react-hot-toast";
 import styles from "./Likes.module.scss";
-import { FC, useState, useEffect, memo } from "react";
+import { FC, memo, useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 const Likes: FC = memo(() => {
   const [count, setCount] = useState<number>(0);

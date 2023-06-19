@@ -2,13 +2,7 @@ import styles from "./ContactPage.module.scss";
 import { FC } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { useForm, SubmitHandler } from "react-hook-form";
-
-type TypeForm = {
-  nickName: string;
-  email: string;
-  subject: string;
-  message: string;
-};
+import { TypeForm } from "src/types/Form.type";
 
 const ContactPage: FC = () => {
   const {
@@ -41,12 +35,12 @@ const ContactPage: FC = () => {
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <input
             placeholder="Ваш Никнейм"
-            {...register("nickName", { required: true })}
+            {...register("userName", { required: true })}
             className={styles.input}
           />
           <input
             placeholder="Ваша Почта"
-            {...register("email", { required: true })}
+            {...register("userEmail", { required: true })}
             className={styles.input}
             type="email"
           />
@@ -69,8 +63,8 @@ const ContactPage: FC = () => {
           />
         </form>
         <span style={{ display: "none" }}>
-          {errors.nickName && toast.error("Поле «Никнейм» обязательно")}
-          {errors.email && toast.error("Поле «Почта» обязательно")}
+          {errors.userName && toast.error("Поле «Никнейм» обязательно")}
+          {errors.userEmail && toast.error("Поле «Почта» обязательно")}
           {errors.subject && toast.error("Поле «Тема» обязательно")}
           {errors.subject && toast.error("Поле «Сообщение» обязательно")}
         </span>

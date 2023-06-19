@@ -1,13 +1,13 @@
 import styles from "../HelpPage.module.scss";
 import { FC } from "react";
 
-interface IHelpCategory {
+type HelpCategory = {
   icon: string;
   title: string;
   description: string;
-}
+};
 
-const HelpPageCategory: FC<IHelpCategory> = ({ icon, title, description }) => {
+const HelpPageCategory: FC<HelpCategory> = ({ icon, title, description }) => {
   return (
     <>
       <img src={icon} alt={title} className={styles.icon} />

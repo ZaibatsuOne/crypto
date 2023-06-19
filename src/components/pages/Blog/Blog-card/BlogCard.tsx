@@ -1,40 +1,26 @@
 import axios from "axios";
 import BlogBody from "./Blog-body/BlogBody";
+import BlogComment from "./Blog-comment/BlogComment";
 import BlogHeader from "./Blog-header/BlogHeader";
 import RecentPost from "../Recent-post/RecentPost";
 import styles from "./BlogCard.module.scss";
+import { TypeBlogPage } from "src/types/BlogPage.type";
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink, useParams } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import BlogComment from "./Blog-comment/BlogComment";
-
-interface IBlogCard {
-  id: number;
-  title: string;
-  img: string;
-  userName: string;
-  excerpt: string;
-}
-type RecentPost = {
-  id: number;
-  title: string;
-  excerpt: string;
-  img: string;
-};
+import { TypeRecentPost } from "src/types/RecentPost.type";
 
 const BlogCard: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [blogPost, setBlogPost] = useState<IBlogCard | null>(null);
-  const [recentPost, setRecentPost] = useState<RecentPost[]>([]);
+  const [blogPost, setBlogPost] = useState<TypeBlogPage | null>(null);
+  const [recentPost, setRecentPost] = useState<TypeRecentPost[]>([]);
 
   const { id } = useParams();
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get<IBlogCard[]>(
-          `https://6454dae6a74f994b334ad4fb.mockapi.io/Blog?id=${id}`
-        );
+        const response = await axios.get<TypeBlogPage[]>(`${url}?id=${id}`);
         setTimeout(() => {
           setBlogPost(response.data[0]);
           setIsLoading(!isLoading);
@@ -50,7 +36,7 @@ const BlogCard: FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get<RecentPost[]>(
+      const response = await axios.get<TypeRecentPost[]>(
         `${url}?sortBy=id&order=desc`
       );
       setRecentPost(response.data);

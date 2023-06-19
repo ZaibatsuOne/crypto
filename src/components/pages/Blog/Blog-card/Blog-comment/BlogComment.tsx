@@ -3,12 +3,7 @@ import styles from "../BlogCard.module.scss";
 import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-
-type TypeCommentary = {
-  nickName: string;
-  email: string;
-  message: string;
-};
+import { TypeReview } from "src/types/Review.type";
 
 const BlogComment: FC = () => {
   const {
@@ -16,19 +11,19 @@ const BlogComment: FC = () => {
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm<TypeCommentary>();
+  } = useForm<TypeReview>();
 
-  const [comment, setComment] = useState<TypeCommentary[]>([]);
+  const [comment, setComment] = useState<TypeReview[]>([]);
 
-  const onSubmit: SubmitHandler<TypeCommentary> = ({
-    nickName,
-    email,
-    message,
+  const onSubmit: SubmitHandler<TypeReview> = ({
+    nameUser,
+    emailUser,
+    commentaryUser,
   }) => {
     const review = {
-      nickName: nickName,
-      email: email,
-      message: message,
+      nameUser: nameUser,
+      emailUser: emailUser,
+      commentaryUser: commentaryUser,
     };
     setComment([...comment, review]);
     reset();
@@ -40,14 +35,14 @@ const BlogComment: FC = () => {
         <h4>Оставьте комментарий</h4>
         <div className={styles.group}>
           <input
-            {...register("nickName", {
+            {...register("nameUser", {
               required: true,
             })}
             className={styles.input}
             placeholder="Никнейм"
           />
           <input
-            {...register("email", {
+            {...register("emailUser", {
               required: true,
             })}
             className={styles.input}
@@ -55,7 +50,7 @@ const BlogComment: FC = () => {
           />
         </div>
         <textarea
-          {...register("message", { required: true })}
+          {...register("commentaryUser", { required: true })}
           className={styles.textarea}
           placeholder="Ваше сообщение"
         />
@@ -66,16 +61,20 @@ const BlogComment: FC = () => {
         />
       </form>
       <div style={{ display: "none" }}>
-        {errors.nickName &&
+        {errors.nameUser &&
           toast.error("Поле «Никнейм» обязательно к заполнению")}
-        {errors.email && toast.error("Поле «E-mail» обязательно к заполнению")}
-        {errors.message &&
+        {errors.emailUser &&
+          toast.error("Поле «E-mail» обязательно к заполнению")}
+        {errors.commentaryUser &&
           toast.error("Поле «Комментарий» обязательно к заполнению")}
       </div>
       <section className={styles.comments}>
         {comment.map((item) => (
           <article className={styles.commentary}>
-            <Review nameUser={item.nickName} commentaryUser={item.message} />
+            <Review
+              nameUser={item.nameUser}
+              commentaryUser={item.commentaryUser}
+            />
           </article>
         ))}
       </section>

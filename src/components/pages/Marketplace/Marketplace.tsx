@@ -2,41 +2,30 @@ import axios from "axios";
 import Button from "src/components/ui/Buttons/Button";
 import Categories from "src/components/ui/Categories/Categories";
 import Input from "src/components/ui/Input/Input";
-import NftItem from "src/components/nft/NftItem/NftItem";
+import NftItem from "src/components/nft/Nft-Item/NftItem";
 import Sort from "src/components/ui/Sort/Sort";
 import styles from "./Marketplace.module.scss";
 import { FC, useEffect, useState } from "react";
 import { ImSearch } from "react-icons/im";
+import { INft } from "src/types/Nft.interface";
 import { motion } from "framer-motion";
-
-type User = {
-  id: number;
-  userName: string;
-  userAvatar: string;
-  amount: number;
-};
-
-interface NftFetch {
-  id: number;
-  img: string;
-  title: string;
-  price: number;
-  category: number;
-  user: User[];
-}
+import { pVariants } from "src/utils/AnimationVariants";
 
 const Marketplace: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
-  const [nftCard, setNftCard] = useState<NftFetch[]>([]);
+  const [nftCard, setNftCard] = useState<INft[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [search, setSearch] = useState<string>("");
+  //Сортировка по параметрам
   const [sort, setSort] = useState({
     name: "Все",
     sortProperty: "id",
   });
+  //Выбор категории
   const [category, setCategory] = useState<number>(0);
 
+  //Сортировка
   const categoryUrl: string = category > 0 ? `category=${category}` : "";
   const orderUrl: "desc" | "asc" = sort.sortProperty.includes("-")
     ? "desc"
@@ -44,14 +33,17 @@ const Marketplace: FC = () => {
   const sortBy: string = sort.sortProperty.replace("-", "");
   const searchUrl: string = search ? `&search=${search}` : "";
 
+  // Перемещает страницу вверх
   useEffect(() => {
     window.scroll(0, 300);
   }, []);
+  // Mockapi url
   const url = import.meta.env.VITE_MOCKAPI_URL;
 
+  //Отрисовка карточек
   useEffect(() => {
     const fetchNft = async () => {
-      const response = await axios.get<NftFetch[]>(
+      const response = await axios.get<INft[]>(
         `${url}?${categoryUrl}${searchUrl}&sortBy=${sortBy}&order=${orderUrl}`
       );
       setTimeout(() => {
@@ -60,7 +52,7 @@ const Marketplace: FC = () => {
       }, 100);
     };
     fetchNft();
-  }, [category, sort, setNftCard]);
+  }, [category, sort, setNftCard, search]);
 
   return (
     <section className={styles.section}>
@@ -85,11 +77,16 @@ const Marketplace: FC = () => {
           .slice(0, maxCards)
           .map((item) => (
             <motion.article
+              variants={pVariants}
+              initial={"hidden"}
+              animate={"visible"}
               transition={{ duration: 0.2 }}
               whileHover={{ y: -20 }}
               key={item.id}
             >
               <NftItem
+                id={item.id}
+                user={[]}
                 img={item.img}
                 title={item.title}
                 userName={item.user[0].userName}

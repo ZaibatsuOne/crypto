@@ -1,6 +1,7 @@
-export type User = {
+export type TypeUser = {
   id: number;
   userName: string;
   userAvatar: string;
-  amount: number;
+  userType?: string;
+  amount?: number;
 };

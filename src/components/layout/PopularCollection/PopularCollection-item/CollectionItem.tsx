@@ -3,9 +3,9 @@ import styles from "./CollectionItem.module.scss";
 import UserAvatar from "src/components/user/UserAvatar";
 import UserName from "src/components/user/UserName";
 import { FC } from "react";
-import { TypePopularCollection } from "src/ts/PopularCollection";
+import { IPopularCollection } from "src/types/PopularCollection.type";
 
-const CollectionItem: FC<TypePopularCollection> = ({
+const CollectionItem: FC<IPopularCollection> = ({
   title,
   userAvatar,
   img,

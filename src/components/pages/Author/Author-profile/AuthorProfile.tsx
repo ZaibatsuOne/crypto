@@ -3,28 +3,19 @@ import Button from "src/components/ui/Buttons/Button";
 import styles from "../AuthorPage.module.scss";
 import UserAvatar from "src/components/user/UserAvatar";
 import UserName from "src/components/user/UserName";
-import { FC, useEffect, useState } from "react";
-import { TypeCategoryList } from "../AuthorPage";
-import { useParams } from "react-router-dom";
 import { BiCopy } from "react-icons/bi";
+import { FC, useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
+import { TypeCategoryList } from "../AuthorPage";
 import { useCopyToClipboard } from "usehooks-ts";
-import { Toaster, toast } from "react-hot-toast";
+import { useParams } from "react-router-dom";
+import { TypeUser } from "src/types/User.type";
+
 type AuthorPageProps = {
   categoryList: TypeCategoryList[];
   category: number | null;
   setCategory: React.Dispatch<React.SetStateAction<number | null>>;
 };
-
-type User = {
-  id: number;
-  userName: string;
-  userAvatar: string;
-  amount: number;
-};
-
-interface NftFetch {
-  user: User[];
-}
 
 const AuthorProfile: FC<AuthorPageProps> = ({
   categoryList,
@@ -32,13 +23,13 @@ const AuthorProfile: FC<AuthorPageProps> = ({
   setCategory,
 }) => {
   const { id } = useParams();
-  const [cards, setCards] = useState<NftFetch | null>(null);
+  const [cards, setCards] = useState<TypeUser | null>(null);
 
   const url = import.meta.env.VITE_MOCKAPI_URL;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get<NftFetch[]>(`${url}?id=${id}`);
+      const response = await axios.get<TypeUser[]>(`${url}?id=${id}`);
       setCards(response.data[0]);
     };
     fetchData();
@@ -47,6 +38,7 @@ const AuthorProfile: FC<AuthorPageProps> = ({
 
   const adress = "0xb794f5ea0ba39494ce839613fffba74279579268";
   const [value, copy] = useCopyToClipboard();
+
   return (
     <>
       {cards && (
@@ -58,15 +50,15 @@ const AuthorProfile: FC<AuthorPageProps> = ({
           />
           <div className={styles.avatar}>
             <UserAvatar
-              userAvatar={cards.user[0].userAvatar}
-              userName={cards.user[0].userName}
+              userAvatar={cards.userAvatar}
+              userName={cards.userName}
               width="274px"
               height="274px"
             />
           </div>
           <div className={styles.wrapper}>
             <p className="font-light">Author profile</p>
-            <UserName userName={cards.user[0].userName} fontSize="36px" />
+            <UserName userName={cards.userName} fontSize="36px" />
             <p className={styles.quote}>
               Смещаемый контент меняет свой размер таким образом, чтобы
               подстроиться под область внутри блока пропорционально собственным

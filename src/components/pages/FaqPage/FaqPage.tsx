@@ -1,6 +1,6 @@
 import FaqItem from "./Faq-Item/FaqItem";
 import styles from "./FaqPage.module.scss";
-import { faqList } from "src/ts/FAQ";
+import { faqList } from "src/data/Faq.data";
 import { FC } from "react";
 import { motion } from "framer-motion";
 
@@ -14,7 +14,6 @@ const FaqPage: FC = () => {
           часто задаваемые вопросы прямо здесь и сейчас.
         </p>
       </header>
-
       <section className={styles.list}>
         {faqList.map((item) => (
           <motion.article key={item.id} whileTap={{ scale: 1.02 }}>

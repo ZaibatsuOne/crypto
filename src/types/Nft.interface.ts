@@ -1,4 +1,4 @@
-import { User } from "./User.type";
+import { TypeUser } from "./User.type";
 
 export interface INft {
   id: number;
@@ -6,5 +6,5 @@ export interface INft {
   title: string;
   price: number;
   category: number;
-  user: User[];
+  user: TypeUser[];
 }

@@ -5,40 +5,20 @@ import styles from "./BlogPage.module.scss";
 import { FC, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-
-interface IBlogPage {
-  id: number;
-  title: string;
-  excerpt: string;
-  img: string;
-  userAvatar: string;
-  userName: string;
-}
+import { pVariants } from "src/utils/AnimationVariants";
+import { TypeBlogPage } from "src/types/BlogPage.type";
 
 const BlogPage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(6);
-  const [blogItem, setBlogItem] = useState<IBlogPage[] | null>(null);
+  const [blogItem, setBlogItem] = useState<TypeBlogPage[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const pVariants = {
-    visible: (i: number) => ({
-      opacity: 1,
-      duration: {
-        delay: i * 0.5,
-      },
-      y: 0,
-    }),
-    hidden: {
-      opacity: 0,
-      y: 100,
-    },
-  };
   const url = import.meta.env.VITE_MOCKAPI_BLOG;
 
   useEffect(() => {
     const fetchBlogItem = async () => {
       try {
-        const response = await axios.get<IBlogPage[]>(
+        const response = await axios.get<TypeBlogPage[]>(
           `${url}?sortBy=id&order=desc`
         );
         setTimeout((): void => {
@@ -69,10 +49,10 @@ const BlogPage: FC = () => {
                   <BlogItem
                     title={item.title}
                     excerpt={item.excerpt}
-                    thumbail={item.img}
+                    img={item.img}
                     userAvatar={item.userAvatar}
                     userName={item.userName}
-                    link={`/blog/${item.id}`}
+                    userType="Редактор"
                     id={item.id}
                   />
                 </NavLink>

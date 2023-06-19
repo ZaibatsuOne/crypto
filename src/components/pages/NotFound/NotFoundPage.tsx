@@ -1,7 +1,6 @@
-import { FC } from "react";
 import LiveAuction from "src/components/layout/LiveAuction/LiveAuction";
-import Button from "src/components/ui/Buttons/Button";
 import Title from "src/components/ui/title/Title";
+import { FC } from "react";
 
 const NotFoundPage: FC = () => {
   return (

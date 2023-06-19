@@ -1,26 +1,11 @@
-import TypeUser from "./TypeUser";
+import { IPopularCollection } from "src/types/PopularCollection.type";
 
-type TypePopularImages = {
-  imageOne: string;
-  imageTwo: string;
-  imageThree: string;
-  imageFour: string;
-  imageFive: string;
-};
-
-export interface TypePopularCollection extends TypeUser {
-  id: number;
-  title: string;
-  img: TypePopularImages;
-}
-
-export const popularCollections: TypePopularCollection[] = [
+export const popularCollections: IPopularCollection[] = [
   {
     id: 1,
     title: "Creative Art Collection",
     userAvatar: "./img/user/1.png",
     userName: "Ralph Garraway",
-    userType: "",
     img: {
       imageOne: "./img/nft/PopularCollection/First/1.png",
       imageTwo: "./img/nft/PopularCollection/First/2.png",
@@ -34,7 +19,6 @@ export const popularCollections: TypePopularCollection[] = [
     title: "Colorful Abstract",
     userAvatar: "./img/user/2.png",
     userName: "Ralph Garraway",
-    userType: "",
     img: {
       imageOne: "./img/nft/PopularCollection/Second/1.png",
       imageTwo: "./img/nft/PopularCollection/Second/2.png",
@@ -48,7 +32,6 @@ export const popularCollections: TypePopularCollection[] = [
     title: "Creative Art Collection",
     userAvatar: "./img/user/3.png",
     userName: "Ralph Garraway",
-    userType: "",
     img: {
       imageOne: "./img/nft/PopularCollection/Third/1.png",
       imageTwo: "./img/nft/PopularCollection/Third/2.png",

@@ -1,12 +1,5 @@
-type TypeSocial = {
-  name: string;
-  link: string;
-  icon: string;
-};
-
-export const socialLink: TypeSocial[] = [
+export const socialLink = [
   {
-    //Фиксится через две точки?
     name: "Twitter",
     link: "https://twitter.com/",
     icon: "../img/ui/social/twitter.svg",

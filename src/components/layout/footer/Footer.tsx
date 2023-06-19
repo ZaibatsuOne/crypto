@@ -5,7 +5,7 @@ import { BiPaperPlane } from "react-icons/bi";
 import { company, myAccout, resources } from "src/data/Footer.data";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { socialLink } from "src/ts/Social";
+import { socialLink } from "src/data/Social.data";
 
 const Footer: FC = () => {
   return (

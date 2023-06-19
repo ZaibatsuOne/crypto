@@ -1,5 +1,5 @@
-import { FC } from "react";
 import styles from "../ConnectWalletPage.module.scss";
+import { FC } from "react";
 
 type ConnectWalletProps = {
   img: string;

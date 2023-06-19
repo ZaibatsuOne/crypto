@@ -1,7 +1,7 @@
-import { FC } from "react";
 import styles from "./RankingPage.module.scss";
 import Title from "src/components/ui/title/Title";
 import User from "src/components/user/User";
+import { FC } from "react";
 
 const RankingPage: FC = () => {
   return (
@@ -35,7 +35,6 @@ const RankingPage: FC = () => {
                   id={1}
                   userName="Salvador Dali"
                   userAvatar="../img/user/Background/2.webp"
-                  userType="Owned By"
                 />
               </div>
             </div>

@@ -3,13 +3,13 @@ import Button from "src/components/ui/Buttons/Button";
 import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
 import History from "src/components/ui/History/History";
 import Loading from "src/components/ui/Loading/Loading";
-import NftItem from "src/components/nft/NftItem/NftItem";
+import NftItem from "src/components/nft/Nft-Item/NftItem";
 import styles from "./TodayPicks.module.scss";
 import Title from "src/components/ui/title/Title";
 import { BiData } from "react-icons/bi";
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { pVariants, sectionVariant } from "src/animation/variants";
+import { pVariants, sectionVariant } from "src/utils/AnimationVariants";
 import { INft } from "src/types/Nft.interface";
 
 const TodayPicks: FC = () => {
@@ -54,6 +54,8 @@ const TodayPicks: FC = () => {
             >
               <NftItem
                 img={picksItem.img}
+                id={picksItem.user[0].id}
+                user={[]}
                 title={picksItem.title}
                 userName={picksItem.user[0].userName}
                 userAvatar={picksItem.user[0].userAvatar}

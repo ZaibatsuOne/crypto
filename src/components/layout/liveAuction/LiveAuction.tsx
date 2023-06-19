@@ -3,7 +3,7 @@ import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
 import Coutdown from "src/components/ui/coutdown/Coutdown";
 import Loading from "src/components/ui/Loading/Loading";
 import Marquee from "react-fast-marquee";
-import NftItem from "src/components/nft/NftItem/NftItem";
+import NftItem from "src/components/nft/Nft-Item/NftItem";
 import styles from "./LiveAuction.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC, useEffect, useState } from "react";
@@ -44,6 +44,8 @@ const LiveAuction: FC = () => {
               {auction.slice(0, 8).map((auctionItem) => (
                 <div key={auctionItem.id}>
                   <NftItem
+                    id={auctionItem.user[0].id}
+                    user={[]}
                     img={auctionItem.img}
                     title={auctionItem.title}
                     userName={auctionItem.user[0].userName}

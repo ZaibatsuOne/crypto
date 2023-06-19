@@ -1,33 +1,17 @@
 import AuthorProfile from "./Author-profile/AuthorProfile";
 import Button from "src/components/ui/Buttons/Button";
-import NftItem from "src/components/nft/NftItem/NftItem";
+import NftItem from "src/components/nft/Nft-Item/NftItem";
 import styles from "./AuthorPage.module.scss";
 import { FC, useState, useEffect } from "react";
-import { liveAuction } from "src/ts/LiveAuction";
 import { motion } from "framer-motion";
-import { pVariants } from "src/animation/variants";
-import { sectionVariant } from "src/animation/variants";
 import axios from "axios";
+import { INft } from "src/types/Nft.interface";
+import { sectionVariant, pVariants } from "src/utils/AnimationVariants";
 
 export type TypeCategoryList = {
   category: number | null;
   name: string;
 };
-type User = {
-  id: number;
-  userName: string;
-  userAvatar: string;
-  amount: number;
-};
-
-interface NftFetch {
-  id: number;
-  img: string;
-  title: string;
-  price: number;
-  category: number;
-  user: User[];
-}
 
 const AuthorPage: FC = () => {
   const categoryList: TypeCategoryList[] = [
@@ -56,13 +40,13 @@ const AuthorPage: FC = () => {
   const [category, setCategory] = useState<null | number>(null);
   const [maxCards, setMaxCards] = useState<number>(8);
 
-  const [author, setAuthor] = useState<NftFetch[]>([]);
+  const [author, setAuthor] = useState<INft[]>([]);
 
   const url = import.meta.env.VITE_MOCKAPI_URL;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get<NftFetch[]>(url);
+      const response = await axios.get<INft[]>(url);
       setAuthor(response.data);
     };
     fetchData();
@@ -95,6 +79,8 @@ const AuthorPage: FC = () => {
               key={item.id}
             >
               <NftItem
+                id={item.id}
+                user={[]}
                 img={item.img}
                 title={item.title}
                 price={item.price}

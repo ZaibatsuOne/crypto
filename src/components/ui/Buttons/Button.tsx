@@ -1,17 +1,7 @@
 import styles from "./Button.module.scss";
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-
-type TypeButton = {
-  text: string;
-  icon: React.ReactNode | null;
-  link?: string;
-  background?: string;
-  borderColor?: string;
-  color?: string;
-  paddingX?: string;
-  paddingY?: string;
-};
+import { TypeButton } from "src/types/Button.type";
 
 const Button: FC<TypeButton> = ({
   text,

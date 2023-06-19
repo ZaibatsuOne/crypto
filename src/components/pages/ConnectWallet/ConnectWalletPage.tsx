@@ -2,9 +2,9 @@ import ConnectWalletItem from "./ConnectWallet-item/ConnectWalletItem";
 import styles from "./ConnectWalletPage.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC } from "react";
-import { walletList } from "src/ts/ConnectWallet";
+import { walletList } from "src/data/Wallet.data";
 import { motion } from "framer-motion";
-import { pVariants } from "src/animation/variants";
+import { pVariants } from "src/utils/AnimationVariants";
 
 const ConnectWalletPage: FC = () => {
   return (

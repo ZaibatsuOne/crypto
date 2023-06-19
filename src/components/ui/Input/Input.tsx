@@ -1,15 +1,8 @@
 import styles from "./Input.module.scss";
 import { FC } from "react";
+import { TypeInput } from "src/types/Input.type";
 
-interface IInputProps {
-  placeholder: string;
-  icon: React.ComponentType<any> | any;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  width?: string;
-  onClick?: any;
-}
-
-const Input: FC<IInputProps> = ({
+const Input: FC<TypeInput> = ({
   onChange,
   placeholder,
   icon,

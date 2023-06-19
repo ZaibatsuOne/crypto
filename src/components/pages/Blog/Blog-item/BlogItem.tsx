@@ -1,33 +1,24 @@
-import User from "src/components/user/User";
-import styles from "../BlogPage.module.scss";
-import { FC } from "react";
 import Button from "src/components/ui/Buttons/Button";
+import styles from "../BlogPage.module.scss";
+import User from "src/components/user/User";
+import { TypeBlogPage } from "src/types/BlogPage.type";
+import { FC } from "react";
 import { motion } from "framer-motion";
 
-interface IBlogItemProps {
-  id: number;
-  title: string;
-  excerpt: string;
-  thumbail: string;
-  userAvatar: string;
-  userName: string;
-  link: string;
-}
-
-const BlogItem: FC<IBlogItemProps> = ({
+const BlogItem: FC<TypeBlogPage> = ({
   id,
   title,
   excerpt,
-  thumbail,
+  img,
   userAvatar,
   userName,
-  link,
+  userType,
 }) => {
   return (
     <>
       <div className={styles.window}>
         <motion.img
-          src={thumbail}
+          src={img}
           alt={title}
           className={styles.thumbnail}
           whileHover={{ scale: 1.1 }}
@@ -38,7 +29,7 @@ const BlogItem: FC<IBlogItemProps> = ({
           <User
             userName={userName}
             userAvatar={userAvatar}
-            userType="Создал"
+            userType={userType}
             id={id}
           />
           <span className={styles.date}>Feb 19, 2021</span>
@@ -47,13 +38,7 @@ const BlogItem: FC<IBlogItemProps> = ({
         <p className={styles.excerpt}>{excerpt}</p>
       </main>
       <footer>
-        <Button
-          text="Читать"
-          icon={null}
-          borderColor="#FFF"
-          paddingX="36px"
-          link={link}
-        />
+        <Button text="Читать" icon={null} borderColor="#FFF" paddingX="36px" />
       </footer>
     </>
   );

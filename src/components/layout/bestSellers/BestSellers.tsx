@@ -7,11 +7,11 @@ import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { pVariants } from "src/utils/AnimationVariants";
-import { User } from "src/types/User.type";
+import { TypeUser } from "src/types/User.type";
 
 interface IBestSellers {
   id: number;
-  user: User[];
+  user: TypeUser[];
 }
 
 const BestSellers: FC = () => {

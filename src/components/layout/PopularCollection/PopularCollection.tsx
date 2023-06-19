@@ -1,9 +1,9 @@
 import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
-import CollectionItem from "src/components/nft/CollectionItem/CollectionItem";
+import CollectionItem from "./PopularCollection-item/CollectionItem";
 import styles from "./PopularCollection.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC } from "react";
-import { popularCollections } from "src/ts/PopularCollection";
+import { popularCollections } from "src/data/Collection.data";
 
 const PopularCollection: FC = () => {
   return (
@@ -21,7 +21,6 @@ const PopularCollection: FC = () => {
               img={item.img}
               userAvatar={item.userAvatar}
               userName={item.userName}
-              userType={item.userType}
             />
           </article>
         ))}

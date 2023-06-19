@@ -1,11 +1,16 @@
 import styles from "./User.module.scss";
-import TypeUser from "src/ts/TypeUser";
 import UserAvatar from "./UserAvatar";
 import UserName from "./UserName";
 import { FC } from "react";
 import Marquee from "react-fast-marquee";
+import { TypeUser } from "src/types/User.type";
 
-const User: FC<TypeUser> = ({ userName, userAvatar, id, userType }) => {
+const User: FC<TypeUser> = ({
+  userName,
+  userAvatar,
+  userType = "Владелец",
+  id,
+}) => {
   return (
     <div className={styles.user}>
       <UserAvatar userAvatar={userAvatar} userName={userName} />

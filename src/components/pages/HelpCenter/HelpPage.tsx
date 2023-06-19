@@ -4,7 +4,7 @@ import styles from "./HelpPage.module.scss";
 import Title from "src/components/ui/title/Title";
 import { BiSearchAlt } from "react-icons/bi";
 import { FC, useState } from "react";
-import { helpCategory } from "src/ts/HelpCategory";
+import { helpCategory } from "src/data/HelpCategory.data";
 
 const HelpPage: FC = () => {
   const [inp, setInp] = useState<string>("");
