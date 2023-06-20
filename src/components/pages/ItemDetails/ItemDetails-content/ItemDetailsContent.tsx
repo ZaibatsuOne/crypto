@@ -3,7 +3,6 @@ import Coutdown from "src/components/ui/coutdown/Coutdown";
 import Likes from "src/components/ui/likes/Likes";
 import styles from "../ItemDetailsPage.module.scss";
 import User from "src/components/user/User";
-import { BiData } from "react-icons/bi";
 import { FC } from "react";
 import { TypeUser } from "src/types/User.type";
 
@@ -68,7 +67,6 @@ const ItemDetailsContent: FC<TypeItemContent> = ({
           </div>
         </span>
       </div>
-      <Button text="Сделать ставку" borderColor="#FFF" icon={<BiData />} />
     </section>
   );
 };

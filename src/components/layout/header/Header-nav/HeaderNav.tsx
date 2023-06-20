@@ -4,7 +4,8 @@ import styles from "../Header.module.scss";
 import { BiWallet } from "react-icons/bi";
 import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import { RiArrowUpSLine } from "react-icons/ri";
+import { motion } from "framer-motion";
 
 const HeaderNav: FC = () => {
   const [active, setActive] = useState({
@@ -35,7 +36,21 @@ const HeaderNav: FC = () => {
               <li className={styles.dropdown__item}>Рейтинг</li>
             </NavLink>
           </ul>
-          {active.nft ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+          {active.nft ? (
+            <motion.span
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.3 }}
+            >
+              <RiArrowUpSLine />
+            </motion.span>
+          ) : (
+            <motion.span
+              animate={{ rotate: 180 }}
+              transition={{ duration: 0.3 }}
+            >
+              <RiArrowUpSLine />
+            </motion.span>
+          )}
         </li>
         <li
           className={styles.item}
@@ -52,7 +67,21 @@ const HeaderNav: FC = () => {
               <li className={styles.dropdown__item}>Активность</li>
             </NavLink>
           </ul>
-          {active.community ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+          {active.community ? (
+            <motion.span
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.3 }}
+            >
+              <RiArrowUpSLine />
+            </motion.span>
+          ) : (
+            <motion.span
+              animate={{ rotate: 180 }}
+              transition={{ duration: 0.3 }}
+            >
+              <RiArrowUpSLine />
+            </motion.span>
+          )}
         </li>
         <li
           className={styles.item}
@@ -72,7 +101,21 @@ const HeaderNav: FC = () => {
               <li className={styles.dropdown__item}>Связаться</li>
             </NavLink>
           </ul>
-          {active.contact ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+          {active.contact ? (
+            <motion.span
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.3 }}
+            >
+              <RiArrowUpSLine />
+            </motion.span>
+          ) : (
+            <motion.span
+              animate={{ rotate: 180 }}
+              transition={{ duration: 0.3 }}
+            >
+              <RiArrowUpSLine />
+            </motion.span>
+          )}
         </li>
       </ol>
       <span className={styles.wrapper}>

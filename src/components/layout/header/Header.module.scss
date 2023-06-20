@@ -2,13 +2,36 @@
   @apply max-w-[1400px] mx-auto;
 }
 .header {
-  @apply w-[100%] min-h-[750px] mb-20;
-  background: rgba(0, 0, 0, 0.1) url("../img/pages/bgHome.jpg") no-repeat center;
-  filter: blur();
-  background-size: cover;
+  @apply mt-14 relative w-[100%] min-h-[750px] mb-20;
+
+  &__bg {
+    position: absolute;
+    z-index: -2;
+    display: flex;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+    background: rgba(0, 0, 0, 0.1) url("../img/pages/bgHome.jpg") no-repeat
+      center;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    inset: calc(-72px + -24px) 0 0 0;
+  }
+  &__grid {
+    position: absolute;
+    z-index: -1;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.1) url("../img/pages/grid.webp") no-repeat
+      center;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    inset: calc(-72px + -24px) 0 0 0;
+  }
 }
 .nav {
-  @apply sticky top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50;
+  @apply fixed right-0 left-0 top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-40;
 }
 .logo {
   @apply flex gap-[10px] items-center;
@@ -20,7 +43,7 @@
   @apply relative flex gap-[6px] items-center cursor-pointer text-sm;
 }
 .dropdown {
-  @apply absolute  flex flex-col bg-nftBg w-40 top-[53px];
+  @apply absolute mt-3 rounded-2xl flex flex-col bg-nftBg w-40 top-[53px] shadow-2xl;
   // background-color: rgba($color: #343444, $alpha: 0.5);
 
   &__item {
@@ -37,23 +60,20 @@
   @apply flex flex-col items-center gap-8  text-center max-w-[500px] mx-auto py-8 select-none;
 }
 .title {
-  @apply leading-tight;
+  @apply leading-tight text-[80px] font-extrabold;
 }
 .buttons {
   @apply flex gap-4;
 }
 .slug {
+  @apply text-[80px] font-extrabold;
   background: linear-gradient(
     216.56deg,
-    #4b50e6 19.8%,
-    #7d5fff 21.4%,
-    #a55eea 30%,
-    #ffffff 33.8%,
-    #a55eea 35.6%,
-    #7d5fff 45%,
-    #7158e2 46.4%,
-    #9a55bd 66%,
-    #4b50e6 77.32%
+    #0294fe 0%,
+    #ff2136 25%,
+    #9b4dff 50%,
+    #0294fe 75%,
+    #ff2136 100%
   );
   background-size: 400% 400%;
   animation: gradientAnimation 20s ease-in-out infinite;
@@ -61,8 +81,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  font-weight: 700;
-  font-size: 85px;
 }
 
 @keyframes gradientAnimation {
@@ -76,3 +94,12 @@
     background-position: 0% 50%;
   }
 }
+// #4b50e6 19.8%,
+// #7d5fff 21.4%,
+// #a55eea 30%,
+// #ffffff 33.8%,
+// #a55eea 35.6%,
+// #7d5fff 45%,
+// #7158e2 46.4%,
+// #9a55bd 66%,
+// #4b50e6 77.32%

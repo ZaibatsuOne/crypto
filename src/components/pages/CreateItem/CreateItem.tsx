@@ -1,11 +1,11 @@
+import axios from "axios";
 import NftItem from "src/components/nft/Nft-Item/NftItem";
 import styles from "./CreateItem.module.scss";
 import { addNFT } from "src/features/Nft/nftSlice";
 import { FC } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { toast, Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Toaster, toast } from "react-hot-toast";
-import axios from "axios";
 
 interface IForm {
   title: string;
@@ -67,6 +67,7 @@ const CreateItem: FC = () => {
           category={1}
           userName="Your Name"
           userAvatar={userNFT}
+          description={descriptionNFT}
         />
       </div>
 

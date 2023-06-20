@@ -1,7 +1,7 @@
 import styles from "../FaqPage.module.scss";
 import { FC, useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
-
+import { FaPlus } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 type FaqItemProps = {
   question: string;
   answer: string;
@@ -11,16 +11,36 @@ const FaqItem: FC<FaqItemProps> = ({ question, answer }) => {
   const [openAnswer, setOpenAnswer] = useState<boolean>(false);
 
   return (
-    <article
-      className={styles.item}
-      onClick={(): void => setOpenAnswer(!openAnswer)}
-    >
-      <header className={styles.wrapper}>
+    <>
+      <header
+        className={styles.wrapper}
+        onClick={(): void => setOpenAnswer(!openAnswer)}
+      >
         <h6 className={styles.question}>{question}</h6>
-        {openAnswer ? <FaMinus /> : <FaPlus />}
+        {openAnswer ? (
+          <motion.span animate={{ rotate: 45 }} transition={{ duration: 0.3 }}>
+            <FaPlus />
+          </motion.span>
+        ) : (
+          <motion.span animate={{ rotate: 90 }} transition={{ duration: 0.3 }}>
+            <FaPlus />
+          </motion.span>
+        )}
       </header>
-      {openAnswer ? <p className={styles.answer}>{answer}</p> : ""}
-    </article>
+      <AnimatePresence>
+        {openAnswer && (
+          <motion.p
+            className={styles.answer}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {answer}
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

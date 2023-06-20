@@ -28,3 +28,23 @@
 .button {
   @apply w-9 h-9 bg-nftBg rounded-full p-[11px];
 }
+.line {
+  @apply h-[1px] bg-nftBg w-full;
+}
+.list {
+  @apply flex flex-col gap-3;
+}
+.aside {
+  @apply flex flex-col gap-8;
+}
+.popup {
+  @apply flex flex-col gap-6 w-[370px] h-[300px] bg-nftBg p-5 rounded-2xl;
+  filter: drop-shadow(0px 0px 57px #000);
+
+  &__input {
+    @apply bg-footer  border-[#343444] px-6 py-[16px] rounded-xl outline-none text-body-regular;
+  }
+  &__wrapper {
+    @apply flex justify-between gap-2;
+  }
+}

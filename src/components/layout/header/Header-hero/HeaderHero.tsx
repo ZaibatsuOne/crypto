@@ -1,14 +1,14 @@
-import styles from "../Header.module.scss";
 import Button from "src/components/ui/Buttons/Button";
-import { MdLibraryBooks } from "react-icons/md";
-import { FC } from "react";
+import styles from "../Header.module.scss";
 import { BiRocket } from "react-icons/bi";
 import { easeInOut, motion } from "framer-motion";
+import { FC } from "react";
+import { MdLibraryBooks } from "react-icons/md";
 import { sectionVariant } from "src/utils/AnimationVariants";
 
 const HeaderHero: FC = () => {
   return (
-    <div className="overflow-hidden">
+    <div>
       <motion.section
         className={styles.section}
         initial={"hidden"}
@@ -16,10 +16,10 @@ const HeaderHero: FC = () => {
         variants={sectionVariant}
         transition={{ duration: 3, ease: easeInOut }}
       >
-        <h2 className={styles.title}>
+        <h1 className={styles.title}>
           Открывайте и собирайте экстраординарные{" "}
           <p className={styles.slug}>МОНСТРОВ</p> NFT.
-        </h2>
+        </h1>
         <p>
           Торговая площадка для коллекций персонажей-монстров,
           невзаимозаменяемые токены NFT

@@ -2,19 +2,14 @@
   @apply flex flex-col gap-10;
 }
 .item {
-  @apply flex flex-col gap-6 p-6 bg-nftBg w-[450px]  rounded-xl;
-
-  // &:hover {
-  //   .thumbnail {
-  //     @apply scale-125 duration-1000 ease-in-out;
-  //   }
-  // }
+  @apply bg-[#1e272e] hover:bg-[#313133]  w-[450px]  rounded-xl duration-200;
 }
+
 .window {
   @apply overflow-hidden w-[402px] h-[280px] rounded-xl cursor-pointer;
 }
 .thumbnail {
-  @apply w-[402px] h-[280px] object-cover rounded-xl;
+  @apply w-full h-[280px] object-cover rounded-t-xl;
 }
 .title {
   @apply line-clamp-2;
@@ -26,7 +21,7 @@
   @apply flex flex-col gap-3;
 }
 .date {
-  @apply text-body-regular;
+  @apply flex flex-col  items-baseline text-body-regular;
 }
 .header {
   @apply flex justify-between items-center;

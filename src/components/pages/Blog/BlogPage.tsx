@@ -2,9 +2,11 @@ import axios from "axios";
 import BlogItem from "./Blog-item/BlogItem";
 import Button from "src/components/ui/Buttons/Button";
 import styles from "./BlogPage.module.scss";
+import Title from "src/components/ui/title/Title";
 import { FC, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { MdLineWeight, MdGridView } from "react-icons/md";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import { pVariants } from "src/utils/AnimationVariants";
 import { TypeBlogPage } from "src/types/BlogPage.type";
 
@@ -32,11 +34,31 @@ const BlogPage: FC = () => {
     fetchBlogItem();
   }, []);
 
+  const [changeDisplay, setChangeDisplay] = useState(true);
   return (
     <>
       {blogItem && (
         <section className={styles.section}>
-          <section className={styles.gridlist}>
+          <header className="flex justify-between items-center">
+            <div>
+              <Title title="Блог" />
+              <p className={styles.subtitle}>
+                Время от времени мы пишем вещи, которые могут быть интересны 🤷‍
+              </p>
+            </div>
+            <div className="flex gap-5">
+              <button onClick={() => setChangeDisplay(true)}>
+                {<MdGridView />}
+              </button>
+              <button onClick={() => setChangeDisplay(false)}>
+                {<MdLineWeight />}
+              </button>
+            </div>
+          </header>
+
+          <section
+            className={changeDisplay ? styles.gridlist : "flex flex-col gap-20"}
+          >
             {blogItem.slice(0, maxCards).map((item) => (
               <motion.article
                 animate={"visible"}
@@ -45,7 +67,7 @@ const BlogPage: FC = () => {
                 transition={{ duration: 2 }}
                 key={item.id}
               >
-                <NavLink to={`/blog/${item.id}`} className={styles.item}>
+                <NavLink to={`/blog/${item.id}`}>
                   <BlogItem
                     title={item.title}
                     excerpt={item.excerpt}
@@ -54,6 +76,7 @@ const BlogPage: FC = () => {
                     userName={item.userName}
                     userType="Редактор"
                     id={item.id}
+                    changeDisplay={changeDisplay}
                   />
                 </NavLink>
               </motion.article>

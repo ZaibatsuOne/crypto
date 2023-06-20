@@ -7,7 +7,7 @@ const Button: FC<TypeButton> = ({
   text,
   icon,
   link = "#",
-  background = "none",
+  background = "#14141F",
   borderColor = "#5142FC",
   color = "#FFF",
   paddingX = "28px",

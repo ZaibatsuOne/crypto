@@ -1,7 +1,27 @@
 .button {
-  @apply flex items-center gap-2 px-4  border-[1px] rounded-[30px] justify-center;
+  @apply relative flex items-center gap-2 px-4  border-[1px] rounded-[30px] justify-center;
 
   &More {
     @apply text-sub-heading-2 border-solid border-b-2 border-primary;
   }
+}
+.button:before {
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  right: 5px;
+  bottom: 0;
+  left: 5px;
+  border-radius: 6px;
+  background: conic-gradient(
+    from 147.14deg at 50% 50%,
+    #0294fe -55.68deg,
+    #ff2136 113.23deg,
+    #9b4dff 195deg,
+    #0294fe 304.32deg,
+    #ff2136 473.23deg
+  );
+  content: "";
+  filter: blur(40px);
+  opacity: 0.6;
 }

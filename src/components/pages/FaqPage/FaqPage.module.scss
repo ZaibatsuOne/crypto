@@ -2,20 +2,23 @@
   @apply flex flex-col gap-8;
 }
 .header {
-  @apply flex flex-col gap-3 text-center max-w-[650px] mx-auto;
+  @apply flex flex-col gap-3 text-justify w-1/2;
 }
 .subtitle {
   @apply text-body-regular;
 }
 .item {
-  @apply flex flex-col gap-[10px] px-8 py-6 bg-nftBg rounded-[40px] cursor-pointer;
+  @apply flex flex-col gap-[10px] rounded-[40px] cursor-pointer;
 }
 .answer {
-  @apply text-body-2;
+  @apply text-body-2 w-1/2 text-justify;
 }
 .list {
   @apply flex flex-col gap-10;
 }
 .wrapper {
   @apply flex justify-between items-center;
+}
+.line {
+  @apply w-full h-[1px] bg-nftBg;
 }

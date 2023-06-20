@@ -6,4 +6,5 @@ export type TypeBlogPage = {
   userAvatar: string;
   userName: string;
   userType: "Редактор";
+  changeDisplay?: boolean;
 };
