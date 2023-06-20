@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Toaster, toast } from "react-hot-toast";
 import axios from "axios";
-import { INft } from "src/types/Nft.interface";
 
 interface IForm {
   title: string;
@@ -32,6 +31,7 @@ const CreateItem: FC = () => {
   //Болванка для NFT-item
   const titleNFT: string = watch("title");
   const priceNFT: number = watch("price");
+  const descriptionNFT: string = watch("description");
   const image: boolean = false;
   const user: boolean = false;
   const imageNFT: string = image ? `${image}` : "../img/example/nftBG.jpg";
@@ -47,7 +47,7 @@ const CreateItem: FC = () => {
     if (price < 0) toast.error("Цена не может быть отрицательной");
     else {
       toast.success("Добавлено!");
-      const article = { price, title };
+      const article = { price, title, description };
       dispatch(addNFT(article));
       axios.post(url, article);
     }

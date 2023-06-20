@@ -14,6 +14,7 @@ import ActivityPage from "./components/pages/Activity/ActivityPage";
 import AuthorPage from "./components/pages/Author/AuthorPage";
 import RankingPage from "./components/pages/Ranking/RankingPage";
 import CreateItem from "./components/pages/CreateItem/CreateItem";
+import ItemDetailsPage from "./components/pages/ItemDetails/ItemDetailsPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/author/:id" element={<AuthorPage />} />
         <Route path="/ranking" element={<RankingPage />} />
         <Route path="/create" element={<CreateItem />} />
+        <Route path="/item/:id" element={<ItemDetailsPage />} />
       </Route>
     </Routes>
   );

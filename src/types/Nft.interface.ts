@@ -6,5 +6,6 @@ export interface INft extends TypeUser {
   title: string;
   price: number;
   category: number;
+  description?: string;
   user: TypeUser;
 }

@@ -1,7 +1,21 @@
 import styles from "./Coutdown.module.scss";
 import { FC, useEffect, useState } from "react";
 
-const Coutdown: FC = () => {
+type TypeCoutdown = {
+  bg?: string;
+  paddingX?: string;
+  paddingY?: string;
+  iconDisplay?: "block" | "none";
+  fontWeight?: "bold" | "normal";
+};
+
+const Coutdown: FC<TypeCoutdown> = ({
+  bg = "#0D0D11",
+  paddingX = "16px",
+  paddingY = "6px",
+  iconDisplay = "block",
+  fontWeight = "normal",
+}) => {
   const [countdown, setCountdown] = useState<string>("");
 
   useEffect(() => {
@@ -37,8 +51,18 @@ const Coutdown: FC = () => {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      style={{
+        backgroundColor: bg,
+        paddingLeft: paddingX,
+        paddingRight: paddingX,
+        paddingTop: paddingY,
+        paddingBottom: paddingY,
+      }}
+    >
       <svg
+        style={{ display: iconDisplay }}
         width="20"
         height="20"
         viewBox="0 0 20 20"
@@ -57,7 +81,7 @@ const Coutdown: FC = () => {
           </clipPath>
         </defs>
       </svg>
-      <p className={styles.time}>{countdown}</p>
+      <p style={{ fontWeight: fontWeight }}>{countdown}</p>
     </div>
   );
 };
