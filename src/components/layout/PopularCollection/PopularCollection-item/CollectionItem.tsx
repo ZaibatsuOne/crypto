@@ -36,7 +36,7 @@ const CollectionItem: FC<IPopularCollection> = ({
             </span>
           </div>
         </div>
-        <div>
+        <div className="hidden">
           <Likes />
         </div>
       </footer>

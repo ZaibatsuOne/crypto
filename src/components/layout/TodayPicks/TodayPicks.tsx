@@ -4,15 +4,15 @@ import ButtonMore from "src/components/ui/Buttons/ButtonMore/ButtonMore";
 import History from "src/components/ui/History/History";
 import Loading from "src/components/ui/Loading/Loading";
 import NftItem from "src/components/nft/Nft-Item/NftItem";
+import Section from "../Section/Section";
+import SectionHeader from "../Section/SectionHeader";
 import styles from "./TodayPicks.module.scss";
 import Title from "src/components/ui/title/Title";
 import { BiData } from "react-icons/bi";
 import { FC, useEffect, useState } from "react";
+import { INft } from "src/types/Nft.interface";
 import { motion } from "framer-motion";
 import { pVariants, sectionVariant } from "src/utils/AnimationVariants";
-import { INft } from "src/types/Nft.interface";
-import Section from "../Section/Section";
-import SectionHeader from "../Section/SectionHeader";
 
 const TodayPicks: FC = () => {
   const [picks, setPicks] = useState<INft[]>([]);
@@ -24,10 +24,12 @@ const TodayPicks: FC = () => {
   useEffect(() => {
     const fetchPicks = async () => {
       const response = await axios.get<INft[]>(url);
-      setTimeout(() => {
-        setIsLoading(!isLoading);
-        setPicks(response.data);
-      }, 1500);
+      setPicks(response.data);
+
+      // setTimeout(() => {
+      //   setIsLoading(!isLoading);
+      //   setPicks(response.data);
+      // }, 1500);
     };
     fetchPicks();
   }, []);
@@ -38,41 +40,42 @@ const TodayPicks: FC = () => {
         <Title title="Сегодняшние выборы" />
         <ButtonMore link="/marketplace" />
       </SectionHeader>
-      {isLoading ? (
-        <motion.section
-          variants={sectionVariant}
-          animate={"visible"}
-          initial={"hidden"}
-          transition={{ duration: 1 }}
-          className={styles.section}
-        >
-          {picks.slice(0, maxCards).map((picksItem) => (
-            <motion.article
-              variants={pVariants}
-              animate={"visible"}
-              initial={"hidden"}
-              transition={{ duration: 1.3 }}
-              key={picksItem.id}
-            >
-              <NftItem
-                id={picksItem.id}
-                img={picksItem.img}
-                userId={picksItem.user.id}
-                user={picksItem.user}
-                title={picksItem.title}
-                userName={picksItem.user.userName}
-                userAvatar={picksItem.user.userAvatar}
-                price={picksItem.price}
-                category={picksItem.category}
-                bidButton={<Button text="Ставка" icon={<BiData />} />}
-                history={<History />}
-              />
-            </motion.article>
-          ))}
-        </motion.section>
-      ) : (
-        <Loading />
-      )}
+      {/* {isLoading ? ( */}
+      <motion.section
+        variants={sectionVariant}
+        animate={"visible"}
+        initial={"hidden"}
+        transition={{ duration: 1 }}
+        className={styles.section}
+      >
+        {picks.slice(0, maxCards).map((picksItem) => (
+          <motion.article
+            variants={pVariants}
+            animate={"visible"}
+            initial={"hidden"}
+            transition={{ duration: 1.3 }}
+            key={picksItem.id}
+          >
+            <NftItem
+              id={picksItem.id}
+              img={picksItem.img}
+              userId={picksItem.user.id}
+              user={picksItem.user}
+              title={picksItem.title}
+              userName={picksItem.user.userName}
+              userAvatar={picksItem.user.userAvatar}
+              price={picksItem.price}
+              category={picksItem.category}
+              bidButton={<Button text="Ставка" icon={<BiData />} />}
+              history={<History />}
+            />
+          </motion.article>
+        ))}
+      </motion.section>
+      {/* ) 
+       : (
+         <Loading />
+       )} */}
       <button
         className={maxCards === 16 ? "hidden" : styles.footer}
         onClick={() => setMaxCards((prevCount) => prevCount + 4)}

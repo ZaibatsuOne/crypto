@@ -1,13 +1,13 @@
 import Button from "src/components/ui/Buttons/Button";
+import DropdownGroup from "./DropDown/DropdownGroup";
+import DropdownItem from "./DropDown/DropdownItem";
 import Logo from "src/components/ui/logo/Logo";
 import styles from "../Header.module.scss";
 import { BiWallet } from "react-icons/bi";
 import { FC, useState } from "react";
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { motion } from "framer-motion";
-import DropdownItem from "./DropDown/DropdownItem";
-import DropdownGroup from "./DropDown/DropdownGroup";
 
 const HeaderNav: FC = () => {
   const [active, setActive] = useState({

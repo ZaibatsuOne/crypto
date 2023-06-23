@@ -5,8 +5,8 @@
   @apply flex justify-between items-center;
 }
 .list {
-  @apply flex justify-between;
+  @apply grid grid-cols-1 gap-4 mx-auto;
 }
 .wrapper {
-  @apply w-[450px] h-[394px] bg-nftBg rounded-[10px];
+  @apply w-[370px] h-[394px] bg-nftBg rounded-[10px];
 }

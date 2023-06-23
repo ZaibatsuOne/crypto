@@ -2,7 +2,8 @@
   @apply max-w-[1400px] mx-auto;
 }
 .header {
-  @apply mt-14 relative w-[100%] min-h-[750px] mb-20;
+  // min-h-[750px] mb-20
+  @apply mt-14 relative w-[100%] mb-10;
 
   &__bg {
     position: absolute;
@@ -16,7 +17,9 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100%;
+    // min-height: 750px;
     inset: calc(-72px + -24px) 0 0 0;
+    @apply bg-cover;
   }
   &__grid {
     position: absolute;
@@ -31,7 +34,7 @@
   }
 }
 .nav {
-  @apply fixed right-0 left-0 top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-40;
+  @apply fixed right-0 left-0 top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-16;
 }
 .logo {
   @apply flex gap-[10px] items-center;
@@ -47,16 +50,21 @@
   @apply flex gap-9 items-center;
 }
 .section {
-  @apply flex flex-col items-center gap-8  text-center max-w-[500px] mx-auto py-8 select-none;
+  @apply flex flex-col items-center gap-8  text-center max-w-[350px] mx-auto py-8 select-none;
+  @apply xl:max-w-[600px]; //1280px
 }
 .title {
-  @apply leading-tight text-[80px] font-extrabold;
+  @apply leading-tight text-[37px] font-extrabold max-w-[350px];
+  @apply xl:max-w-[800px] xl:text-[80px]; //1280px
 }
 .buttons {
   @apply flex gap-4;
 }
+
 .slug {
-  @apply text-[80px] font-extrabold;
+  //text-[80px]
+  @apply text-[50px] font-extrabold;
+  @apply xl:text-[80px]; //1280px
   background: linear-gradient(
     216.56deg,
     #0294fe 0%,

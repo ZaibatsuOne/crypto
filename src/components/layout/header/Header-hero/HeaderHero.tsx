@@ -8,7 +8,7 @@ import { sectionVariant } from "src/utils/AnimationVariants";
 
 const HeaderHero: FC = () => {
   return (
-    <div>
+    <>
       <motion.section
         className={styles.section}
         initial={"hidden"}
@@ -17,7 +17,7 @@ const HeaderHero: FC = () => {
         transition={{ duration: 3, ease: easeInOut }}
       >
         <h1 className={styles.title}>
-          Открывайте и собирайте экстраординарные{" "}
+          Открывайте и собирайте экстраординарных{" "}
           <p className={styles.slug}>МОНСТРОВ</p> NFT.
         </h1>
         <p>
@@ -36,7 +36,7 @@ const HeaderHero: FC = () => {
           />
         </div>
       </motion.section>
-    </div>
+    </>
   );
 };
 

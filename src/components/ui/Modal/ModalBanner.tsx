@@ -1,6 +1,6 @@
 import React from "react";
 
-const ModalBanner = (ch) => {
+const ModalBanner = () => {
   return <div>ModalBanner</div>;
 };
 

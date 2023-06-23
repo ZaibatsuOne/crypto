@@ -61,7 +61,7 @@ const CreateItem: FC = () => {
           title={titleNFT}
           price={priceNFT}
           img={imageNFT}
-          // user={{1, "1", "1"}}
+          user="1"
           id={1}
           userId={1}
           category={1}

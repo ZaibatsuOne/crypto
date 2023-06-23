@@ -12,6 +12,7 @@ interface NftItemProps extends INft {
   coutdown?: ReactNode;
   bidButton?: ReactNode;
   history?: ReactNode;
+  user: any;
 }
 
 const NftItem: FC<NftItemProps> = ({

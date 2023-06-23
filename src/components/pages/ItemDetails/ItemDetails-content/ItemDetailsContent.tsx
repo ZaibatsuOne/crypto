@@ -37,9 +37,7 @@ const ItemDetailsContent: FC<TypeItemContent> = ({
         <span className={styles.inner}>
           <User userName={userName} userAvatar={userAvatar} id={id} />
         </span>
-        <span className={styles.inner}>
-          <User />
-        </span>
+        <span className={styles.inner}>{/* <User /> */}</span>
       </div>
       <p className={styles.description}>{description}</p>
       <div className={styles.wrapper}>

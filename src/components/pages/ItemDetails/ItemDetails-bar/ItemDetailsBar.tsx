@@ -11,7 +11,7 @@ const ItemDetailsBar: FC = () => {
       <ul className={styles.list}>
         <li className="flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <UserAvatar userAvatar="../img/nft/All/2.png" />
+            <UserAvatar userAvatar="../img/nft/All/2.png" userName="Заглушка" />
             <div>
               <span className="flex gap-2 items-center">
                 <UserName userName="Mason Woodward" space="" />
@@ -25,7 +25,7 @@ const ItemDetailsBar: FC = () => {
         <div className={styles.line} />
         <li className="flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <UserAvatar userAvatar="../img/nft/All/2.png" />
+            <UserAvatar userAvatar="../img/nft/All/2.png" userName="заглушка" />
             <div>
               <span className="flex gap-2 items-center">
                 <UserName userName="Mason Woodward" space="" />

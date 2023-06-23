@@ -24,7 +24,7 @@ const AuthorProfile: FC<AuthorPageProps> = ({
   setCategory,
 }) => {
   const { id } = useParams();
-  const [cards, setCards] = useState(null);
+  const [cards, setCards] = useState<any>(null);
 
   const url = import.meta.env.VITE_MOCKAPI_URL;
 
@@ -52,7 +52,7 @@ const AuthorProfile: FC<AuthorPageProps> = ({
           <div className={styles.avatar}>
             <UserAvatar
               userAvatar={cards.user.userAvatar}
-              userName={cards.user.userName}
+              userName={cards.userName}
               width="274px"
               height="274px"
             />

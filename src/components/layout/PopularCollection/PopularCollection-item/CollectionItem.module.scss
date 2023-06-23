@@ -34,7 +34,8 @@ img {
   @apply text-base max-w-[200px] text-ellipsis whitespace-nowrap overflow-hidden;
 }
 .created {
-  @apply flex items-center text-userType font-light;
+  //items-center
+  @apply flex flex-col  text-userType font-light;
 }
 .type {
   @apply font-light;

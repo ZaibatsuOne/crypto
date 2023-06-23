@@ -2,11 +2,16 @@
   @apply flex flex-col gap-10;
 }
 .header {
-  @apply relative flex justify-between items-center;
+  @apply relative flex justify-between items-center mx-8;
+  @apply xl:mx-0;
 }
 .main {
-  @apply grid grid-cols-4  gap-[30px];
+  @apply grid grid-cols-1 mx-auto  gap-[30px];
+  @apply xl:grid-cols-4; //1280px
 }
 .button {
   @apply flex mx-auto;
+}
+.toggle {
+  @apply absolute top-14 z-50  bg-nftBg rounded-xl;
 }

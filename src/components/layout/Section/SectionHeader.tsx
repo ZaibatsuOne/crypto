@@ -6,9 +6,7 @@ type Props = {
 
 const SectionHeader: FC<Props> = ({ children }) => {
   return (
-    <header className="  @apply flex justify-between items-center">
-      {children}
-    </header>
+    <header className="flex justify-between items-center">{children}</header>
   );
 };
 
