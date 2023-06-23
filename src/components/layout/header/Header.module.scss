@@ -35,7 +35,7 @@
 }
 .nav {
   @apply fixed right-0 left-0 top-0  flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-4;
-  @apply xl:px-16;
+  // @apply xl:mx-80;
 }
 .logo {
   @apply flex gap-[10px] items-center;

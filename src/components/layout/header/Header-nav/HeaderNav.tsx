@@ -29,6 +29,7 @@ const HeaderNav: FC = () => {
         setActive={setActive}
         active={active}
         initialState={openHamburger}
+        setInitialState={setOpenHamburger}
       />
       <ol className={styles.list}>
         <NavLink to="/">

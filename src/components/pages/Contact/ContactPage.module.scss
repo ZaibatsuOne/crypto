@@ -1,5 +1,6 @@
 .section {
-  @apply flex justify-between items-center;
+  @apply flex justify-between items-center text-center px-2;
+  @apply xl:text-left xl:px-0;
 }
 .wrapper {
   @apply flex flex-col max-w-[690px] gap-[60px];

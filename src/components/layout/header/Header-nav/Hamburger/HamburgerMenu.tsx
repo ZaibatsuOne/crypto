@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef, useEffect } from "react";
 import styles from "./HamburgerMenu.module.scss";
 import HamburgerItem from "./HamburgerItem";
 
@@ -19,6 +19,10 @@ type Props = {
 };
 
 const HamburgerMenu: FC<Props> = ({ setActive, active, initialState }) => {
+  const closeMenu = () => {
+    !initialState;
+  };
+
   return (
     <ol className={initialState ? styles.hamburger : "hidden"}>
       <li className={styles.title}>Главная</li>
@@ -29,7 +33,7 @@ const HamburgerMenu: FC<Props> = ({ setActive, active, initialState }) => {
         NFT
         <ul className={active.nft ? styles.group : "hidden"}>
           <HamburgerItem link="/marketplace" name="Маркетплейс" />
-          <HamburgerItem link="/auction" name="Аукцион" />
+          <HamburgerItem link="/auction" name="Аукцион" onClick={closeMenu} />
           <HamburgerItem link="/ranking" name="Рейтинг" />
         </ul>
       </li>

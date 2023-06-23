@@ -20,7 +20,11 @@ const ContactPage: FC = () => {
     <section className={styles.section}>
       <Toaster />
       <div>
-        <img src="./img/pages/ContactPage/man.png" alt="Contact page" />
+        <img
+          src="./img/pages/ContactPage/man.png"
+          alt="Contact page"
+          className="hidden xl:flex"
+        />
       </div>
       <section className={styles.wrapper}>
         <header className={styles.header}>
