@@ -18,11 +18,19 @@ const FaqItem: FC<FaqItemProps> = ({ question, answer }) => {
       >
         <h6 className={styles.question}>{question}</h6>
         {openAnswer ? (
-          <motion.span animate={{ rotate: 45 }} transition={{ duration: 0.3 }}>
+          <motion.span
+            animate={{ rotate: 45 }}
+            transition={{ duration: 0.3 }}
+            className="px-2 xl:px-0"
+          >
             <FaPlus />
           </motion.span>
         ) : (
-          <motion.span animate={{ rotate: 90 }} transition={{ duration: 0.3 }}>
+          <motion.span
+            animate={{ rotate: 90 }}
+            transition={{ duration: 0.3 }}
+            className="px-2 xl:px-0"
+          >
             <FaPlus />
           </motion.span>
         )}

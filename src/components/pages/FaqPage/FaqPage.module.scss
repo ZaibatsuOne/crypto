@@ -11,7 +11,8 @@
   @apply flex flex-col gap-[10px] rounded-[40px] cursor-pointer;
 }
 .answer {
-  @apply text-body-2 w-1/2 text-justify;
+  @apply text-body-2 w-full text-justify px-2 pt-2;
+  @apply xl:w-1/2 xl:px-0 xl:pt-0;
 }
 .list {
   @apply flex flex-col gap-10;
@@ -21,4 +22,7 @@
 }
 .line {
   @apply w-full h-[1px] bg-nftBg;
+}
+.question {
+  @apply px-2 xl:px-0;
 }
