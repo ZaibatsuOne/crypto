@@ -34,6 +34,7 @@ const LiveAuction: FC = () => {
   return (
     <Section>
       <SectionHeader>
+        {/* <Title title="Аукцион" /> */}
         <Title title="Аукцион" />
         <ButtonMore link="#" />
       </SectionHeader>

@@ -34,18 +34,8 @@
   }
 }
 .nav {
-  @apply fixed right-0 left-0 top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-4;
+  @apply fixed right-0 left-0 top-0  flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-4;
   @apply xl:px-16;
-}
-.hamburger {
-  @apply absolute flex flex-col gap-6 right-0 top-14 bg-nftBg py-3 rounded-bl-xl;
-
-  &__title {
-    @apply px-3;
-  }
-  &__group {
-    @apply flex flex-col gap-4 pt-4;
-  }
 }
 .logo {
   @apply flex gap-[10px] items-center;

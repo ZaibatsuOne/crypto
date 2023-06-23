@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
+import HamburgerMenu from "./Hamburger/HamburgerMenu";
 
 const HeaderNav: FC = () => {
   const [active, setActive] = useState({
@@ -16,26 +17,19 @@ const HeaderNav: FC = () => {
     contact: false,
     community: false,
   });
+  const [openHamburger, setOpenHamburger] = useState(false);
   return (
     <nav className={styles.nav}>
       <Logo />
-      <GiHamburgerMenu />
-      <ol className={styles.hamburger}>
-        <li className={styles.hamburger__title}>Главная</li>
-        <li
-          className={styles.hamburger__title}
-          onClick={() => setActive({ ...active, nft: !active.nft })}
-        >
-          NFT
-          <ul className={active.nft ? styles.hamburger__group : "hidden"}>
-            <li>Маркетплейс</li>
-            <li>Аукцион</li>
-            <li>Рейтинг</li>
-          </ul>
-        </li>
-        <li className={styles.hamburger__title}>Комьюнити</li>
-        <li className={styles.hamburger__title}>Контакты</li>
-      </ol>
+      <GiHamburgerMenu
+        onClick={() => setOpenHamburger(!openHamburger)}
+        className="flex xl:hidden"
+      />
+      <HamburgerMenu
+        setActive={setActive}
+        active={active}
+        initialState={openHamburger}
+      />
       <ol className={styles.list}>
         <NavLink to="/">
           <li className={styles.item}>Главная</li>

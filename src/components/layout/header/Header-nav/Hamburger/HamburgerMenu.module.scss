@@ -1,0 +1,12 @@
+.hamburger {
+  @apply absolute flex flex-col gap-6 right-0 top-14 bg-nftBg py-3 rounded-bl-xl;
+}
+.title {
+  @apply px-3;
+}
+.subtitle {
+  // @apply
+}
+.group {
+  @apply flex flex-col gap-4 pt-4;
+}
