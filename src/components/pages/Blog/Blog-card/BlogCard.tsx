@@ -60,24 +60,19 @@ const BlogCard: FC = () => {
               <BlogComment />
             </footer>
           </article>
-          <aside>
-            <section className="flex flex-col gap-4">
-              <h5 className="pb-1">Последние посты</h5>
-              {recentPost.slice(0, 4).map((item) => (
-                <motion.article key={item.id} whileHover={{ scale: 1.1 }}>
-                  <NavLink
-                    to={`/blog/${item.id}`}
-                    className={styles.recentPost}
-                  >
-                    <RecentPost
-                      title={item.title}
-                      excerpt={item.excerpt}
-                      img={item.img}
-                    />
-                  </NavLink>
-                </motion.article>
-              ))}
-            </section>
+          <aside className={styles.aside}>
+            <h5 className="pb-1">Последние посты</h5>
+            {recentPost.slice(0, 4).map((item) => (
+              <motion.article key={item.id} whileHover={{ scale: 1.1 }}>
+                <NavLink to={`/blog/${item.id}`} className={styles.recentPost}>
+                  <RecentPost
+                    title={item.title}
+                    excerpt={item.excerpt}
+                    img={item.img}
+                  />
+                </NavLink>
+              </motion.article>
+            ))}
           </aside>
         </section>
       )}

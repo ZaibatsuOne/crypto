@@ -1,5 +1,10 @@
 .section {
-  @apply flex justify-between;
+  @apply flex flex-col justify-between gap-10;
+  @apply xl:flex-row xl:gap-0;
+}
+.aside {
+  @apply flex flex-col gap-4 items-center;
+  @apply xl:items-start;
 }
 .line {
   @apply w-full h-[1px] bg-onSurface;
@@ -8,7 +13,8 @@
   @apply text-caption-2;
 }
 .row {
-  @apply flex justify-between;
+  @apply flex flex-col items-center gap-6 justify-between;
+  @apply xl:flex-row xl:items-start xl:gap-0;
 }
 .box {
   @apply flex gap-4 items-center;
@@ -26,7 +32,8 @@
   @apply flex flex-col gap-8 max-w-[987px];
 }
 .main {
-  @apply flex flex-col gap-6;
+  @apply flex flex-col gap-6 px-2;
+  @apply xl:px-0;
 }
 .paragraph {
   @apply flex flex-col gap-4;
@@ -35,10 +42,12 @@
   @apply text-body-regular text-secondary font-light text-justify;
 }
 .form {
-  @apply flex flex-col gap-7;
+  @apply flex flex-col gap-7 text-center px-2;
+  @apply xl:text-start;
 }
 .group {
-  @apply flex gap-5;
+  @apply flex flex-col gap-5;
+  @apply xl:flex-row;
 }
 .social {
   @apply flex gap-2;
@@ -47,7 +56,8 @@
   @apply flex flex-col gap-3 w-full bg-nftBg p-4 rounded-xl;
 }
 .comments {
-  @apply flex flex-col gap-2;
+  @apply flex flex-col gap-2 px-2;
+  @apply xl:px-0;
 }
 .input {
   @apply h-[66px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl;

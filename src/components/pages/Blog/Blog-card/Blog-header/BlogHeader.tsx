@@ -9,7 +9,7 @@ type BlogHeaderProps = {
 const BlogHeader: FC<BlogHeaderProps> = ({ title, userName }) => {
   return (
     <>
-      <h3>{title}</h3>
+      <h3 className="text-center px-1 xl:text-start xl:px-0">{title}</h3>
       <div className={styles.line} />
       <span className={styles.row}>
         <div>
