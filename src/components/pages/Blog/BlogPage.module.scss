@@ -2,7 +2,8 @@
   @apply flex flex-col gap-10;
 }
 .item {
-  @apply bg-[#1e272e] hover:bg-[#313133]  w-[450px]  rounded-xl duration-200;
+  @apply bg-[#1e272e] hover:bg-[#313133]  w-[370px]  rounded-xl duration-200;
+  @apply xl:w-[450px];
 }
 
 .window {
@@ -21,13 +22,15 @@
   @apply flex flex-col gap-3;
 }
 .date {
-  @apply flex flex-col  items-baseline text-body-regular;
+  @apply flex flex-col  items-baseline text-sm;
+  @apply xl:text-body-regular;
 }
 .header {
   @apply flex justify-between items-center;
 }
 .gridlist {
-  @apply grid grid-cols-3 gap-[30px];
+  @apply grid grid-cols-1 mx-auto gap-[30px];
+  @apply xl:grid-cols-3;
 }
 .button {
   @apply flex justify-center;

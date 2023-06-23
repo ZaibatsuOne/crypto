@@ -17,7 +17,8 @@ import { BiCategory } from "react-icons/bi";
 const Marketplace: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
   const [nftCard, setNftCard] = useState<INft[]>([]);
-
+  const [toggleCategory, setToggleCategory] = useState<boolean>(false);
+  const divRef = useRef<HTMLButtonElement | null>(null);
   const [search, setSearch] = useState<string>("");
   //Сортировка по параметрам
   const [sort, setSort] = useState({
@@ -54,12 +55,10 @@ const Marketplace: FC = () => {
     };
     fetchNft();
   }, [category, sort, nftCard, search]);
-  const [toggle, setToggle] = useState(false);
-  const divRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     document.body.addEventListener("click", (e: MouseEvent) => {
       if (divRef.current && !e.composedPath().includes(divRef.current)) {
-        setToggle(false);
+        setToggleCategory(false);
       }
     });
   }, []);
@@ -67,12 +66,7 @@ const Marketplace: FC = () => {
   return (
     <Section>
       <header className={styles.header}>
-        <button
-          onClick={(event) => {
-            event.stopPropagation();
-            setToggle(!toggle);
-          }}
-        >
+        <button onClick={() => setToggleCategory(!toggleCategory)} ref={divRef}>
           <svg
             width="64px"
             height="64px"
@@ -124,10 +118,14 @@ const Marketplace: FC = () => {
             </g>
           </svg>
         </button>
-        <div className={toggle ? styles.toggle : "hidden"} ref={divRef}>
-          <Categories category={category} setCategory={setCategory} />
+        <div className={toggleCategory ? styles.toggle : "hidden"}>
+          <Categories
+            category={category}
+            setCategory={setCategory}
+            initialState={toggleCategory}
+          />
         </div>
-        <div className="absolute right-[20%]">
+        <div className="absolute right-[20%] hidden xl:flex">
           <Input
             placeholder="Поиск"
             icon={<ImSearch />}

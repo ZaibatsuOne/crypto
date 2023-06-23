@@ -40,14 +40,14 @@ const BlogPage: FC = () => {
     <>
       {blogItem && (
         <Section>
-          <header className="flex justify-between items-center">
+          <header className="flex justify-between items-center text-center xl:text-start">
             <div>
               <Title title="Блог" />
               <p className={styles.subtitle}>
                 Время от времени мы пишем вещи, которые могут быть интересны 🤷‍
               </p>
             </div>
-            <div className="flex gap-5">
+            <div className="hidden gap-5 xl:flex ">
               <button onClick={() => setChangeDisplay(true)}>
                 {<MdGridView />}
               </button>

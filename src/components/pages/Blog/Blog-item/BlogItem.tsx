@@ -40,8 +40,8 @@ const BlogItem: FC<TypeBlogPage> = ({
                 id={id}
               />
               <span className={styles.date}>
-                <span className={"text-userType"}>Опубликовано</span>19 Фебраля,
-                2021
+                <span className={"text-userType"}>Опубликовано</span>19 Фебраля
+                , 2021
               </span>
             </header>
             <h5 className={styles.title}>{title}</h5>

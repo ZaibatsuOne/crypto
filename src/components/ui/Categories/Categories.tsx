@@ -4,6 +4,7 @@ import { categoryMarket } from "src/data/Category.data";
 
 type CategoriesProps = {
   category: number;
+  initialState: boolean;
   setCategory: React.Dispatch<React.SetStateAction<number>>;
 };
 const Categories: FC<CategoriesProps> = ({ category, setCategory }) => {
