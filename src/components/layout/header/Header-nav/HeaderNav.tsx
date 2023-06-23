@@ -8,6 +8,7 @@ import { FC, useState } from "react";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { RiArrowUpSLine } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const HeaderNav: FC = () => {
   const [active, setActive] = useState({
@@ -18,6 +19,23 @@ const HeaderNav: FC = () => {
   return (
     <nav className={styles.nav}>
       <Logo />
+      <GiHamburgerMenu />
+      <ol className={styles.hamburger}>
+        <li className={styles.hamburger__title}>Главная</li>
+        <li
+          className={styles.hamburger__title}
+          onClick={() => setActive({ ...active, nft: !active.nft })}
+        >
+          NFT
+          <ul className={active.nft ? styles.hamburger__group : "hidden"}>
+            <li>Маркетплейс</li>
+            <li>Аукцион</li>
+            <li>Рейтинг</li>
+          </ul>
+        </li>
+        <li className={styles.hamburger__title}>Комьюнити</li>
+        <li className={styles.hamburger__title}>Контакты</li>
+      </ol>
       <ol className={styles.list}>
         <NavLink to="/">
           <li className={styles.item}>Главная</li>

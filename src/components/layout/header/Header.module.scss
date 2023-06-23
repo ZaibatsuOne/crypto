@@ -34,20 +34,33 @@
   }
 }
 .nav {
-  @apply fixed right-0 left-0 top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-16;
+  @apply fixed right-0 left-0 top-0 flex justify-between items-center py-3 backdrop-blur-3xl text-xs z-50 px-4;
+  @apply xl:px-16;
+}
+.hamburger {
+  @apply absolute flex flex-col gap-6 right-0 top-14 bg-nftBg py-3 rounded-bl-xl;
+
+  &__title {
+    @apply px-3;
+  }
+  &__group {
+    @apply flex flex-col gap-4 pt-4;
+  }
 }
 .logo {
   @apply flex gap-[10px] items-center;
 }
 .list {
-  @apply flex gap-10;
+  @apply gap-10 hidden;
+  @apply xl:flex;
 }
 .item {
   @apply relative flex gap-[6px] items-center cursor-pointer text-sm;
 }
 
 .wrapper {
-  @apply flex gap-9 items-center;
+  @apply hidden gap-9 items-center;
+  @apply xl:flex;
 }
 .section {
   @apply flex flex-col items-center gap-8  text-center max-w-[350px] mx-auto py-8 select-none;

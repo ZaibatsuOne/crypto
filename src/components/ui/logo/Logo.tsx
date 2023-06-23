@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Logo: FC = () => {
   return (
-    <NavLink className="flex gap-[10px] items-center text-4xl font-bold" to="/">
+    <NavLink className="flex gap-[10px] items-center" to="/">
       <svg
         width="30"
         height="41"
@@ -29,7 +29,7 @@ const Logo: FC = () => {
           </linearGradient>
         </defs>
       </svg>
-      Axies
+      <h4 className="hidden xl:flex">Axies</h4>
     </NavLink>
   );
 };
