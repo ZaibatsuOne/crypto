@@ -6,6 +6,8 @@ import { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { motion } from "framer-motion";
+import DropdownItem from "./DropDown/DropdownItem";
+import DropdownGroup from "./DropDown/DropdownGroup";
 
 const HeaderNav: FC = () => {
   const [active, setActive] = useState({
@@ -25,17 +27,11 @@ const HeaderNav: FC = () => {
           onClick={() => setActive({ ...active, nft: !active.nft })}
         >
           NFT
-          <ul className={active.nft ? styles.dropdown : styles.hiddens}>
-            <NavLink to="/marketplace">
-              <li className={styles.dropdown__item}>Маркетплейс</li>
-            </NavLink>
-            <NavLink to="/auction">
-              <li className={styles.dropdown__item}>Аукцион</li>
-            </NavLink>
-            <NavLink to="/ranking">
-              <li className={styles.dropdown__item}>Рейтинг</li>
-            </NavLink>
-          </ul>
+          <DropdownGroup initialState={active.nft}>
+            <DropdownItem link="/marketplace" name="Маркетплейс" />
+            <DropdownItem link="/auction" name="Аукцион" />
+            <DropdownItem link="/ranking" name="Рейтинг" />
+          </DropdownGroup>
           {active.nft ? (
             <motion.span
               animate={{ rotate: 360 }}
@@ -59,14 +55,10 @@ const HeaderNav: FC = () => {
           }
         >
           Комьюнити
-          <ul className={active.community ? styles.dropdown : styles.hiddens}>
-            <NavLink to="/blog">
-              <li className={styles.dropdown__item}>Блог</li>
-            </NavLink>
-            <NavLink to="/activity">
-              <li className={styles.dropdown__item}>Активность</li>
-            </NavLink>
-          </ul>
+          <DropdownGroup initialState={active.community}>
+            <DropdownItem link="/blog" name="Блог" />
+            <DropdownItem link="/activity" name="Активность" />
+          </DropdownGroup>
           {active.community ? (
             <motion.span
               animate={{ rotate: 360 }}
@@ -90,17 +82,11 @@ const HeaderNav: FC = () => {
           }
         >
           Контакты
-          <ul className={active.contact ? styles.dropdown : styles.hiddens}>
-            <NavLink to="/faq">
-              <li className={styles.dropdown__item}>FAQ</li>
-            </NavLink>
-            <NavLink to="/help">
-              <li className={styles.dropdown__item}>Центр помощи</li>
-            </NavLink>
-            <NavLink to="/contact">
-              <li className={styles.dropdown__item}>Связаться</li>
-            </NavLink>
-          </ul>
+          <DropdownGroup initialState={active.contact}>
+            <DropdownItem link="/faq" name="FAQ" />
+            <DropdownItem link="/help" name="Центр помощи" />
+            <DropdownItem link="/contact" name="Связаться" />
+          </DropdownGroup>
           {active.contact ? (
             <motion.span
               animate={{ rotate: 360 }}

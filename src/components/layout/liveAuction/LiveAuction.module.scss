@@ -1,6 +1,3 @@
-.section {
-  @apply flex flex-col gap-9 relative;
-}
 .wrapper {
   @apply flex gap-4 pr-4;
 }
@@ -24,9 +21,7 @@
     rgba(0, 212, 255, 0) 100%
   );
 }
-.header {
-  @apply flex justify-between items-center;
-}
+
 @keyframes excerpt {
   0% {
     transform: translateX(0px);

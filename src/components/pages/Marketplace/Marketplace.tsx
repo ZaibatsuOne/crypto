@@ -11,6 +11,7 @@ import { INft } from "src/types/Nft.interface";
 import { motion } from "framer-motion";
 import { pVariants } from "src/utils/AnimationVariants";
 import NoResult from "src/components/ui/NoResult/NoResult";
+import Section from "src/components/layout/Section/Section";
 
 const Marketplace: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(8);
@@ -54,7 +55,7 @@ const Marketplace: FC = () => {
   }, [category, sort, nftCard, search]);
 
   return (
-    <section className={styles.section}>
+    <Section>
       <header className={styles.header}>
         <Categories category={category} setCategory={setCategory} />
         <div className="absolute right-[20%]">
@@ -105,7 +106,7 @@ const Marketplace: FC = () => {
       ) : (
         ""
       )}
-    </section>
+    </Section>
   );
 };
 

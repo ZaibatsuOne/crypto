@@ -1,20 +1,18 @@
 import FaqItem from "./Faq-Item/FaqItem";
+import Section from "src/components/layout/Section/Section";
+import SectionHeader from "src/components/layout/Section/SectionHeader";
 import styles from "./FaqPage.module.scss";
+import Title from "src/components/ui/title/Title";
 import { faqList } from "src/data/Faq.data";
 import { FC } from "react";
 import { motion } from "framer-motion";
-import Title from "src/components/ui/title/Title";
 
 const FaqPage: FC = () => {
   return (
-    <section className={styles.section}>
-      <header className={styles.header}>
+    <Section>
+      <SectionHeader>
         <Title title="FAQ" />
-        <p className={styles.subtitle}>
-          Готовы решить все ваши сомнения! Получите исчерпывающие ответы на
-          часто задаваемые вопросы прямо здесь и сейчас.
-        </p>
-      </header>
+      </SectionHeader>
       <div className={styles.line} />
       <section className={styles.list}>
         {faqList.map((item) => (
@@ -29,7 +27,7 @@ const FaqPage: FC = () => {
           </motion.article>
         ))}
       </section>
-    </section>
+    </Section>
   );
 };
 

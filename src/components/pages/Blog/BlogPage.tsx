@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { pVariants } from "src/utils/AnimationVariants";
 import { TypeBlogPage } from "src/types/BlogPage.type";
+import Section from "src/components/layout/Section/Section";
 
 const BlogPage: FC = () => {
   const [maxCards, setMaxCards] = useState<number>(6);
@@ -38,7 +39,7 @@ const BlogPage: FC = () => {
   return (
     <>
       {blogItem && (
-        <section className={styles.section}>
+        <Section>
           <header className="flex justify-between items-center">
             <div>
               <Title title="Блог" />
@@ -55,7 +56,6 @@ const BlogPage: FC = () => {
               </button>
             </div>
           </header>
-
           <section
             className={changeDisplay ? styles.gridlist : "flex flex-col gap-20"}
           >
@@ -89,7 +89,7 @@ const BlogPage: FC = () => {
           >
             <Button text="Показать больше" icon={null} borderColor="#FFF" />
           </button>
-        </section>
+        </Section>
       )}
     </>
   );

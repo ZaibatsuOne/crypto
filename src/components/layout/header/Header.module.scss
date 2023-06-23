@@ -42,17 +42,7 @@
 .item {
   @apply relative flex gap-[6px] items-center cursor-pointer text-sm;
 }
-.dropdown {
-  @apply absolute mt-3 rounded-2xl flex flex-col bg-nftBg w-40 top-[53px] shadow-2xl;
-  // background-color: rgba($color: #343444, $alpha: 0.5);
 
-  &__item {
-    @apply p-4 hover:bg-coutdown;
-  }
-}
-.hiddens {
-  @apply hidden;
-}
 .wrapper {
   @apply flex gap-9 items-center;
 }
@@ -94,12 +84,3 @@
     background-position: 0% 50%;
   }
 }
-// #4b50e6 19.8%,
-// #7d5fff 21.4%,
-// #a55eea 30%,
-// #ffffff 33.8%,
-// #a55eea 35.6%,
-// #7d5fff 45%,
-// #7158e2 46.4%,
-// #9a55bd 66%,
-// #4b50e6 77.32%

@@ -1,6 +1,8 @@
 import axios from "axios";
 import Button from "src/components/ui/Buttons/Button";
 import RankingItem from "./Ranking-item/RankingItem";
+import Section from "src/components/layout/Section/Section";
+import SectionHeader from "src/components/layout/Section/SectionHeader";
 import styles from "./RankingPage.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC, useEffect, useState } from "react";
@@ -34,10 +36,10 @@ const RankingPage: FC = () => {
   }, []);
 
   return (
-    <section className={styles.section}>
-      <header className={styles.header}>
+    <Section>
+      <SectionHeader>
         <Title title="Рейтинг" />
-      </header>
+      </SectionHeader>
       <ul className={styles.table}>
         <li className={styles.head}>
           <h6 className="w-[362px] col-span-2 ">Коллекция</h6>
@@ -73,7 +75,7 @@ const RankingPage: FC = () => {
       >
         <Button text="Показать ещё" icon={null} borderColor="#FFF" />
       </button>
-    </section>
+    </Section>
   );
 };
 

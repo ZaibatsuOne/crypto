@@ -11,6 +11,8 @@ import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { pVariants, sectionVariant } from "src/utils/AnimationVariants";
 import { INft } from "src/types/Nft.interface";
+import Section from "../Section/Section";
+import SectionHeader from "../Section/SectionHeader";
 
 const TodayPicks: FC = () => {
   const [picks, setPicks] = useState<INft[]>([]);
@@ -31,11 +33,11 @@ const TodayPicks: FC = () => {
   }, []);
 
   return (
-    <section className={styles.wrapper}>
-      <header className={styles.header}>
+    <Section>
+      <SectionHeader>
         <Title title="Сегодняшние выборы" />
         <ButtonMore link="/marketplace" />
-      </header>
+      </SectionHeader>
       {isLoading ? (
         <motion.section
           variants={sectionVariant}
@@ -77,7 +79,7 @@ const TodayPicks: FC = () => {
       >
         <Button text="Показать больше" icon={null} />
       </button>
-    </section>
+    </Section>
   );
 };
 

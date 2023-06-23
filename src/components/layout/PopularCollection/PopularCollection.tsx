@@ -4,14 +4,16 @@ import styles from "./PopularCollection.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC } from "react";
 import { popularCollections } from "src/data/Collection.data";
+import Section from "../Section/Section";
+import SectionHeader from "../Section/SectionHeader";
 
 const PopularCollection: FC = () => {
   return (
-    <section className={styles.section}>
-      <header className={styles.header}>
+    <Section>
+      <SectionHeader>
         <Title title="Популярные коллекции" />
         <ButtonMore link="#" />
-      </header>
+      </SectionHeader>
       <section className={styles.list}>
         {popularCollections.map((item) => (
           <article key={item.id} className={styles.wrapper}>
@@ -25,7 +27,7 @@ const PopularCollection: FC = () => {
           </article>
         ))}
       </section>
-    </section>
+    </Section>
   );
 };
 

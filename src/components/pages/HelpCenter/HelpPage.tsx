@@ -5,6 +5,7 @@ import Title from "src/components/ui/title/Title";
 import { BiSearchAlt } from "react-icons/bi";
 import { FC, useState } from "react";
 import { helpCategory } from "src/data/HelpCategory.data";
+import Section from "src/components/layout/Section/Section";
 
 const HelpPage: FC = () => {
   const [inp, setInp] = useState<string>("");
@@ -12,7 +13,7 @@ const HelpPage: FC = () => {
     setInp(event.target.value);
   };
   return (
-    <section className={styles.section}>
+    <Section>
       <header className={styles.header}>
         <Title title="Как мы можем вам помочь?" />
         <p className={styles.subtitle}>
@@ -44,7 +45,7 @@ const HelpPage: FC = () => {
             </section>
           ))}
       </section>
-    </section>
+    </Section>
   );
 };
 

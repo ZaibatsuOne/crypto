@@ -1,14 +1,15 @@
 import ConnectWalletItem from "./ConnectWallet-item/ConnectWalletItem";
+import Section from "src/components/layout/Section/Section";
 import styles from "./ConnectWalletPage.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC } from "react";
-import { walletList } from "src/data/Wallet.data";
 import { motion } from "framer-motion";
 import { pVariants } from "src/utils/AnimationVariants";
+import { walletList } from "src/data/Wallet.data";
 
 const ConnectWalletPage: FC = () => {
   return (
-    <section className={styles.section}>
+    <Section>
       <header className={styles.header}>
         <Title title="Подключить кошелек" />
         <p className={styles.subtitle}>
@@ -35,7 +36,7 @@ const ConnectWalletPage: FC = () => {
           </motion.section>
         ))}
       </section>
-    </section>
+    </Section>
   );
 };
 

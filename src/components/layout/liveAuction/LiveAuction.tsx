@@ -8,6 +8,8 @@ import styles from "./LiveAuction.module.scss";
 import Title from "src/components/ui/title/Title";
 import { FC, useEffect, useState } from "react";
 import { INft } from "src/types/Nft.interface";
+import Section from "../Section/Section";
+import SectionHeader from "../Section/SectionHeader";
 
 const LiveAuction: FC = () => {
   const [auction, setAuction] = useState<INft[]>([]);
@@ -30,11 +32,11 @@ const LiveAuction: FC = () => {
   }, []);
 
   return (
-    <section className={styles.section}>
-      <header className={styles.header}>
+    <Section>
+      <SectionHeader>
         <Title title="Аукцион" />
         <ButtonMore link="#" />
-      </header>
+      </SectionHeader>
       {isLoading ? (
         <div>
           <div className={styles.shadow1} />
@@ -63,7 +65,7 @@ const LiveAuction: FC = () => {
       ) : (
         <Loading />
       )}
-    </section>
+    </Section>
   );
 };
 

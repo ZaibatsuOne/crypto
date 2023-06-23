@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { pVariants } from "src/utils/AnimationVariants";
 import { TypeUser } from "src/types/User.type";
+import SectionHeader from "../Section/SectionHeader";
+import Section from "../Section/Section";
 
 interface IBestSellers {
   id: number;
@@ -28,10 +30,10 @@ const BestSellers: FC = () => {
   }, []);
 
   return (
-    <section className={styles.wrapper}>
-      <header>
+    <Section>
+      <SectionHeader>
         <Title title="Лучшие продавцы" />
-      </header>
+      </SectionHeader>
       <ul className={styles.list}>
         {sellers.slice(0, 9).map((sellerItem) => (
           <motion.li
@@ -61,7 +63,7 @@ const BestSellers: FC = () => {
           </motion.li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 };
 
