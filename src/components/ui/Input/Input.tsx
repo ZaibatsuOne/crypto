@@ -14,7 +14,7 @@ const Input: FC<TypeInput> = ({
       <input
         className={styles.input}
         placeholder={placeholder}
-        style={{ width: width }}
+        style={{ minWidth: width }}
         onChange={onChange}
       />
       <button onClick={onClick} className={styles.button}>

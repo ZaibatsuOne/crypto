@@ -2,7 +2,6 @@
   display: grid;
   grid-template-areas: "a a a b b b" "e e c c d d" "e e c c d d";
   gap: 10px;
-  @apply p-5;
 }
 img {
   @apply rounded-[10px];
@@ -25,7 +24,7 @@ img {
   }
 }
 .footer {
-  @apply flex justify-between px-5;
+  @apply flex justify-between;
 }
 .wrapper {
   @apply flex items-center gap-[10px];

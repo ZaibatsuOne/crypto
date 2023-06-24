@@ -2,8 +2,8 @@
   @apply flex items-center;
 }
 .input {
-  @apply bg-footer border-y-2 border-l-[1px] border-[#343444] px-6 py-[16px] rounded-l-xl outline-none text-body-regular;
+  @apply flex  bg-footer border-y-2 border-l-[1px] border-[#343444] px-6 py-[16px] rounded-l-xl outline-none text-body-regular;
 }
 .button {
-  @apply bg-primary p-4 py-[24px]  rounded-r-xl;
+  @apply flex bg-primary p-4 py-[24px]  rounded-r-xl;
 }

@@ -6,7 +6,9 @@
 }
 .list {
   @apply grid grid-cols-1 gap-4 mx-auto;
+  @apply xl:flex xl:justify-between;
 }
 .wrapper {
-  @apply w-[370px] h-[394px] bg-nftBg rounded-[10px];
+  @apply flex flex-col gap-1 w-[370px] h-[394px] bg-nftBg rounded-[10px] p-5;
+  @apply xl:w-[450px];
 }

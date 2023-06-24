@@ -1,15 +1,15 @@
 import Button from "src/components/ui/Buttons/Button";
 import DropdownGroup from "./DropDown/DropdownGroup";
 import DropdownItem from "./DropDown/DropdownItem";
+import HamburgerMenu from "./Hamburger/HamburgerMenu";
 import Logo from "src/components/ui/logo/Logo";
 import styles from "../Header.module.scss";
 import { BiWallet } from "react-icons/bi";
-import { FC, useState } from "react";
+import { FC, useState, useRef, useEffect } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { GiHamburgerMenu } from "react-icons/gi";
-import HamburgerMenu from "./Hamburger/HamburgerMenu";
 
 const HeaderNav: FC = () => {
   const [active, setActive] = useState({
@@ -17,20 +17,28 @@ const HeaderNav: FC = () => {
     contact: false,
     community: false,
   });
+
+  const ref = useRef<HTMLSpanElement | null>(null);
   const [openHamburger, setOpenHamburger] = useState(false);
+
+  //Доделать мисс клик
+
   return (
     <nav className={styles.nav}>
       <Logo />
-      <GiHamburgerMenu
-        onClick={() => setOpenHamburger(!openHamburger)}
-        className="flex xl:hidden"
-      />
+      <span ref={ref}>
+        <GiHamburgerMenu
+          onClick={() => setOpenHamburger(!openHamburger)}
+          className="flex xl:hidden"
+        />
+      </span>
       <HamburgerMenu
         setActive={setActive}
         active={active}
         initialState={openHamburger}
         setInitialState={setOpenHamburger}
       />
+
       <ol className={styles.list}>
         <NavLink to="/">
           <li className={styles.item}>Главная</li>

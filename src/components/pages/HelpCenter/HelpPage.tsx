@@ -1,11 +1,11 @@
 import HelpPageCategory from "./HelpPage-category/HelpPageCategory";
 import Input from "src/components/ui/Input/Input";
+import Section from "src/components/layout/Section/Section";
 import styles from "./HelpPage.module.scss";
 import Title from "src/components/ui/title/Title";
 import { BiSearchAlt } from "react-icons/bi";
 import { FC, useState } from "react";
 import { helpCategory } from "src/data/HelpCategory.data";
-import Section from "src/components/layout/Section/Section";
 
 const HelpPage: FC = () => {
   const [inp, setInp] = useState<string>("");

@@ -2,8 +2,8 @@
   @apply flex flex-col gap-9;
 }
 .section {
-  //grid-cols-4 mx-none
   @apply grid grid-cols-1 mx-auto grid-rows-2 gap-[30px];
+  @apply xl:grid-cols-4 xl:mx-0; //1280px
 }
 .header {
   @apply flex justify-between items-center;

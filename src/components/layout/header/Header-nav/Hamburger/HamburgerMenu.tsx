@@ -16,11 +16,17 @@ type Props = {
     community: boolean;
   };
   initialState: boolean;
+  setInitialState: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const HamburgerMenu: FC<Props> = ({ setActive, active, initialState }) => {
+const HamburgerMenu: FC<Props> = ({
+  setActive,
+  active,
+  initialState,
+  setInitialState,
+}) => {
   const closeMenu = () => {
-    !initialState;
+    setInitialState(!initialState);
   };
 
   return (
@@ -32,9 +38,13 @@ const HamburgerMenu: FC<Props> = ({ setActive, active, initialState }) => {
       >
         NFT
         <ul className={active.nft ? styles.group : "hidden"}>
-          <HamburgerItem link="/marketplace" name="Маркетплейс" />
+          <HamburgerItem
+            link="/marketplace"
+            name="Маркетплейс"
+            onClick={closeMenu}
+          />
           <HamburgerItem link="/auction" name="Аукцион" onClick={closeMenu} />
-          <HamburgerItem link="/ranking" name="Рейтинг" />
+          <HamburgerItem link="/ranking" name="Рейтинг" onClick={closeMenu} />
         </ul>
       </li>
       <li
@@ -43,8 +53,12 @@ const HamburgerMenu: FC<Props> = ({ setActive, active, initialState }) => {
       >
         Комьюнити
         <ul className={active.community ? styles.group : "hidden"}>
-          <HamburgerItem link="/blog" name="Блог" />
-          <HamburgerItem link="/activity" name="Активность" />
+          <HamburgerItem link="/blog" name="Блог" onClick={closeMenu} />
+          <HamburgerItem
+            link="/activity"
+            name="Активность"
+            onClick={closeMenu}
+          />
         </ul>
       </li>
       <li
@@ -53,9 +67,9 @@ const HamburgerMenu: FC<Props> = ({ setActive, active, initialState }) => {
       >
         Контакты
         <ul className={active.contact ? styles.group : "hidden"}>
-          <HamburgerItem link="/faq" name="FAQ" />
-          <HamburgerItem link="/help" name="Центр помощи" />
-          <HamburgerItem link="/contact" name="Связаться" />
+          <HamburgerItem link="/faq" name="FAQ" onClick={closeMenu} />
+          <HamburgerItem link="/help" name="Центр помощи" onClick={closeMenu} />
+          <HamburgerItem link="/contact" name="Связаться" onClick={closeMenu} />
         </ul>
       </li>
     </ol>

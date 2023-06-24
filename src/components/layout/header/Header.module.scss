@@ -3,7 +3,7 @@
 }
 .header {
   // min-h-[750px] mb-20
-  @apply mt-14 relative w-[100%] mb-10;
+  @apply mt-14 relative w-[100%] mb-10 overflow-hidden;
 
   &__bg {
     position: absolute;
