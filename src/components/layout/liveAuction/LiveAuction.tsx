@@ -14,7 +14,7 @@ import SectionHeader from "../Section/SectionHeader";
 const LiveAuction: FC = () => {
   const [auction, setAuction] = useState<INft[]>([]);
   // Загрузка
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const url = import.meta.env.VITE_MOCKAPI_URL;
 
@@ -22,10 +22,12 @@ const LiveAuction: FC = () => {
   useEffect(() => {
     const fetchAuction = async () => {
       const response = await axios.get<INft[]>(url);
-      setTimeout(() => {
-        setIsLoading(!isLoading);
-        setAuction(response.data);
-      }, 1500);
+      setAuction(response.data);
+
+      // setTimeout(() => {
+      //   setIsLoading(!isLoading);
+      //   setAuction(response.data);
+      // }, 1500);
     };
 
     fetchAuction();
@@ -34,38 +36,41 @@ const LiveAuction: FC = () => {
   return (
     <Section>
       <SectionHeader>
-        {/* <Title title="Аукцион" /> */}
         <Title title="Аукцион" />
         <ButtonMore link="#" />
       </SectionHeader>
-      {isLoading ? (
-        <div>
-          <div className={styles.shadow1} />
-          <div className={styles.shadow2} />
-          <Marquee>
-            <section className={styles.wrapper}>
-              {auction.slice(0, 8).map((auctionItem) => (
-                <div key={auctionItem.id}>
-                  <NftItem
-                    id={auctionItem.id}
-                    userId={auctionItem.user.id}
-                    user={auctionItem.user}
-                    img={auctionItem.img}
-                    title={auctionItem.title}
-                    userName={auctionItem.user.userName}
-                    userAvatar={auctionItem.user.userAvatar}
-                    price={auctionItem.price}
-                    category={auctionItem.category}
-                    coutdown={<Coutdown />}
-                  />
-                </div>
-              ))}
-            </section>
-          </Marquee>
-        </div>
-      ) : (
-        <Loading />
-      )}
+      {/* {isLoading ? ( */}
+      <section>
+        {/* <div className={styles.shadow1} />
+        <div className={styles.shadow2} /> */}
+        <Marquee
+          gradient={true}
+          gradientColor={[20, 20, 31]}
+          gradientWidth={150}
+        >
+          <section className={styles.wrapper}>
+            {auction.slice(0, 8).map((auctionItem) => (
+              <div key={auctionItem.id}>
+                <NftItem
+                  id={auctionItem.id}
+                  userId={auctionItem.user.id}
+                  user={auctionItem.user}
+                  img={auctionItem.img}
+                  title={auctionItem.title}
+                  userName={auctionItem.user.userName}
+                  userAvatar={auctionItem.user.userAvatar}
+                  price={auctionItem.price}
+                  category={auctionItem.category}
+                  coutdown={<Coutdown />}
+                />
+              </div>
+            ))}
+          </section>
+        </Marquee>
+      </section>
+      {/* // ) : (
+      //   <Loading />
+      // )} */}
     </Section>
   );
 };

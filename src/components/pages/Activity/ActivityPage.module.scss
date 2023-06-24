@@ -7,7 +7,7 @@
 }
 .item {
   @apply flex flex-col items-center bg-nftBg rounded-xl;
-  @apply xl:flex-row xl:w-[900px];
+  @apply xl:flex-row xl:w-[900px]; //1280px
 }
 .header {
   @apply flex flex-col gap-4 p-5;
@@ -20,7 +20,7 @@
 }
 .img {
   @apply w-full h-[150px] object-cover;
-  @apply xl:w-[132px] xl:h-[132px] xl:ml-5 xl:object-fill;
+  @apply xl:w-[132px] xl:h-[132px] xl:ml-5 xl:object-fill; //1280px
 }
 .text {
   @apply text-body-regular font-light;

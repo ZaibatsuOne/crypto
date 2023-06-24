@@ -2,11 +2,11 @@
   @apply flex flex-col gap-9;
 }
 .list {
-  @apply flex justify-between flex-wrap px-2 gap-1;
-  @apply xl:px-0 xl:gap-0;
+  @apply flex justify-center flex-wrap px-2 gap-[37px];
+  @apply xl:px-0 xl:gap-0 xl:justify-between;
 }
 .item {
-  @apply flex flex-col items-center gap-4 cursor-pointer pt-6;
+  @apply flex flex-col items-center gap-4 cursor-pointer;
   @apply xl:pt-0;
 }
 .footer {
