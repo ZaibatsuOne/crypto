@@ -56,7 +56,7 @@ const CreateItem: FC = () => {
   return (
     <section className={styles.section}>
       <Toaster />
-      <div>
+      <div className={styles.preview}>
         <NftItem
           title={titleNFT}
           price={priceNFT}

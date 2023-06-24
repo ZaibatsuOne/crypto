@@ -1,17 +1,24 @@
 .section {
-  @apply flex gap-20;
+  @apply flex flex-col gap-20;
+  @apply xl:flex-row; //1280px
+}
+.preview {
+  @apply mx-auto;
+  @apply xl:mx-0; //1280px
 }
 .form {
-  @apply flex flex-col gap-6 w-full;
+  @apply flex flex-col gap-6 w-full px-2;
+  @apply xl:px-0;
 }
 .input {
   @apply h-[66px] w-full p-4 text-body-regular outline-none bg-footer rounded-xl;
 }
 .upload {
-  @apply flex justify-between py-6 pl-14 w-full h-[102px] bg-footer  rounded-xl;
+  @apply flex justify-between items-center gap-4 py-6 pl-4 w-full h-[102px] bg-footer  rounded-xl;
 
   &__type {
-    @apply pt-1;
+    @apply text-caption-2;
+    @apply xl:text-body-regular; //1280px
   }
 }
 .label {
