@@ -1,17 +1,26 @@
 .section {
-  @apply flex gap-20;
+  @apply flex flex-col-reverse  gap-5;
+  @apply xl:gap-20 xl:flex-row;
+}
+.list {
+  @apply flex flex-col gap-7 px-2;
 }
 .item {
-  @apply flex gap-7 items-center p-6 bg-nftBg rounded-xl w-[900px];
+  @apply flex flex-col items-center bg-nftBg rounded-xl;
+  @apply xl:flex-row xl:w-[900px];
 }
 .header {
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-4 p-5;
+}
+.wrapper {
+  @apply flex flex-col gap-10;
 }
 .description {
   @apply flex flex-col gap-1;
 }
 .img {
-  @apply w-[132px] h-[132px];
+  @apply w-full h-[150px] object-cover;
+  @apply xl:w-[132px] xl:h-[132px] xl:ml-5 xl:object-fill;
 }
 .text {
   @apply text-body-regular font-light;
@@ -22,14 +31,8 @@
 .author {
   @apply text-primary font-bold;
 }
-.list {
-  @apply flex flex-col gap-7;
-}
-.wrapper {
-  @apply flex flex-col gap-10 w-[900px];
-}
 .button {
-  @apply flex justify-center;
+  @apply flex justify-center mx-auto;
 }
 .filterItem {
   @apply flex gap-[6px] px-4 py-2 bg-nftBg rounded-[40px];
@@ -38,7 +41,8 @@
   @apply flex gap-3 flex-wrap;
 }
 .aside {
-  @apply flex flex-col gap-6 w-[401px];
+  @apply flex flex-col-reverse gap-6 w-full px-2;
+  @apply xl:px-0 xl:flex-col xl:w-[401px]; //1280px
 }
 .filter {
   @apply flex flex-col gap-5;
