@@ -29,6 +29,6 @@
   @apply hover:opacity-30;
 }
 .subscribe {
-  @apply flex flex-col items-center gap-6 py-[18px];
-  @apply xl:items-start;
+  @apply flex flex-col items-center text-center mx-auto gap-6 py-[18px] max-w-[311px];
+  @apply xl:items-start xl:mx-0;
 }
