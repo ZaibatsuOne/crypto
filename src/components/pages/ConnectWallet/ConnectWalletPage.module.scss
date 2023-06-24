@@ -11,8 +11,8 @@
   @apply flex flex-col gap-4 items-center w-[330px] h-[270px] bg-nftBg px-[23px] py-10 text-center rounded-xl cursor-pointer;
 }
 .wrapper {
-  @apply grid grid-cols-4 gap-[30px] items-center justify-center;
-  // @apply flex flex-wrap justify-center gap-[30px];
+  @apply grid grid-cols-1 mx-auto gap-[30px] items-center justify-center;
+  @apply xl:grid-cols-4 xl:mx-0; //1280px
 }
 .description {
   @apply text-caption-2 text-secondary font-light;
