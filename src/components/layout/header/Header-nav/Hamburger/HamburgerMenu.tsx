@@ -29,8 +29,23 @@ const HamburgerMenu: FC<Props> = ({
     setInitialState(!initialState);
   };
 
+  const ref = useRef<HTMLOListElement | null>(null);
+
+  const clickWithoutComponent = (e: Event) => {
+    if (ref.current && !ref.current.contains(e.target as HTMLOListElement)) {
+      setInitialState(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", clickWithoutComponent);
+    return () => {
+      document.removeEventListener("mousedown", clickWithoutComponent);
+    };
+  }, []);
+
   return (
-    <ol className={initialState ? styles.hamburger : "hidden"}>
+    <ol className={initialState ? styles.hamburger : "hidden"} ref={ref}>
       <li className={styles.title}>Главная</li>
       <li
         className={styles.title}
